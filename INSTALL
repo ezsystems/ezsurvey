@@ -75,6 +75,12 @@ Installing eZ Survey extension
    [ExtensionSettings]
    ActiveAccessExtensions[]=ezsurvey
 
+4. Run the php script from commandline:
+ 
+   $ php bin/php/ezpgenerateautoloads.php --extension
+
+   Which is need to build an array of classes that are used by the autoload system 
+   in PHP to load classes. You will need eZ Components availlable to run this script.
 
 Initializing database
 =====================
