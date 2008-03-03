@@ -6,7 +6,7 @@ Introduction
 1. What is the eZ Survey extension?
    --------------------------------
 
-   Survey module for eZ Publish
+   Survey datatype for eZ Publish
 
    For more information about this extension please read the README file.
 
@@ -45,7 +45,7 @@ http://ez.no/ez_publish/documentation/installation
 
 
 Installing eZ Survey extension
-====================================
+==============================
 
 1. Copy the package into the `extension' directory in the root of your
    eZ Publish installation.
@@ -95,22 +95,26 @@ Initializing database
      Here you have two choices:
 
      You can start by insert the schema for the extension and then filling it
-     with the basic data.
+     with the basic data. You may skip the first to steps, if you already have
+     a working eZ Publish installation working.
 
-     o  Create the schema
+     o  Create the schema for eZ Publish
         $ ./bin/php/ezsqlinsertschema.php --type=<dbtype> --user=<user> \
             --password=<password> --host=<hostname> \
             share/db_schema.dba <dbname>
 
-     o  Insert data
+     o  Insert data for eZ Publish
         $ ./bin/php/ezsqlinsertschema.php --type=<dbtype> --user=<user> \
             --password=<password> --host=<hostname> \
             --schema-file=share/db_schema.dba \
             --insert-types=data \
             share/db_data.dba <dbname>
 
-     o  Create the schema for the survey extension. The SQL schema for the
-        extension is located in ezsurvey/sql/<database-implimentation>/schema.sql
+     o  Create the schema for eZ Survey. The SQL schema for the
+        extension is located in ezsurvey/sql/<database-implimentation>/schema.sql 
+        and can be done with for example:
+  
+        mysql -u<username> -p <dbname> <  ezsurvey/sql/mysql/schema.sql 
 
 Configuration
 =============
@@ -121,9 +125,32 @@ Configuration
      administration interface. The neccessary classes is one for the survey and
      another class for the survey attribute. Follow the links to:
 
+     And create the new classes.
+
+     eZ Survey need one content class to define how the "Related object"
+     question attribute in the survey should be. This is a normal
+     contentobject which will be created when you are in the edit view of the
+     survey class. You'll get back to the survey edit view when you've
+     published the new survey attribute object. The other object is the the
+     content class of the survey itself. You need to add a survey attribute
+     datatype to this content class.
+
+     You may choose to add the content classes with the "Manual installation"
+     or select the included package with "Add content classes from a package".
+     
+     Manual installation
+     -------------------
+
      Setup -> Classes -> Content
 
-     And create the new classes.
+
+     o  Survey attribute class
+
+       Is the content class which will be used as related objects when you
+       create a new survey contentobject. The class need to contain one
+       xml block attribute and one Text field attribute. The "XML block"
+       attribute will be used in views for web pages and the "Text block" will
+       be used as the text sent in Emails from the survey.
 
      o  Survey class
 
@@ -132,19 +159,24 @@ Configuration
        Text entry attribute and a survey attribute. Set the "Object name
        pattern" to the identifier of the Text entry.
 
-     o  Survey attribute class
 
-       Is the content class which will be used as related objects when you
-       create a new survey contentobject. The class need to contain one
-       xml block attribute and one Text field attribute. The "XML block"
-       attribute will be used in views for WEB pages and the "Text block" will
-       be used as the text sent in Emails from the survey.
+    Add contentclasses from a package
+    ---------------------------------
+     
+     You may add the two content classes from the included package. This can be
+     done in the administration interface from the url:
 
-     o  Add a new content folder for the Survey attribute objects.
+     Setup -> Packages -> Import new package
+
+     After importing the package, you will have the two classes as described in
+     the "Manual installation" installed.
+
+     o  Add a new content folder for the Survey attribute objects. 
    
-       When a new related object attribute in a survey object, the related need
-       to be stored in a parent folder. Create a new object where the related
-       survey object should be stored.
+       When a new "related object" attribute is created in a survey object, the
+       related object need to be stored in a parent folder by the survey
+       datatype. Create a new object (of class folder) where the related survey
+       object should be stored.
 
      o  Configuration of the survey module
 
@@ -158,6 +190,7 @@ Configuration
        Set the parent folder for the survey attributes to be the same as
        described in the prevoius point.      
   
+
      o  Create a new survey
 
        Create a new object, for example in "Content structure". Select Survey
