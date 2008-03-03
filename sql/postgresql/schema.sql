@@ -15,8 +15,12 @@ CREATE TABLE ezsurvey (
     redirect_submit varchar DEFAULT '' NOT NULL,
     published integer DEFAULT 0 NOT NULL,
     persistent integer DEFAULT 0 NOT NULL,
+    one_answer integer DEFAULT 0 NOT NULL,
+    contentobject_id integer DEFAULT 0 NOT NULL,
     contentobjectattribute_id integer DEFAULT 0 NOT NULL,
-    contentobjectattribute_version integer DEFAULT 0 NOT NULL
+    contentobjectattribute_version integer DEFAULT 0 NOT NULL,
+    contentclassattribute_id int(11) DEFAULT 0 NOT NULL,
+    language_code varchar(20) DEFAULT NULL
 );
 
 SELECT setval('ezsurvey_s', max(id)) , 'ezsurvey' as tablename FROM ezsurvey;
@@ -33,6 +37,7 @@ CREATE SEQUENCE ezsurveyquestion_s
 CREATE TABLE ezsurveyquestion (
     id integer DEFAULT nextval('ezsurveyquestion_s'::text) NOT NULL,
     survey_id integer DEFAULT 0 NOT NULL,
+    original_id integer DEFAULT 0 NOT NULL,
     tab_order integer DEFAULT 0 NOT NULL,
     mandatory integer DEFAULT 1 NOT NULL,
     visible integer DEFAULT 1 NOT NULL,
@@ -79,6 +84,7 @@ CREATE TABLE ezsurveyquestionresult (
     id integer DEFAULT nextval('ezsurveyquestionresult_s'::text) NOT NULL,
     result_id integer DEFAULT 0 NOT NULL,
     question_id integer DEFAULT 0 NOT NULL,
+    questionoriginal_id integer DEFAULT 0 NOT NULL,
     text varchar
 );
 
@@ -101,3 +107,36 @@ CREATE TABLE ezsurveymetadata (
 );
 
 SELECT setval('ezsurveymetadata_s', max(id)) , 'ezsurveymetadata' as tablename FROM ezsurveymetadata;
+
+
+
+CREATE SEQUENCE ezsurveyrelatedconfig_s
+    START 1
+    INCREMENT 1
+    MAXVALUE 9223372036854775807
+    MINVALUE 1
+    CACHE 1;
+
+CREATE TABLE ezsurveyrelatedconfig (
+    id integer DEFAULT nextval('ezsurveyrelatedconfig_s'::text) NOT NULL,
+    contentclass_id int(11) DEFAULT 1 NOT NULL,
+    node_id int(11) DEFAULT 0 NOT NULL
+);
+
+SELECT setval('ezsurveyrelatedconfig_s', max(id)) , 'ezsurveyrelatedconfig' as tablename FROM ezsurveyrelatedconfig;
+
+CREATE SEQUENCE ezsurveyquestionmetadata_s
+    START 1
+    INCREMENT 1
+    MAXVALUE 9223372036854775807
+    MINVALUE 1
+    CACHE 1;
+
+CREATE TABLE ezsurveyquestionmetadata (
+    id integer DEFAULT nextval('ezsurveyquestionmetadata_s'::text) NOT NULL,
+    result_id integer DEFAULT 0 NOT NULL,
+    question_id integer DEFAULT 0 NOT NULL,
+    question_original_id integer DEFAULT 0 NOT NULL,
+    name varchar NOT NULL,
+    value varchar NOT NULL
+);

@@ -3,6 +3,8 @@ CREATE SEQUENCE s_surveymetadata;
 CREATE SEQUENCE s_surveyquestion;
 CREATE SEQUENCE s_surveyquestionresult;
 CREATE SEQUENCE s_surveyresult;
+CREATE SEQUENCE s_ezsurveyrelatedconfig;
+CREATE SEQUENCE s_ezsurveyquestionmetadata;
 
 CREATE TABLE ezsurvey (
   id INTEGER NOT NULL,
@@ -14,8 +16,12 @@ CREATE TABLE ezsurvey (
   redirect_submit VARCHAR2(255),
   published INTEGER DEFAULT 0 NOT NULL,
   persistent INTEGER DEFAULT 0 NOT NULL,
+  one_answer INTEGER DEFAULT 0 NOT NULL,
+  contentobject_id INTEGER DEFAULT 0 NOT NULL,
   contentobjectattribute_id INTEGER DEFAULT 0 NOT NULL,
   contentobjectattribute_version INTEGER DEFAULT 0 NOT NULL,
+  contentclassattribute_id INTEGER DEFAULT 0 NOT NULL,
+  language_code VARCHAR2(20) DEFAULT NULL,
   PRIMARY KEY(id)
 );
 CREATE TABLE ezsurveymetadata (
@@ -27,6 +33,7 @@ CREATE TABLE ezsurveymetadata (
 );
 CREATE TABLE ezsurveyquestion (
   id INTEGER NOT NULL,
+  questionoriginal_id INTEGER DEFAULT 0 NOT NULL,
   survey_id INTEGER DEFAULT 0 NOT NULL,
   tab_order INTEGER DEFAULT 0 NOT NULL,
   mandatory INTEGER DEFAULT 1 NOT NULL,
@@ -44,6 +51,7 @@ CREATE TABLE ezsurveyquestionresult (
   id INTEGER NOT NULL,
   result_id INTEGER DEFAULT 0 NOT NULL,
   question_id INTEGER DEFAULT 0 NOT NULL,
+  questionoriginal_id INTEGER DEFAULT 0 NOT NULL,
   text VARCHAR2(4000),
   PRIMARY KEY(id)
 );
@@ -55,6 +63,22 @@ CREATE TABLE ezsurveyresult (
   user_session_id VARCHAR2(255),
   PRIMARY KEY(id)
 );
+CREATE TABLE ezsurveyrelatedconfig (
+    id INTEGER NOT NULL,
+    contentclass_id INTEGER DEFAULT 1 NOT NULL,
+    node_id INTEGER DEFAULT 0 NOT NULL,
+    PRIMARY KEY(id)
+);
+CREATE TABLE ezsurveyquestionmetadata (
+    id INTEGER NOT NULL,
+    result_id INTEGER DEFAULT 0 NOT NULL,
+    question_id INTEGER DEFAULT 0 NOT NULL,
+    question_original_id INTEGER DEFAULT 0 NOT NULL,
+    name VARCHAR2(255),
+    value CLOB,
+    PRIMARY KEY(id)
+);
+
 
 CREATE OR REPLACE TRIGGER ezsurvey_id_tr
 BEFORE INSERT ON ezsurvey FOR EACH ROW WHEN (new.id IS NULL)

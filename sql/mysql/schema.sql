@@ -15,7 +15,7 @@ CREATE TABLE ezsurvey (
     contentclassattribute_id int(11) DEFAULT 0 NOT NULL,
     language_code varchar(20) DEFAULT NULL,
     PRIMARY KEY (id)
-) TYPE=MyISAM;
+);
 
 CREATE TABLE ezsurveyquestion (
     id int(11) NOT NULL auto_increment,
@@ -33,7 +33,7 @@ CREATE TABLE ezsurveyquestion (
     num2 int(11),
     PRIMARY KEY (id),
     KEY ezsurveyquestion_survey_id (survey_id)
-) TYPE=MyISAM;
+);
 
 CREATE TABLE ezsurveyresult (
     id int(11) NOT NULL auto_increment,
@@ -43,7 +43,7 @@ CREATE TABLE ezsurveyresult (
     user_session_id varchar(255) DEFAULT '' NOT NULL,
     PRIMARY KEY (id),
     KEY ezsurveyresult_survey_id (survey_id)
-) TYPE=MyISAM;
+);
 
 CREATE TABLE ezsurveyquestionresult (
     id int(11) NOT NULL auto_increment,
@@ -54,7 +54,7 @@ CREATE TABLE ezsurveyquestionresult (
     PRIMARY KEY (id),
     KEY ezsurveyquestionresult_result_id (result_id),
     KEY ezsurveyquestionresult_question_id (question_id)
-) TYPE=MyISAM;
+);
 
 CREATE TABLE ezsurveymetadata (
     id int(11) NOT NULL auto_increment,
@@ -65,14 +65,14 @@ CREATE TABLE ezsurveymetadata (
     KEY ezsurveymetadata_result_id (result_id),
     KEY ezsurveymetadata_attr_name (attr_name),
     KEY ezsurveymetadata_attr_value (attr_value)
-) TYPE=MyISAM;
+);
 
 CREATE TABLE ezsurveyrelatedconfig (
     id int(11) NOT NULL auto_increment,
     contentclass_id int(11) DEFAULT 1 NOT NULL,
     node_id int(11) DEFAULT 0 NOT NULL,
     PRIMARY KEY (id)
-) TYPE=MyISAM;
+);
 
 
 CREATE TABLE ezsurveyquestionmetadata (
@@ -83,5 +83,5 @@ CREATE TABLE ezsurveyquestionmetadata (
     name varchar(255) NOT NULL,
     value longtext,
     PRIMARY KEY (id)
-) TYPE=MyISAM;
+);
 
