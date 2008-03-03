@@ -171,6 +171,10 @@ Configuration
      After importing the package, you will have the two classes as described in
      the "Manual installation" installed.
 
+
+    Configuration of the "Related object" survey attribute
+    ------------------------------------------------------ 
+
      o  Add a new content folder for the Survey attribute objects. 
    
        When a new "related object" attribute is created in a survey object, the
