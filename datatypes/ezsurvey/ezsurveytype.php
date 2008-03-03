@@ -229,7 +229,8 @@ class eZSurveyType extends eZDataType
             }
             else if ( $survey->attribute( 'one_answer' ) == 1 )
             {
-                $content['survey_validation']['one_answer_count'] = $survey->resultCount();
+                $user = eZUser::currentUser();
+                $content['survey_validation']['one_answer_count'] = eZSurveyResult::exist( $surveyID, $user->attribute( 'contentobject_id' ) );
             }
         }
         return $content;
@@ -256,7 +257,7 @@ class eZSurveyType extends eZDataType
             $languageCode = $objectAttribute->attribute( 'language_code' );
             $surveyID = $survey->attribute( 'id' );
 
-            $exist = eZSurveyResult::exist( $surveyID, $user->id(), $contentObjectID, $contentobjectAttributeID, $languageCode );
+            $exist = eZSurveyResult::exist( $surveyID, $user->attribute( 'contentobject_id' ), $contentObjectID, $contentobjectAttributeID, $languageCode );
             if ( $exist === true )
             {
                 $continueViewActions = false;

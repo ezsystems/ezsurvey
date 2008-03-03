@@ -197,19 +197,26 @@ class eZSurvey extends eZPersistentObject
     /*!
      Get number of results for current survey
     */
-    function resultCount()
+    function resultCount( $user = false )
     {
         $db = eZDB::instance();
         $contentobjectID = $this->attribute( 'contentobject_id' );
         $contentClassAttributeID = $this->attribute( 'contentclassattribute_id' );
         $languageCode = $this->attribute( 'language_code' );
 
+        $userSelect = '';
+        if ( get_class( $user ) == 'eZUser' )
+        {
+            $userSelect = ' AND ezsurveyresult.user_id=\'' . $user->attribute( 'contentobject_id' ) . '\'';
+        }
+
         $sql = 'SELECT count(ezsurveyresult.id) as count FROM ' .
                        'ezsurveyresult, ezsurvey WHERE ' .
                        'survey_id=ezsurvey.id AND ' .
                        'ezsurvey.contentobject_id=\'' . $contentobjectID . '\' AND ' .
                        'ezsurvey.contentclassattribute_id=\'' . $contentClassAttributeID . '\' AND ' .
-                       'ezsurvey.language_code=\'' . $languageCode . '\'';
+                       'ezsurvey.language_code=\'' . $languageCode . '\'' . $userSelect;
+
         $rows = $db->arrayQuery( $sql );
         $count = $rows[0]['count'];
         return $count;

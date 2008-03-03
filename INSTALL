@@ -1,4 +1,4 @@
-eZ Survey extension 2.0-beta1 INSTALL
+eZ Survey extension 2.0-beta2 INSTALL
 
 Introduction
 ============
@@ -24,11 +24,11 @@ Introduction
 
    o  eZ Publish version:
 
-      Make sure you use eZ Publish version [ExtensionPublishVersion] or higher.
+      Make sure you use eZ Publish version 4.0 or higher.
 
    o  PHP version:
 
-      Make sure you have PHP [PHPVersion] or higher.
+      Make sure you have PHP 5.1 or higher.
 
 
 Getting eZ Publish
@@ -38,7 +38,7 @@ You can download a version of eZ Publish from ez.no, you will find the
 various versions at:
 http://ez.no/ez_publish/download/all_releases/ez_publish_3_stable_releases
 
-NOTE: You will require eZ Publish [ExtensionPublishVersion] or higher
+NOTE: You will require eZ Publish 4.0 or higher
 
 Information on the installation of eZ Publish can be found at:
 http://ez.no/ez_publish/documentation/installation
@@ -53,11 +53,11 @@ Installing eZ Survey extension
 2. Unpack the files in the distribution. The command necessary is depends on
    the file you downloaded.
    [tar.gz]:
-   $ tar -zxvf ezsurvey-extension-2.0-beta1.tar.gz
+   $ tar -zxvf ezsurvey-extension-2.0-beta2.tar.gz
    [bz2]:
-   $ tar -jxvf ezsurvey-extension-2.0-beta1.bz2
+   $ tar -jxvf ezsurvey-extension-2.0-beta2.bz2
    [zip]:
-   $ unzip ezsurvey-extension-2.0-beta1.zip
+   $ unzip ezsurvey-extension-2.0-beta2.zip
 
 3. We must now enable the extension in eZ Publish. To do this edit
    site.ini.append(.php) in the folder root_of_ezpublish/settings/override. If this

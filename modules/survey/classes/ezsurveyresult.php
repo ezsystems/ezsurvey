@@ -82,9 +82,16 @@ class eZSurveyResult extends eZPersistentObject
         return $def;
     }
 
-    static function exist( $surveyID, $userID, $contentObjectID = false, $contentObjectAttributeID = false, $languageCode = false )
+    static function exist( $surveyID, $userID = false, $contentObjectID = false, $contentObjectAttributeID = false, $languageCode = false )
     {
         $db = eZDB::instance();
+        $userSelectString = '';
+        if( is_numeric( $userID ) )
+        {
+            $userID = $db->escapeString( $userID );
+            $userSelectString = " AND user_id='$userID'";
+        }
+
         if ( is_numeric( $contentObjectID ) and is_numeric( $contentObjectAttributeID ) and $languageCode !== false )
         {
             $languageCode = $db->escapeString( $languageCode );
@@ -92,7 +99,7 @@ class eZSurveyResult extends eZPersistentObject
                              ezsurvey.id=ezsurveyresult.survey_id AND
                              contentobject_id='$contentObjectID' and
                              contentobjectattribute_id='$contentObjectAttributeID' AND
-                             language_code='$languageCode'";
+                             language_code='$languageCode'" . $userSelectString;
 
             $result = $db->arrayQuery( $query );
             if ( count( $result ) > 0 )
@@ -102,7 +109,7 @@ class eZSurveyResult extends eZPersistentObject
         }
         else if ( is_numeric( $surveyID ) )
         {
-            $query = "SELECT ezsurveyresult.id FROM ezsurveyresult WHERE survey_id='$surveyID'";
+            $query = "SELECT ezsurveyresult.id FROM ezsurveyresult WHERE survey_id='$surveyID'" . $userSelectString;
 
             $result = $db->arrayQuery( $query );
             if ( count( $result ) > 0 )
