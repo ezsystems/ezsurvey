@@ -4,4 +4,4 @@ Changes from 3.10.0 to 4.0.0
 - Added more describing install instructions.
 - Added package for content classes for the survey.
 - Fixed bug with persistent object is always unchecked when reediting.
-- Fixed bug with Single/Multiple choice and warning for multiple checks with radiobuttons.
+- Fixed bug with Single/Multiple choice and added radiobuttons for selected when single choice.

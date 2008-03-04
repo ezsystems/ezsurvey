@@ -450,17 +450,6 @@ class eZSurveyMultipleChoice extends eZSurveyQuestion
         $postExtraMCChecked = $prefix . '_ezsurvey_mc_' . $this->ID . '_extra_value_checked_' . $attributeID;
         $checkedCount += $http->hasPostVariable( $postExtraMCChecked ) ? 1 : 0;
 
-        // Do not allow more than one checked item for radiobuttons.
-        $postRenderingStyle = $prefix . '_ezsurvey_question_' . $this->ID . '_num_' . $attributeID;
-        $renderingStyle = $http->postVariable( $postRenderingStyle );
-        if ( ( $renderingStyle == 1 or $renderingStyle == 2 ) and $checkedCount > 1 )
-        {
-            $validation['error'] = true;
-            $validation['errors'][] = array( 'message' => ezi18n( 'survey', 'It is only allowed with 1 checked item for the question with id %question when you have radiobuttons!', null,
-                                                                  array( '%question' => $this->ID ) ),
-                                             'question_id' => $this->ID );
-        }
-
         if ( $optionCount == 0 )
         {
             $validation['error'] = true;
@@ -478,6 +467,9 @@ class eZSurveyMultipleChoice extends eZSurveyQuestion
 
         $prefix = eZSurveyType::PREFIX_ATTRIBUTE;
         $attributeID = $params['contentobjectattribute_id'];
+
+        $postRenderingStyle = $prefix . '_ezsurvey_question_' . $this->ID . '_num_' . $attributeID;
+        $renderingStyle = $http->postVariable( $postRenderingStyle );
 
         foreach ( array_keys( $this->Options ) as $key )
         {
@@ -502,12 +494,35 @@ class eZSurveyMultipleChoice extends eZSurveyQuestion
                 }
             }
 
-            $postMCChecked = $prefix . '_ezsurvey_mc_' . $this->ID . '_' . $optionID .  '_checked_' . $attributeID;
-            $checked = ( $http->hasPostVariable( $postMCChecked ) ) ? 1 : 0;
-            if ( $checked != $option['checked'] )
+            if ( $renderingStyle == 1 or $renderingStyle == 2 or $renderingStyle == 5 )
             {
-                $option['checked'] = $checked;
-                $this->setHasDirtyData( true );
+                $postMCChecked = $prefix . '_ezsurvey_mc_' . $this->ID . '_checked_' . $attributeID;
+                if ( $http->hasPostVariable( $postMCChecked ) and $http->postVariable( $postMCChecked ) == $option['value'] )
+                {
+                    if ( $option['checked'] != 1 )
+                    {
+                        $option['checked'] = 1;
+                        $this->setHasDirtyData( true );
+                    }
+                }
+                else
+                {
+                    if ( $option['checked'] != 0 )
+                    {
+                        $option['checked'] = 0;
+                        $this->setHasDirtyData( true );
+                    }
+                }
+            }
+            else
+            {
+                $postMCChecked = $prefix . '_ezsurvey_mc_' . $this->ID . '_' . $optionID .  '_checked_' . $attributeID;
+                $checked = ( $http->hasPostVariable( $postMCChecked ) ) ? 1 : 0;
+                if ( $checked != $option['checked'] )
+                {
+                    $option['checked'] = $checked;
+                    $this->setHasDirtyData( true );
+                }
             }
 
             // Need to store the attribute id for sorting in the callback function tabOrderCompare.
@@ -540,8 +555,7 @@ class eZSurveyMultipleChoice extends eZSurveyQuestion
                 }
             }
 
-            $extraOptionArrayChecked = array( 'extra_value_checked' => 'value_checked',
-                                              'extra_enable_css_style' => 'enable_css_style' );
+            $extraOptionArrayChecked = array( 'extra_enable_css_style' => 'enable_css_style' );
 
             $postMCExtraLabel = $prefix . '_ezsurvey_mc_' . $this->ID . '_extra_label_' . $attributeID;
 
@@ -560,6 +574,41 @@ class eZSurveyMultipleChoice extends eZSurveyQuestion
                     }
                 }
             }
+
+            if ( $renderingStyle == 1 or $renderingStyle == 2 or $renderingStyle == 5 )
+            {
+                $postMCChecked = $prefix . '_ezsurvey_mc_' . $this->ID . '_checked_' . $attributeID;
+                if ( $http->hasPostVariable( $postMCChecked ) and $http->postVariable( $postMCChecked ) == $extraOption['value'] )
+                {
+                    if ( $extraOption['value_checked'] != 1 )
+                    {
+                        $extraOption['value_checked'] = 1;
+                        $this->setHasDirtyData( true );
+                    }
+                }
+                else
+                {
+                    if ( $extraOption['value_checked'] != 0 )
+                    {
+                        $extraOption['value_checked'] = 0;
+                        $this->setHasDirtyData( true );
+                    }
+                }
+            }
+            else
+            {
+                $extraOptionValue = 'extra_value_checked';
+                $xmlKey = 'value_checked';
+                $postMCExtraVariable = $prefix . '_ezsurvey_mc_' . $this->ID . '_' . $extraOptionValue . '_' . $attributeID;
+                $checked = $http->hasPostVariable( $postMCExtraVariable ) ? 1 : 0;
+
+                if ( $checked != $extraOption[$xmlKey] )
+                {
+                    $extraOption[$xmlKey] = $checked;
+                    $this->setHasDirtyData( true );
+                }
+            }
+
         }
         $this->encodeXMLOptions();
     }

@@ -30,7 +30,8 @@
   <td><input name="{$prefix_attribute}_ezsurvey_mc_{$question.id}_{$:item.id}_selected_{$attribute_id}" type="checkbox" ></td>
   <td colspan="4"><input class="box" name="{$prefix_attribute}_ezsurvey_mc_{$question.id}_{$:item.id}_label_{$attribute_id}" type="text" value="{$:item.label|wash('xhtml')}" size="30" /></td>
   <td><input name="{$prefix_attribute}_ezsurvey_mc_{$question.id}_{$:item.id}_value_{$attribute_id}" type="text" value="{$:item.value|wash('xhtml')}" size="5"  /></td>
-  <td><input name="{$prefix_attribute}_ezsurvey_mc_{$question.id}_{$:item.id}_checked_{$attribute_id}" type="checkbox" {section show=$:item.checked|eq(1)}checked{/section} /></td>
+  <td>{if or($question.num|eq(1), $question.num|eq(2), $question.num|eq(5))}
+  <input name="{$prefix_attribute}_ezsurvey_mc_{$question.id}_checked_{$attribute_id}" type="radio"{section show=$:item.checked|eq(1)} checked="checked"{/section} value="{$:item.value}" />{else}<input name="{$prefix_attribute}_ezsurvey_mc_{$question.id}_{$:item.id}_checked_{$attribute_id}" type="checkbox" {section show=$:item.checked|eq(1)}checked{/section} />{/if}</td>
   <td><input name="{$prefix_attribute}_ezsurvey_mc_{$question.id}_{$:item.id}_tab_order_{$attribute_id}" type="text" size="2" value="{$:item.id|wash('xhtml')}" /></td>
 </tr>
 {/section}
@@ -39,7 +40,8 @@
   <td rowspan="3"><input name="{$prefix_attribute}_ezsurvey_mc_{$question.id}_extra_selected_{$attribute_id}" type="checkbox" ></td>
   <td colspan="4"><input class="box" name="{$prefix_attribute}_ezsurvey_mc_{$question.id}_extra_label_{$attribute_id}" type="text" value="{$question.extra_info.label|wash('xhtml')}" size="30" /></td>
   <td rowspan="3"><input name="{$prefix_attribute}_ezsurvey_mc_{$question.id}_extra_value_{$attribute_id}" type="text" value="{$question.extra_info.value|wash('xhtml')}" size="5"  /></td>
-  <td rowspan="3"><input name="{$prefix_attribute}_ezsurvey_mc_{$question.id}_extra_value_checked_{$attribute_id}" type="checkbox"{section show=$question.extra_info.value_checked|eq(1)} checked="checked"{/section} /></td>
+  <td rowspan="3">{if or($question.num|eq(1), $question.num|eq(2), $question.num|eq(5))}
+  <input name="{$prefix_attribute}_ezsurvey_mc_{$question.id}_checked_{$attribute_id}" type="radio"{section show=$question.extra_info.value_checked|eq(1)} checked="checked"{/section} value="{$question.extra_info.value}" />{else}<input name="{$prefix_attribute}_ezsurvey_mc_{$question.id}_extra_value_checked_{$attribute_id}" type="checkbox"{section show=$question.extra_info.value_checked|eq(1)} checked="checked"{/section} />{/if}</td>
   <td rowspan="3"><input name="dummy" type="text" size="2" value="" disabled="disabled" /></td>
 </tr>
 <tr class="bglight">
