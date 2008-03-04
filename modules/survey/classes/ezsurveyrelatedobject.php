@@ -57,24 +57,37 @@ class eZSurveyRelatedObject extends eZSurveyQuestion
         $surveyID = $this->attribute( 'survey_id' );
         $survey = eZSurvey::fetch( $surveyID );
         $contentObjectID = $survey->attribute( 'contentobject_id' );
+
         $http = eZHTTPTool::instance();
         $module = $GLOBALS['module'];
 
+//         $http->removeSessionVariable( 'LastAccessesURI' );
+//         $http->removeSessionVariable( 'RedirectURIAfterPublish' );
+//         $http->removeSessionVariable( 'RedirectIfDiscarded' );
+
         if ( $module->exitStatus() !== eZModule::STATUS_REDIRECT )
         {
-            if ( $http->hasSessionVariable( 'LastAccessesURI_Backup_' . $contentObjectID ) )
+            if ( $http->hasSessionVariable( 'LastAccessesURI_Backup_' . $contentObjectID ) and
+                 $http->sessionVariable( 'LastAccessesURI_Backup_' . $contentObjectID ) !== null )
             {
-                $http->setSessionVariable( 'LastAccessesURI', $http->sessionVariable( 'LastAccessesURI_Backup_' . $contentObjectID ) );
+                $value = $http->sessionVariable( 'LastAccessesURI_Backup_' . $contentObjectID );
+                $http->setSessionVariable( 'LastAccessesURI', $value['content'] );
                 $http->removeSessionVariable( 'LastAccessesURI_Backup_' . $contentObjectID );
             }
-            if ( $http->hasSessionVariable( 'RedirectURIAfterPublish_Backup_' . $contentObjectID ) )
+
+            if ( $http->hasSessionVariable( 'RedirectURIAfterPublish_Backup_' . $contentObjectID ) and
+                 $http->sessionVariable( 'RedirectURIAfterPublish_Backup_' . $contentObjectID ) !== null )
             {
-                $http->setSessionVariable( 'RedirectURIAfterPublish', $http->sessionVariable( 'RedirectURIAfterPublish_Backup_' . $contentObjectID ) );
+                $value = $http->sessionVariable( 'RedirectURIAfterPublish_Backup_' . $contentObjectID );
+                $http->setSessionVariable( 'RedirectURIAfterPublish', $value['content'] );
                 $http->removeSessionVariable( 'RedirectURIAfterPublish_Backup_' . $contentObjectID );
             }
-            if ( $http->hasSessionVariable( 'RedirectIfDiscarded_Backup_' . $contentObjectID ) )
+
+            if ( $http->hasSessionVariable( 'RedirectIfDiscarded_Backup_' . $contentObjectID ) and
+                 $http->sessionVariable( 'RedirectIfDiscarded_Backup_' . $contentObjectID ) !== null )
             {
-                $http->setSessionVariable( 'RedirectIfDiscarded', $http->sessionVariable( 'RedirectIfDiscarded_Backup_' . $contentObjectID ) );
+                $value = $http->sessionVariable( 'RedirectIfDiscarded_Backup_' . $contentObjectID );
+                $http->setSessionVariable( 'RedirectIfDiscarded', $value['content'] );
                 $http->removeSessionVariable( 'RedirectIfDiscarded_Backup_' . $contentObjectID );
             }
         }
@@ -141,6 +154,10 @@ class eZSurveyRelatedObject extends eZSurveyQuestion
                                                                                     $languageCode,
                                                                                     false );
                     }
+                    else
+                    {
+                        eZDebug::writeWarning( 'node is not a valid eZContentObjectTreeNode', 'eZSurveyRelatedObject::createNewRelatedObject' );
+                    }
                 }
                 else
                 {
@@ -153,9 +170,9 @@ class eZSurveyRelatedObject extends eZSurveyQuestion
         {
             $redirectHref = 'content/edit/' . $originalContentObjectID . '/' . $originalContentObjectVersion;
 
-            $http->setSessionVariable( 'LastAccessesURI_Backup_' . $originalContentObjectID, $http->sessionVariable( 'LastAccessesURI' ) );
-            $http->setSessionVariable( 'RedirectURIAfterPublish_Backup_' . $originalContentObjectID, $http->sessionVariable( 'RedirectURIAfterPublish' ) );
-            $http->setSessionVariable( 'RedirectIfDiscarded_Backup_' . $originalContentObjectID, $http->sessionVariable( 'RedirectIfDiscarded' ) );
+            $http->setSessionVariable( 'LastAccessesURI_Backup_' . $originalContentObjectID, array( 'content' => $http->sessionVariable( 'LastAccessesURI' ) ) );
+            $http->setSessionVariable( 'RedirectURIAfterPublish_Backup_' . $originalContentObjectID, array( 'content' => $http->sessionVariable( 'RedirectURIAfterPublish' ) ) );
+            $http->setSessionVariable( 'RedirectIfDiscarded_Backup_' . $originalContentObjectID, array( 'content' => $http->sessionVariable( 'RedirectIfDiscarded' ) ) );
 
             $http->setSessionVariable( 'LastAccessesURI', $redirectHref );
             $http->setSessionVariable( 'RedirectURIAfterPublish', $redirectHref );
