@@ -16,7 +16,6 @@
 <select name="{$prefix_attribute}_ezsurvey_question_{$question.id}_text3_{$attribute_id}">
 <option value="" {section show=$question.text3|eq('')} selected="selected"{/section}>{"Default answer"|i18n('survey')}</option>
 <option value="user_email" {section show=$question.text3|eq('user_email')} selected="selected"{/section}>{"User email"|i18n('survey')}</option>
-<option value="user_name" {section show=$question.text3|eq('user_name')} selected="selected"{/section}>{"User name"|i18n('survey')}</option>
 </select>
 </div>
 
