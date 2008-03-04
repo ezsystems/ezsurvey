@@ -137,6 +137,7 @@ class eZSurvey extends eZPersistentObject
                       'enabled' => $this->Enabled,
                       'published' => $this->Published,
                       'one_answer' => $this->OneAnswer,
+                      'persistent' => $this->Persistent,
                       'redirect_cancel' => $this->RedirectCancel,
                       'redirect_submit' => $this->RedirectSubmit );
         $cloned = new eZSurvey( $row );
