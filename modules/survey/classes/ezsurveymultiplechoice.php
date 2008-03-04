@@ -422,6 +422,7 @@ class eZSurveyMultipleChoice extends eZSurveyQuestion
         // Need to check the POST varilables.
         $optionValues = array();
         $optionCount = 0;
+        $checkedCount = 0;
         foreach ( array_keys( $this->Options ) as $key )
         {
             $option =& $this->Options[$key];
@@ -441,7 +442,25 @@ class eZSurveyMultipleChoice extends eZSurveyQuestion
                 }
                 $optionValues[] = $optionValue;
             }
+
+            $postMCChecked = $prefix . '_ezsurvey_mc_' . $this->ID . '_' . $optionID . '_checked_' . $attributeID;
+            $checkedCount += $http->hasPostVariable( $postMCChecked ) ? 1 : 0;
         }
+
+        $postExtraMCChecked = $prefix . '_ezsurvey_mc_' . $this->ID . '_extra_value_checked_' . $attributeID;
+        $checkedCount += $http->hasPostVariable( $postExtraMCChecked ) ? 1 : 0;
+
+        // Do not allow more than one checked item for radiobuttons.
+        $postRenderingStyle = $prefix . '_ezsurvey_question_' . $this->ID . '_num_' . $attributeID;
+        $renderingStyle = $http->postVariable( $postRenderingStyle );
+        if ( ( $renderingStyle == 1 or $renderingStyle == 2 ) and $checkedCount > 1 )
+        {
+            $validation['error'] = true;
+            $validation['errors'][] = array( 'message' => ezi18n( 'survey', 'It is only allowed with 1 checked item for the question with id %question when you have radiobuttons!', null,
+                                                                  array( '%question' => $this->ID ) ),
+                                             'question_id' => $this->ID );
+        }
+
         if ( $optionCount == 0 )
         {
             $validation['error'] = true;

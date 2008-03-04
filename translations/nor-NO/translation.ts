@@ -783,5 +783,9 @@ sendt direkte til adressen du har oppgitt.</translation>
         <source>Email addresses in the question with id %number must have unique values!</source>
         <translation type="unfinished"></translation>
     </message>
+    <message>
+        <source>It is only allowed with 1 checked item for the question with id %question when you have radiobuttons!</source>
+        <translation type="unfinished"></translation>
+    </message>
 </context>
 </TS>

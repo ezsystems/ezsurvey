@@ -1,9 +1,121 @@
 <!DOCTYPE TS><TS>
 <context>
+    <name>design/admin/node/view/full</name>
+    <message>
+        <source>Last modified</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Node ID</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Object ID</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Another language</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Edit</source>
+        <translation type="unfinished">Bearbeiten</translation>
+    </message>
+    <message>
+        <source>Edit the contents of this item.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Not available</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>You do not have permission to edit this item.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Move</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Move this item to another location.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>You do not have permission to move this item to another location.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Remove</source>
+        <translation type="unfinished">Entfernen</translation>
+    </message>
+    <message>
+        <source>Remove this item.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>You do not have permission to remove this item.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Preview</source>
+        <translation type="unfinished"></translation>
+    </message>
+</context>
+<context>
+    <name>design/admin/parts/survey/menu</name>
+    <message>
+        <source>Survey</source>
+        <translation type="unfinished">Umfrage</translation>
+    </message>
+    <message>
+        <source>Survey list</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Related object configuration</source>
+        <translation type="unfinished"></translation>
+    </message>
+</context>
+<context>
+    <name>design/ezwebin/full/article</name>
+    <message>
+        <source>Comments</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>New comment</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>%login_link_startLog in%login_link_end or %create_link_startcreate a user account%create_link_end to comment.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Tip a friend</source>
+        <translation type="unfinished"></translation>
+    </message>
+</context>
+<context>
+    <name>ezsurvey/datatypes</name>
+    <message>
+        <source>Survey</source>
+        <comment>Datatype name</comment>
+        <translation type="unfinished">Umfrage</translation>
+    </message>
+</context>
+<context>
+    <name>kernel/classes/datatypes</name>
+    <message>
+        <source>Missing survey input.</source>
+        <translation type="unfinished"></translation>
+    </message>
+</context>
+<context>
     <name>survey</name>
     <message>
         <source>Embeded form</source>
-        <translation>Eingebundene Umfrage</translation>
+        <translation type="obsolete">Eingebundene Umfrage</translation>
     </message>
     <message>
         <source>Email entry</source>
@@ -112,7 +224,7 @@
     <message>
         <source>N. B. If you enter just one email address, user will not see this question. Instead the form
 will be directly sent to the address.</source>
-        <translation>Hinweis: Wenn nur eine Email-Adresse angegeben wird, wird der Anwender diese nicht sehen
+        <translation type="obsolete">Hinweis: Wenn nur eine Email-Adresse angegeben wird, wird der Anwender diese nicht sehen
 Vielmehr wir die Umfrage direkt an diese Email-Adresse geschickt.</translation>
     </message>
     <message>
@@ -141,7 +253,7 @@ Vielmehr wir die Umfrage direkt an diese Email-Adresse geschickt.</translation>
     </message>
     <message>
         <source>Edit Survey</source>
-        <translation>Umfrage bearbeiten</translation>
+        <translation type="obsolete">Umfrage bearbeiten</translation>
     </message>
     <message>
         <source>Survey title</source>
@@ -205,7 +317,7 @@ Vielmehr wir die Umfrage direkt an diese Email-Adresse geschickt.</translation>
     </message>
     <message>
         <source>Update</source>
-        <translation>Aktualisieren</translation>
+        <translation type="obsolete">Aktualisieren</translation>
     </message>
     <message>
         <source>Publish</source>
@@ -229,15 +341,15 @@ Vielmehr wir die Umfrage direkt an diese Email-Adresse geschickt.</translation>
     </message>
     <message>
         <source>Survey List</source>
-        <translation>Umfrage-Liste</translation>
+        <translation type="obsolete">Umfrage-Liste</translation>
     </message>
     <message>
         <source>Published</source>
-        <translation>Veröffentlicht</translation>
+        <translation type="obsolete">Veröffentlicht</translation>
     </message>
     <message>
         <source>Validity</source>
-        <translation>Gültigkeit</translation>
+        <translation type="obsolete">Gültigkeit</translation>
     </message>
     <message>
         <source>Edit</source>
@@ -253,43 +365,43 @@ Vielmehr wir die Umfrage direkt an diese Email-Adresse geschickt.</translation>
     </message>
     <message>
         <source>Survey no.</source>
-        <translation>Umfrage Nr.</translation>
+        <translation type="obsolete">Umfrage Nr.</translation>
     </message>
     <message>
         <source>not enabled</source>
-        <translation>nicht eingeschaltet</translation>
+        <translation type="obsolete">nicht eingeschaltet</translation>
     </message>
     <message>
         <source>enabled</source>
-        <translation>eingeschaltet</translation>
+        <translation type="obsolete">eingeschaltet</translation>
     </message>
     <message>
         <source>not published</source>
-        <translation>nicht veröffentlicht</translation>
+        <translation type="obsolete">nicht veröffentlicht</translation>
     </message>
     <message>
         <source>published</source>
-        <translation>veröffentlicht</translation>
+        <translation type="obsolete">veröffentlicht</translation>
     </message>
     <message>
         <source>valid</source>
-        <translation>gültig</translation>
+        <translation type="obsolete">gültig</translation>
     </message>
     <message>
         <source>not valid</source>
-        <translation>nicht gültig</translation>
+        <translation type="obsolete">nicht gültig</translation>
     </message>
     <message>
         <source>Copy and edit</source>
-        <translation>Kopieren und Bearbeiten</translation>
+        <translation type="obsolete">Kopieren und Bearbeiten</translation>
     </message>
     <message>
         <source>New Survey</source>
-        <translation>Neue Umfrage</translation>
+        <translation type="obsolete">Neue Umfrage</translation>
     </message>
     <message>
         <source>Are you sure you want to remove this survey with all evaluations?</source>
-        <translation>Sind Sie sicher, dass Sie diese Umfrage mit allen Antworten löschen wollen?</translation>
+        <translation type="obsolete">Sind Sie sicher, dass Sie diese Umfrage mit allen Antworten löschen wollen?</translation>
     </message>
     <message>
         <source>Confirm</source>
@@ -321,7 +433,7 @@ Vielmehr wir die Umfrage direkt an diese Email-Adresse geschickt.</translation>
     </message>
     <message>
         <source>Back to the result overview</source>
-        <translation>Zurück zur Ergebnis-Zusammenfassung</translation>
+        <translation type="obsolete">Zurück zur Ergebnis-Zusammenfassung</translation>
     </message>
     <message>
         <source>Participiant:</source>
@@ -329,7 +441,7 @@ Vielmehr wir die Umfrage direkt an diese Email-Adresse geschickt.</translation>
     </message>
     <message>
         <source>Back</source>
-        <translation>Zurück</translation>
+        <translation type="obsolete">Zurück</translation>
     </message>
     <message>
         <source>Submit</source>
@@ -405,7 +517,7 @@ Vielmehr wir die Umfrage direkt an diese Email-Adresse geschickt.</translation>
     </message>
     <message>
         <source>Email addresses in the question with id %question must have unique values!</source>
-        <translation>Die Email-Adresse in der Frage %question muss einzigartig sein!</translation>
+        <translation type="obsolete">Die Email-Adresse in der Frage %question muss einzigartig sein!</translation>
     </message>
     <message>
         <source>Survey</source>
@@ -426,6 +538,243 @@ Vielmehr wir die Umfrage direkt an diese Email-Adresse geschickt.</translation>
     <message>
         <source>Questions marked with %mark% are required.</source>
         <translation>Fragen markiert mit %mark% sind Pflichtfelder.</translation>
+    </message>
+    <message>
+        <source>Embedded form</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Only one answer allowed.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Persistent user input. ( Users will be able to edit survey later. )</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Active from</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Active to</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Visible</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>New attribute</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>You need to log in in order to answer this survey</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>The survey is not active</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>The survey does already have an answer from you</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Default settings</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>User email</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>User name</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Add extra option</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>N. B. If you enter just one email address, user will not see this question. Instead the posting
+will be directly sent to the address.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Name</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Presel.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Related object entry</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Edit related object</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Enter the button to create a new related object to the survey.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Add related content</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Edit survey</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>id</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Survey list</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Title</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Persistent</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Activity</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Answers</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>No</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Yes</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Not started</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Open</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Closed</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Filled Survey</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>The following information was collected as the result of the survey:</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Related object configuration</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Set the parent node for the survey attributes, which are of the type Related Object</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Content class.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Set the parent folder for the survey attributes.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Browse</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Browse for the parent node for the related survey attributes.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Update all</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Update the configuration.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Are you sure you want to remove the survey &apos;%1&apos; with all evaluations?</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Survey result overview</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Summary</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>has %count answers.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Edit survey results for: %result</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Survey result</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Participant</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Evaluated</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Survey results for %results</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>All evaluations</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Evaluated:</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>The survey is not valid. Survey ID is missing</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>All values in Valid from need to be numeric.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>It is only allowed with 1 checked item for the question with id %question when you have radiobuttons!</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Email addresses in the question with id %number must have unique values!</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>All</source>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 </TS>
