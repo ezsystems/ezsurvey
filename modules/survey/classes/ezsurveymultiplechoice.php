@@ -327,11 +327,23 @@ class eZSurveyMultipleChoice extends eZSurveyQuestion
             if ( $http->hasPostVariable( $postSurveyExtraAnswer ) )
             {
                 // if the extra choice is choosen, check the extra_info field.
-                if ( $answer == $this->ExtraInfo['extra_info']['value'] )
+                if ( is_array( $answer ) )
                 {
-                    $surveyExtraInfo = trim( $http->postVariable( $postSurveyExtraAnswer ) );
-                    $this->Answer .= $surveyExtraInfo;
-                    $variableArray['extra_answer'] = $surveyExtraInfo;
+                    if ( in_array( $this->ExtraInfo['extra_info']['value'], $answer ) )
+                    {
+                        $surveyExtraInfo = trim( $http->postVariable( $postSurveyExtraAnswer ) );
+                        $this->Answer .= $surveyExtraInfo;
+                        $variableArray['extra_answer'] = $surveyExtraInfo;
+                    }
+                }
+                else
+                {
+                    if ( $answer == $this->ExtraInfo['extra_info']['value'] )
+                    {
+                        $surveyExtraInfo = trim( $http->postVariable( $postSurveyExtraAnswer ) );
+                        $this->Answer .= $surveyExtraInfo;
+                        $variableArray['extra_answer'] = $surveyExtraInfo;
+                    }
                 }
             }
             else
@@ -683,14 +695,19 @@ class eZSurveyMultipleChoice extends eZSurveyQuestion
         return $returnValue;
     }
 
-    function &result()
+    function result()
     {
-        $result =& eZSurveyMultipleChoice::fetchResult( $this );
+        $surveyID = $this->attribute( 'survey_id' );
+        $survey = eZSurvey::fetch( $surveyID );
+        $contentObjectID = $survey->attribute( 'contentobject_id' );
+        $contentClassAttributeID = $survey->attribute( 'contentclassattribute_id' );
+        $languageCode = $survey->attribute( 'language_code' );
+        $result = eZSurveyMultipleChoice::fetchResult( $this, $contentObjectID, $contentClassAttributeID, $languageCode );
         return $result['result'];
     }
 
     // from fetching from template
-    function &fetchResult( $question, $contentObjectID, $contentClassAttributeID, $languageCode, $metadata = false )
+    function fetchResult( $question, $contentObjectID, $contentClassAttributeID, $languageCode, $metadata = false )
     {
         $db = eZDB::instance();
         $originalQuestionID = $question->attribute( 'original_id' );
@@ -844,6 +861,7 @@ class eZSurveyMultipleChoice extends eZSurveyQuestion
                  $extraResult[0]['name'] == $result[$key]['text'] )
             {
                 $extraValue = $extraResult[0]['value'];
+                $label = $question->ExtraInfo['extra_info']['label'];
             }
 
             $resultArray[] = array( 'value' => $result[$key]['text'],

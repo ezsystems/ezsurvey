@@ -35,9 +35,9 @@
 /*! \file copy.php
 */
 
-$Module =& $Params['Module'];
+$Module = $Params['Module'];
 
-$surveyID =& $Params['SurveyID'];
+$surveyID = $Params['SurveyID'];
 $survey = eZSurvey::fetch( $surveyID );
 $newSurvey =& $survey->cloneSurvey();
 

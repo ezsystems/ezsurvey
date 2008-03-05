@@ -37,9 +37,9 @@
 
 $http = eZHTTPTool::instance();
 
-$Module =& $Params['Module'];
+$Module = $Params['Module'];
 
-$surveyID =& $Params['SurveyID'];
+$surveyID = $Params['SurveyID'];
 $survey = eZSurvey::fetch( $surveyID );
 
 if ( !$survey )

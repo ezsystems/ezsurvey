@@ -64,13 +64,19 @@ class eZSurveyEntry extends eZSurveyQuestion
         return $variableArray;
     }
 
-    function &result()
+    function result()
     {
-        $result =& eZSurveyEntry::fetchResult( $this, false, 5 );
+        $surveyID = $this->attribute( 'survey_id' );
+        $survey = eZSurvey::fetch( $surveyID );
+        $contentObjectID = $survey->attribute( 'contentobject_id' );
+        $contentClassAttributeID = $survey->attribute( 'contentclassattribute_id' );
+        $languageCode = $survey->attribute( 'language_code' );
+
+        $result = eZSurveyEntry::fetchResult( $this, $contentObjectID, $contentClassAttributeID, $languageCode, false, 5 );
         return $result['result'];
     }
 
-    function &fetchResult( $question, $contentObjectID, $contentClassAttributeID, $languageCode, $metadata = false, $limit = false, $sortBy = false )
+    function fetchResult( $question, $contentObjectID, $contentClassAttributeID, $languageCode, $metadata = false, $limit = false, $sortBy = false )
     {
         $db = eZDB::instance();
 

@@ -418,7 +418,7 @@ class eZSurveyQuestion extends eZPersistentObject
         }
     }
 
-    function &result()
+    function result()
     {
         return false;
     }

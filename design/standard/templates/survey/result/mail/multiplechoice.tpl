@@ -1,7 +1,6 @@
 {$question.question_number}. {$question.text}
-    {section show=is_array($question.answer)}
-    {section var=qans loop=$question.answer}{$qans} {section show=$question.options[sub($qans,1)].label|count_chars}({$question.options[sub($qans,1)].label}){/section}{delimiter}, {/delimiter}{/section}
-    {section-else}
-    {$question.answer} {section show=$question.options[sub($question.answer,1)].label|count_chars}({$question.options[sub($question.answer,1)].label}){/section}
-    {/section}
+
+{def $first=true()}
+   {foreach $question.options as $option}{if $option.toggled|eq(1)}{if $first|eq(false())}, {/if}{$option.value} {if $option.label|count_chars} ({$option.label}){set $first=false()}{/if}{/if}{/foreach}{if $question.extra_info.value_checked|eq(1)}{if $first|eq(false())}, {/if}{$question.extra_info.value} {if $question.extra_info.label|count_chars} ({$question.extra_info.label})
+{$question.extra_info.extra_answer}{/if}{/if}
 

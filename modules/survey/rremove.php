@@ -40,8 +40,8 @@
 */
 
 $http = eZHTTPTool::instance();
-$Module =& $Params['Module'];
-$resultID =& $Params['ResultID'];
+$Module = $Params['Module'];
+$resultID = $Params['ResultID'];
 
 $surveyResult = eZSurveyResult::fetch( $resultID );
 $surveyID = 0;

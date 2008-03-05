@@ -37,7 +37,7 @@
 
 $http = eZHTTPTool::instance();
 
-$Module =& $Params['Module'];
+$Module = $Params['Module'];
 
 if ( $http->hasPostVariable( 'SurveyDiscardButton' ) )
 {
@@ -45,7 +45,7 @@ if ( $http->hasPostVariable( 'SurveyDiscardButton' ) )
     return;
 }
 
-$surveyID =& $Params['SurveyID'];
+$surveyID = $Params['SurveyID'];
 $survey = eZSurvey::fetch( $surveyID );
 
 if ( !$survey )
