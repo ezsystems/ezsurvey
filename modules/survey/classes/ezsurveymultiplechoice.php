@@ -669,6 +669,32 @@ class eZSurveyMultipleChoice extends eZSurveyQuestion
             }
         }
 
+        $postUncheckOptionsAction = 'ezsurvey_mc_' . $this->ID . '_uncheck_options';
+        if ( $postUncheckOptionsAction == $action )
+        {
+            foreach ( array_keys( $this->Options ) as $key )
+            {
+                $option =& $this->Options[$key];
+                if ( $option['checked'] == 1 )
+                {
+                    $option['checked'] = 0;
+                    $this->setHasDirtyData( true );
+                    $returnValue = true;
+                }
+            }
+
+            foreach ( array_keys( $this->ExtraInfo ) as $key )
+            {
+                $option =& $this->ExtraInfo[$key];
+                if ( $option['value_checked'] == 1 )
+                {
+                    $option['value_checked'] = 0;
+                    $this->setHasDirtyData( true );
+                    $returnValue = true;
+                }
+            }
+        }
+
         $postEnableExtraInfoAction = 'ezsurvey_mc_' . $this->ID . '_enable_extra_info';
         if ( $postEnableExtraInfoAction == $action )
         {

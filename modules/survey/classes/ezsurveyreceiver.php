@@ -246,6 +246,23 @@ class eZSurveyReceiver extends eZSurveyQuestion
             $returnValue = true;
         }
 
+        $actionUncheckOptions = 'ezsurvey_receiver_' . $this->ID . '_uncheck_options';
+        if ( $action == $actionUncheckOptions )
+        {
+            foreach ( array_keys( $this->Options ) as $key )
+            {
+                $option =& $this->Options[$key];
+                if ( $option['checked'] == 1 )
+                {
+                    $option['checked'] = 0;
+                    $option['toggled'] = 0;
+                    $this->setHasDirtyData( true );
+                    $this->encodeXMLOptions();
+                    $returnValue = true;
+                }
+            }
+        }
+
         return $returnValue;
     }
 
@@ -302,6 +319,7 @@ class eZSurveyReceiver extends eZSurveyQuestion
         $attributeID = $params['contentobjectattribute_id'];
 
         eZSurveyQuestion::processEditActions( $validation, $params );
+        $postCheckedRadio = $prefix . '_ezsurvey_receiver_' . $this->ID . '_checked_' . $attributeID;
         foreach ( array_keys( $this->Options ) as $key )
         {
             $option =& $this->Options[$key];
@@ -322,12 +340,32 @@ class eZSurveyReceiver extends eZSurveyQuestion
                 $this->setHasDirtyData( true );
             }
 
-            $postChecked = $prefix . '_ezsurvey_receiver_' . $this->ID . '_' . $optionID . '_checked_' . $attributeID;
-            $checked = ( $http->hasPostVariable( $postChecked ) ) ? 1 : 0;
-            if ( $checked != $option['checked'] )
+            if ( $http->hasPostVariable( $postCheckedRadio ) and
+                 !is_array( $http->postVariable( $postCheckedRadio ) ) ) // if radiobutton
             {
-                $option['checked'] = $checked;
-                $this->setHasDirtyData( true );
+                $checkedID = $http->postVariable( $postCheckedRadio );
+                if ( $checkedID == $optionID and
+                     $option['checked'] != 1 )
+                {
+                    $option['checked'] = 1;
+                    $this->setHasDirtyData( true );
+                }
+                else if ( $checkedID != $optionID and
+                          $option['checked'] != 0 )
+                {
+                    $option['checked'] = 0;
+                    $this->setHasDirtyData( true );
+                }
+            }
+            else // if checkbox
+            {
+                $postChecked = $prefix . '_ezsurvey_receiver_' . $this->ID . '_' . $optionID . '_checked_' . $attributeID;
+                $checked = ( $http->hasPostVariable( $postChecked ) ) ? 1 : 0;
+                if ( $checked != $option['checked'] )
+                {
+                    $option['checked'] = $checked;
+                    $this->setHasDirtyData( true );
+                }
             }
 
             // Need to store the attribute id for sorting in the callback function tabOrderCompare.
