@@ -31,7 +31,7 @@
   <td><input name="{$prefix_attribute}_ezsurvey_mc_{$question.id}_{$option.id}_selected_{$attribute_id}" type="checkbox" ></td>
   <td colspan="4"><input class="box" name="{$prefix_attribute}_ezsurvey_mc_{$question.id}_{$option.id}_label_{$attribute_id}" type="text" value="{$option.label|wash('xhtml')}" size="30" /></td>
   <td><input name="{$prefix_attribute}_ezsurvey_mc_{$question.id}_{$option.id}_value_{$attribute_id}" type="text" value="{$option.value|wash('xhtml')}" size="5"  /></td>
-  <td>{if or($question.num|eq(1), $question.num|eq(2), $question.num|eq(5))}
+  <td>{if or($question.num|eq(1), $question.num|eq(2), $question.num|eq(5), $question.num|eq(0))}
   <input name="{$prefix_attribute}_ezsurvey_mc_{$question.id}_checked_{$attribute_id}" type="radio"{if $option.checked|eq(1)} checked="checked"{set $is_selected=true()}{/if} value="{$option.value}" />{else}<input name="{$prefix_attribute}_ezsurvey_mc_{$question.id}_{$option.id}_checked_{$attribute_id}" type="checkbox" {if $option.checked|eq(1)}checked="checked"{set $is_selected=true()}{/if} />{/if}</td>
   <td><input name="{$prefix_attribute}_ezsurvey_mc_{$question.id}_{$option.id}_tab_order_{$attribute_id}" type="text" size="2" value="{$option.id|wash('xhtml')}" /></td>
 </tr>
@@ -41,7 +41,7 @@
   <td rowspan="3"><input name="{$prefix_attribute}_ezsurvey_mc_{$question.id}_extra_selected_{$attribute_id}" type="checkbox" ></td>
   <td colspan="4"><input class="box" name="{$prefix_attribute}_ezsurvey_mc_{$question.id}_extra_label_{$attribute_id}" type="text" value="{$question.extra_info.label|wash('xhtml')}" size="30" /></td>
   <td rowspan="3"><input name="{$prefix_attribute}_ezsurvey_mc_{$question.id}_extra_value_{$attribute_id}" type="text" value="{$question.extra_info.value|wash('xhtml')}" size="5"  /></td>
-  <td rowspan="3">{if or($question.num|eq(1), $question.num|eq(2), $question.num|eq(5))}
+  <td rowspan="3">{if or($question.num|eq(1), $question.num|eq(2), $question.num|eq(5), $question.num|eq(0))}
   <input name="{$prefix_attribute}_ezsurvey_mc_{$question.id}_checked_{$attribute_id}" type="radio"{if $question.extra_info.value_checked|eq(1)} checked="checked"{set $is_selected=true()}{/if} value="{$question.extra_info.value}" />{else}<input name="{$prefix_attribute}_ezsurvey_mc_{$question.id}_extra_value_checked_{$attribute_id}" type="checkbox"{if $question.extra_info.value_checked|eq(1)} checked="checked"{set $is_selected=true()}{/if} />{/if}</td>
   <td rowspan="3"><input name="dummy" type="text" size="2" value="" disabled="disabled" /></td>
 </tr>
@@ -66,8 +66,6 @@
 &nbsp;
 <input class="button" type="submit" name="CustomActionButton[{$attribute_id}_ezsurvey_mc_{$question.id}_enable_extra_info]" value="{'Add extra option'|i18n( 'survey' )}"{if $question.extra_info.enabled|eq(1)} disabled="disabled"{/if}/>
 <input class="button" type="submit" name="CustomActionButton[{$attribute_id}_ezsurvey_mc_{$question.id}_uncheck_options]" value="{'Uncheck options'|i18n( 'survey' )}"{if $is_selected|eq(false())} disabled="disabled"{/if}/>
-</div>
-</div class="element object_left" >
 </div>
 
 <script type="text/javascript">

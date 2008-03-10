@@ -462,13 +462,13 @@ class eZSurveyMultipleChoice extends eZSurveyQuestion
         $postExtraMCChecked = $prefix . '_ezsurvey_mc_' . $this->ID . '_extra_value_checked_' . $attributeID;
         $checkedCount += $http->hasPostVariable( $postExtraMCChecked ) ? 1 : 0;
 
-        if ( $optionCount == 0 )
-        {
-            $validation['error'] = true;
-            $validation['errors'][] = array( 'message' => ezi18n( 'survey', 'You must enter at least one option in the question with id %question!', null,
-                                                                  array( '%question' => $this->ID ) ),
-                                             'question_id' => $this->ID );
-        }
+//         if ( $optionCount == 0 )
+//         {
+//             $validation['error'] = true;
+//             $validation['errors'][] = array( 'message' => ezi18n( 'survey', 'You must enter at least one option in the question with id %question!', null,
+//                                                                   array( '%question' => $this->ID ) ),
+//                                              'question_id' => $this->ID );
+//         }
     }
 
     function processEditActions( &$validation, $params )
