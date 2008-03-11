@@ -214,6 +214,7 @@ class eZSurveyQuestion extends eZPersistentObject
                       'tab_order' => $this->TabOrder,
                       'type' => $this->Type,
                       'mandatory' => $this->Mandatory,
+                      'visible' => $this->Visible,
                       'default_value' => $this->Default,
                       'text' => $this->Text,
                       'text2' => $this->Text2,

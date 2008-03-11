@@ -10,3 +10,4 @@ Changes from eZ Survey2.0 beta1 to beta2
 - Fixed bug with Related object entry and redirecting.
 - Fixed some reference issues.
 - Added functionality to add an existing related object to a survey.
+- Fixed bug with Remember visible flag to a new question.
