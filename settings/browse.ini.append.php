@@ -5,8 +5,6 @@
 StartNode=media
 SelectionType=single
 ReturnType=NodeID
-Class[]=
-Class[]=survey_attribute
 
 [AddRelatedSurveyObject]
 StartNode=media
