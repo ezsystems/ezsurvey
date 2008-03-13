@@ -369,7 +369,7 @@ class eZSurvey extends eZPersistentObject
             {
                 $rows = $db->arrayQuery( $query, $limitArray );
                 $objectArray = array();
-                if ( count( $rows ) > 0 )
+                if ( is_array( $rows ) and count( $rows ) > 0 )
                 {
                     foreach ( $rows as $row )
                     {

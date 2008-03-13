@@ -49,6 +49,7 @@ class eZSurveyType extends eZDataType
     const DATA_TYPE_STRING = "ezsurvey";
     const CONTENT_VALUE = 'data_int';
     const PREFIX_ATTRIBUTE = 'ContentObjectAttribute';
+    const CONTENT_CLASS_VALUE = 'data_int1';
 
     /*!
      Constructor
@@ -522,6 +523,28 @@ class eZSurveyType extends eZDataType
     function title( $contentObjectAttribute, $name = null )
     {
     }
+
+    /*!
+     \reimp
+    */
+    function serializeContentClassAttribute( $classAttribute, $attributeNode, $attributeParametersNode )
+    {
+        $value = $classAttribute->attribute( self::CONTENT_CLASS_VALUE );
+
+        $dom = $attributeParametersNode->ownerDocument;
+        $defaultValueNode = $dom->createElement( 'value', $value );
+        $attributeParametersNode->appendChild( $defaultValueNode );
+    }
+
+    /*!
+     \reimp
+    */
+    function unserializeContentClassAttribute( $classAttribute, $attrjeppibuteNode, $attributeParametersNode )
+    {
+        $value = $attributeParametersNode->getElementsByTagName( 'value' )->item( 0 )->textContent;
+        $classAttribute->setAttribute( self::CONTENT_CLASS_VALUE, $value );
+    }
+
 }
 
 eZDataType::register( eZSurveyType::DATA_TYPE_STRING, "eZSurveyType" );
