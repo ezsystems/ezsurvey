@@ -262,13 +262,20 @@ class eZSurveyType extends eZDataType
         if ( $survey->attribute( 'one_answer' ) == 1 )
         {
             $user = eZUser::currentUser();
-            $contentObjectID = $objectAttribute->attribute( 'contentobject_id' );
-            $contentClassAttributeID = $objectAttribute->attribute( 'contentclassattribute_id' );
-            $languageCode = $objectAttribute->attribute( 'language_code' );
-            $surveyID = $survey->attribute( 'id' );
+            if ( $user->isLoggedIn() === true )
+            {
+                $contentObjectID = $objectAttribute->attribute( 'contentobject_id' );
+                $contentClassAttributeID = $objectAttribute->attribute( 'contentclassattribute_id' );
+                $languageCode = $objectAttribute->attribute( 'language_code' );
+                $surveyID = $survey->attribute( 'id' );
 
-            $exist = eZSurveyResult::exist( $surveyID, $user->attribute( 'contentobject_id' ), $contentObjectID, $contentClassAttributeID, $languageCode );
-            if ( $exist === true )
+                $exist = eZSurveyResult::exist( $surveyID, $user->attribute( 'contentobject_id' ), $contentObjectID, $contentClassAttributeID, $languageCode );
+                if ( $exist === true )
+                {
+                    $continueViewActions = false;
+                }
+            }
+            else
             {
                 $continueViewActions = false;
             }
