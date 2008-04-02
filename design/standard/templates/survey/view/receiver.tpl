@@ -8,5 +8,5 @@
     <option value="{$option.id}"{section show=$option.toggled|eq(1)} selected="selected"{/section}>{$option.label}</option>
   {/section}
 </select>
-{/section}
 </div>
+{/section}
