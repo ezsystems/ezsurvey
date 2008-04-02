@@ -14,3 +14,4 @@ Changes from eZ Survey2.0 beta1 to beta2
 - Fixed serializarion and unserialization and new class packages.
 - Added more checking of logged in user for the "one user" option.
 - Fixed bug with receiver template (wrong placement of div tag).
+- Fixed bug with javaScript and multiplechoice.
