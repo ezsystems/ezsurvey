@@ -3,7 +3,7 @@ eZ Survey extension 2.0-beta22 README
 What is the eZ Survey extension?
 ================================
 
-Survey module for eZ publish
+Survey module for eZ Publish
 
 
 eZ Survey version
@@ -27,9 +27,9 @@ Requirements
 
 The following requirements exists for using eZ Survey extension:
 
-o  eZ publish version:
+o  eZ Publish version:
 
-   Make sure you use eZ publish version 4.0 or higher.
+   Make sure you use eZ Publish version 4.0 or higher.
 
 o  PHP version:
 

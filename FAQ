@@ -1,6 +1,6 @@
 [ExtensionName] extension [ExtensionVersion] FAQ
 
-1. [ExtensionName] is not activated in eZ publish
+1. [ExtensionName] is not activated in eZ Publish
 =================================================
 
 You will need to check if the extension is properly activated in site.ini.
@@ -12,5 +12,5 @@ ActiveExtensions[]=ezsurvey
 
 Make sure there are no spaces before or after the name.
 
-You should also consider checking the debug output of eZ publish to see what is
+You should also consider checking the debug output of eZ Publish to see what is
 going wrong.

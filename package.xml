@@ -8,14 +8,14 @@ The format of this file is also subject to change until the release version.
 Upgrades to the development format will not be supported.</warning>
   <name>ezsurvey</name> <!-- Identifier of the package -->
   <summary>[ExtensionName]</summary> <!-- Name of the package -->
-  <description>Survey module for eZ publish</description> <!-- Long description of package functionality-->
+  <description>Survey module for eZ Publish</description> <!-- Long description of package functionality-->
   <ezpublish xmlns:ezpublish="http://ez.no/ezpublish"> 
-    <version>3.5</version> <!-- eZ publish version -->
-    <named-version>3.5</named-version><!-- eZ publish version -->
+    <version>3.5</version> <!-- eZ Publish version -->
+    <named-version>3.5</named-version><!-- eZ Publish version -->
   </ezpublish>
   <maintainers xmlns:ezmaintainer="http://ez.no/ezpackage">
     <maintainer>
-      <name>eZ systems</name>
+      <name>eZ Systems</name>
       <email>info@ez.no</email>
       <role>lead</role>
     </maintainer>
@@ -36,7 +36,7 @@ Upgrades to the development format will not be supported.</warning>
   </documents>
   <changelog xmlns:ezchangelog="http://ez.no/ezpackage"> <!-- Add new changelog entry for each release-->
     <entry timestamp="1101104780"
-           person="eZ systems"
+           person="eZ Systems"
            email="info@ez.no"
            release="1">
       <change>Creation of package</change>
@@ -55,7 +55,7 @@ Upgrades to the development format will not be supported.</warning>
                name="ezsurvey"
                value="[ExtensionVersion]" />
     </provides>
-    <requires> <!-- Insert eZ publish requirements here -->
+    <requires> <!-- Insert eZ Publish requirements here -->
       <require type="ezpublish"
                name="version"
                value="[ExtensionPublishVersion]" />
