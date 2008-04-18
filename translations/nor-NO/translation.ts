@@ -1,5 +1,12 @@
 <!DOCTYPE TS><TS>
 <context>
+    <name>kernel/navigationpart</name>
+    <message>
+        <source>Survey</source>
+        <translation type="unfinished">Skjema</translation>
+    </message>
+</context>
+<context>
     <name>design/admin/node/view/full</name>
     <message>
         <source>Last modified</source>
@@ -447,7 +454,7 @@
     </message>
     <message>
         <source>You must enter at least one option in the question with id %question!</source>
-        <translation>Du må oppgi minst en opsjon i spørsmålet med id %question!</translation>
+        <translation type="obsolete">Du må oppgi minst en opsjon i spørsmålet med id %question!</translation>
     </message>
     <message>
         <source>Single/Multiple Choice</source>
@@ -645,15 +652,15 @@ sendt direkte til adressen du har oppgitt.</translation>
     </message>
     <message>
         <source>Edit related object</source>
-        <translation type="unfinished"></translation>
+        <translation type="obsolete"></translation>
     </message>
     <message>
         <source>Enter the button to create a new related object to the survey.</source>
-        <translation type="unfinished"></translation>
+        <translation type="obsolete"></translation>
     </message>
     <message>
         <source>Add related content</source>
-        <translation type="unfinished"></translation>
+        <translation type="obsolete"></translation>
     </message>
     <message>
         <source>Edit survey</source>
@@ -785,6 +792,22 @@ sendt direkte til adressen du har oppgitt.</translation>
     </message>
     <message>
         <source>It is only allowed with 1 checked item for the question with id %question when you have radiobuttons!</source>
+        <translation type="obsolete"></translation>
+    </message>
+    <message>
+        <source>Uncheck options</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Uncheck option</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Add new</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Enter the button &apos;Add existing&apos; or &apos;Add new&apos; to create a new related object to the survey.</source>
         <translation type="unfinished"></translation>
     </message>
 </context>
