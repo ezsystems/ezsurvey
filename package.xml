@@ -1,0 +1,75 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<package version="" <!--   -->
+         development="true"  <!-- True /false -->
+         xmlns:ezpackage="http://ez.no/ezpackage"
+         install_type="install">
+  <warning>This format was made with a development version and will not work with any release versions.
+The format of this file is also subject to change until the release version.
+Upgrades to the development format will not be supported.</warning>
+  <name>ezsurvey</name> <!-- Identifier of the package -->
+  <summary>[ExtensionName]</summary> <!-- Name of the package -->
+  <description>Survey module for eZ Publish</description> <!-- Long description of package functionality-->
+  <ezpublish xmlns:ezpublish="http://ez.no/ezpublish"> 
+    <version>3.5</version> <!-- eZ Publish version -->
+    <named-version>3.5</named-version><!-- eZ Publish version -->
+  </ezpublish>
+  <maintainers xmlns:ezmaintainer="http://ez.no/ezpackage">
+    <maintainer>
+      <name>eZ Systems</name>
+      <email>info@ez.no</email>
+      <role>lead</role>
+    </maintainer>
+  </maintainers>
+  <packaging xmlns:ezpackaging="http://ez.no/ezpackage">
+    <timestamp>1101104780</timestamp> <!-- Update to currenttime -->
+    <host>jb.ez.no</host>
+  </packaging>
+  <documents>
+    <document mime-type="text/plain"
+              name="README" />
+    <document mime-type="text/plain"
+              name="LICENSE" />
+    <document mime-type="text/plain"
+              name="INSTALL" />
+    <document mime-type="text/plain"
+              name="FAQ" />
+  </documents>
+  <changelog xmlns:ezchangelog="http://ez.no/ezpackage"> <!-- Add new changelog entry for each release-->
+    <entry timestamp="1101104780"
+           person="eZ Systems"
+           email="info@ez.no"
+           release="1">
+      <change>Creation of package</change>
+    </entry>
+  </changelog>
+  <simple-files />
+  <version xmlns:ezversion="http://ez.no/ezpackage"> <!-- Update for each release -->
+    <number>[ExtensionVersion]</number>
+    <release>1</release>
+  </version>
+  <licence>GPL</licence>
+  <state>alpha</state>
+  <dependencies xmlns:ezdependency="http://ez.no/ezpackage">  <!-- Update for your package -->
+    <provides> <!-- Insert what the extension provides here -->
+      <provide type="ezextension"
+               name="ezsurvey"
+               value="[ExtensionVersion]" />
+    </provides>
+    <requires> <!-- Insert eZ Publish requirements here -->
+      <require type="ezpublish"
+               name="version"
+               value="[ExtensionPublishVersion]" />
+    </requires>
+    <requires />
+    <obsoletes />
+    <conflicts />
+  </dependencies>
+  <install xmlns:ezinstall="http://ez.no/ezpackage"> <!-- Update for your package -->
+    <item type="ezextension"
+          name="ezsurvey" />
+  </install>
+  <uninstall xmlns:ezinstall="http://ez.no/ezpackage"> <!-- Update for your package -->
+    <item type="ezextension"
+          name="ezsurvey" />
+  </uninstall>
+</package>
