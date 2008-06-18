@@ -1,4 +1,4 @@
-eZ Survey extension 2.0-1 README
+eZ Survey extension 2.1 README
 
 What is the eZ Survey extension?
 ================================
@@ -9,9 +9,9 @@ Survey module for eZ Publish
 eZ Survey version
 =======================
 
-The current version of eZ Survey is 2.0-beta2.
+The current version of eZ Survey is 2.1.
 You can find details about changes for this version in
-doc/changelogs/CHANGELOG-2.0beta1-to-2.0beta2.
+doc/changelogs/CHANGELOG-2.0-to-2.1.
 
 
 License

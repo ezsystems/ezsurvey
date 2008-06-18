@@ -1,0 +1,527 @@
+<?php
+// This array contains the database schema
+$schema = array (
+  'ezsurvey' => 
+  array (
+    'name' => 'ezsurvey',
+    'fields' => 
+    array (
+      'contentclassattribute_id' => 
+      array (
+        'length' => 11,
+        'type' => 'int',
+        'not_null' => '1',
+        'default' => 0,
+      ),
+      'contentobject_id' => 
+      array (
+        'length' => 11,
+        'type' => 'int',
+        'not_null' => '1',
+        'default' => 0,
+      ),
+      'contentobjectattribute_id' => 
+      array (
+        'length' => 11,
+        'type' => 'int',
+        'not_null' => '1',
+        'default' => 0,
+      ),
+      'contentobjectattribute_version' => 
+      array (
+        'length' => 11,
+        'type' => 'int',
+        'not_null' => '1',
+        'default' => 0,
+      ),
+      'enabled' => 
+      array (
+        'length' => 11,
+        'type' => 'int',
+        'not_null' => '1',
+        'default' => 1,
+      ),
+      'id' => 
+      array (
+        'type' => 'auto_increment',
+        'default' => false,
+      ),
+      'language_code' => 
+      array (
+        'length' => 20,
+        'type' => 'varchar',
+        'default' => NULL,
+      ),
+      'one_answer' => 
+      array (
+        'length' => 11,
+        'type' => 'int',
+        'not_null' => '1',
+        'default' => 0,
+      ),
+      'persistent' => 
+      array (
+        'length' => 11,
+        'type' => 'int',
+        'not_null' => '1',
+        'default' => 0,
+      ),
+      'published' => 
+      array (
+        'length' => 11,
+        'type' => 'int',
+        'not_null' => '1',
+        'default' => 0,
+      ),
+      'redirect_cancel' => 
+      array (
+        'length' => 255,
+        'type' => 'varchar',
+        'not_null' => '1',
+        'default' => '',
+      ),
+      'redirect_submit' => 
+      array (
+        'length' => 255,
+        'type' => 'varchar',
+        'not_null' => '1',
+        'default' => '',
+      ),
+      'title' => 
+      array (
+        'length' => 255,
+        'type' => 'varchar',
+        'not_null' => '1',
+        'default' => '',
+      ),
+      'valid_from' => 
+      array (
+        'length' => 11,
+        'type' => 'int',
+        'not_null' => '1',
+        'default' => 0,
+      ),
+      'valid_to' => 
+      array (
+        'length' => 11,
+        'type' => 'int',
+        'not_null' => '1',
+        'default' => 0,
+      ),
+    ),
+    'indexes' => 
+    array (
+      'PRIMARY' => 
+      array (
+        'type' => 'primary',
+        'fields' => 
+        array (
+          0 => 'id',
+        ),
+      ),
+    ),
+  ),
+  'ezsurveymetadata' => 
+  array (
+    'name' => 'ezsurveymetadata',
+    'fields' => 
+    array (
+      'attr_name' => 
+      array (
+        'length' => 255,
+        'type' => 'varchar',
+        'not_null' => '1',
+        'default' => '',
+      ),
+      'attr_value' => 
+      array (
+        'length' => 255,
+        'type' => 'varchar',
+        'not_null' => '1',
+        'default' => '',
+      ),
+      'id' => 
+      array (
+        'type' => 'auto_increment',
+        'default' => false,
+      ),
+      'result_id' => 
+      array (
+        'length' => 11,
+        'type' => 'int',
+        'not_null' => '1',
+        'default' => 0,
+      ),
+    ),
+    'indexes' => 
+    array (
+      'PRIMARY' => 
+      array (
+        'type' => 'primary',
+        'fields' => 
+        array (
+          0 => 'id',
+        ),
+      ),
+      'ezsurveymetadata_attr_name' => 
+      array (
+        'type' => 'non-unique',
+        'fields' => 
+        array (
+          0 => 'attr_name',
+        ),
+      ),
+      'ezsurveymetadata_attr_value' => 
+      array (
+        'type' => 'non-unique',
+        'fields' => 
+        array (
+          0 => 'attr_value',
+        ),
+      ),
+      'ezsurveymetadata_result_id' => 
+      array (
+        'type' => 'non-unique',
+        'fields' => 
+        array (
+          0 => 'result_id',
+        ),
+      ),
+    ),
+  ),
+  'ezsurveyquestion' => 
+  array (
+    'name' => 'ezsurveyquestion',
+    'fields' => 
+    array (
+      'default_value' => 
+      array (
+        'type' => 'longtext',
+        'default' => false,
+      ),
+      'id' => 
+      array (
+        'type' => 'auto_increment',
+        'default' => false,
+      ),
+      'mandatory' => 
+      array (
+        'length' => 11,
+        'type' => 'int',
+        'not_null' => '1',
+        'default' => 1,
+      ),
+      'num' => 
+      array (
+        'length' => 11,
+        'type' => 'int',
+        'default' => NULL,
+      ),
+      'num2' => 
+      array (
+        'length' => 11,
+        'type' => 'int',
+        'default' => NULL,
+      ),
+      'original_id' => 
+      array (
+        'length' => 11,
+        'type' => 'int',
+        'not_null' => '1',
+        'default' => 0,
+      ),
+      'survey_id' => 
+      array (
+        'length' => 11,
+        'type' => 'int',
+        'not_null' => '1',
+        'default' => 0,
+      ),
+      'tab_order' => 
+      array (
+        'length' => 11,
+        'type' => 'int',
+        'not_null' => '1',
+        'default' => 0,
+      ),
+      'text' => 
+      array (
+        'type' => 'longtext',
+        'default' => false,
+      ),
+      'text2' => 
+      array (
+        'type' => 'longtext',
+        'default' => false,
+      ),
+      'text3' => 
+      array (
+        'type' => 'longtext',
+        'default' => false,
+      ),
+      'type' => 
+      array (
+        'length' => 255,
+        'type' => 'varchar',
+        'not_null' => '1',
+        'default' => '',
+      ),
+      'visible' => 
+      array (
+        'length' => 11,
+        'type' => 'int',
+        'not_null' => '1',
+        'default' => 1,
+      ),
+    ),
+    'indexes' => 
+    array (
+      'PRIMARY' => 
+      array (
+        'type' => 'primary',
+        'fields' => 
+        array (
+          0 => 'id',
+        ),
+      ),
+      'ezsurveyquestion_survey_id' => 
+      array (
+        'type' => 'non-unique',
+        'fields' => 
+        array (
+          0 => 'survey_id',
+        ),
+      ),
+    ),
+  ),
+  'ezsurveyquestionmetadata' => 
+  array (
+    'name' => 'ezsurveyquestionmetadata',
+    'fields' => 
+    array (
+      'id' => 
+      array (
+        'type' => 'auto_increment',
+        'default' => false,
+      ),
+      'name' => 
+      array (
+        'length' => 255,
+        'type' => 'varchar',
+        'not_null' => '1',
+        'default' => '',
+      ),
+      'question_id' => 
+      array (
+        'length' => 11,
+        'type' => 'int',
+        'not_null' => '1',
+        'default' => 0,
+      ),
+      'question_original_id' => 
+      array (
+        'length' => 11,
+        'type' => 'int',
+        'not_null' => '1',
+        'default' => 0,
+      ),
+      'result_id' => 
+      array (
+        'length' => 11,
+        'type' => 'int',
+        'not_null' => '1',
+        'default' => 0,
+      ),
+      'value' => 
+      array (
+        'type' => 'longtext',
+        'default' => false,
+      ),
+    ),
+    'indexes' => 
+    array (
+      'PRIMARY' => 
+      array (
+        'type' => 'primary',
+        'fields' => 
+        array (
+          0 => 'id',
+        ),
+      ),
+    ),
+  ),
+  'ezsurveyquestionresult' => 
+  array (
+    'name' => 'ezsurveyquestionresult',
+    'fields' => 
+    array (
+      'id' => 
+      array (
+        'type' => 'auto_increment',
+        'default' => false,
+      ),
+      'question_id' => 
+      array (
+        'length' => 11,
+        'type' => 'int',
+        'not_null' => '1',
+        'default' => 0,
+      ),
+      'questionoriginal_id' => 
+      array (
+        'length' => 11,
+        'type' => 'int',
+        'not_null' => '1',
+        'default' => 0,
+      ),
+      'result_id' => 
+      array (
+        'length' => 11,
+        'type' => 'int',
+        'not_null' => '1',
+        'default' => 0,
+      ),
+      'text' => 
+      array (
+        'type' => 'longtext',
+        'default' => false,
+      ),
+    ),
+    'indexes' => 
+    array (
+      'PRIMARY' => 
+      array (
+        'type' => 'primary',
+        'fields' => 
+        array (
+          0 => 'id',
+        ),
+      ),
+      'ezsurveyquestionresult_question_id' => 
+      array (
+        'type' => 'non-unique',
+        'fields' => 
+        array (
+          0 => 'question_id',
+        ),
+      ),
+      'ezsurveyquestionresult_result_id' => 
+      array (
+        'type' => 'non-unique',
+        'fields' => 
+        array (
+          0 => 'result_id',
+        ),
+      ),
+    ),
+  ),
+  'ezsurveyrelatedconfig' => 
+  array (
+    'name' => 'ezsurveyrelatedconfig',
+    'fields' => 
+    array (
+      'contentclass_id' => 
+      array (
+        'length' => 11,
+        'type' => 'int',
+        'not_null' => '1',
+        'default' => 1,
+      ),
+      'id' => 
+      array (
+        'type' => 'auto_increment',
+        'default' => false,
+      ),
+      'node_id' => 
+      array (
+        'length' => 11,
+        'type' => 'int',
+        'not_null' => '1',
+        'default' => 0,
+      ),
+    ),
+    'indexes' => 
+    array (
+      'PRIMARY' => 
+      array (
+        'type' => 'primary',
+        'fields' => 
+        array (
+          0 => 'id',
+        ),
+      ),
+    ),
+  ),
+  'ezsurveyresult' => 
+  array (
+    'name' => 'ezsurveyresult',
+    'fields' => 
+    array (
+      'id' => 
+      array (
+        'type' => 'auto_increment',
+        'default' => false,
+      ),
+      'survey_id' => 
+      array (
+        'length' => 11,
+        'type' => 'int',
+        'not_null' => '1',
+        'default' => 0,
+      ),
+      'tstamp' => 
+      array (
+        'length' => 11,
+        'type' => 'int',
+        'not_null' => '1',
+        'default' => 0,
+      ),
+      'user_id' => 
+      array (
+        'length' => 11,
+        'type' => 'int',
+        'not_null' => '1',
+        'default' => 0,
+      ),
+      'user_session_id' => 
+      array (
+        'length' => 255,
+        'type' => 'varchar',
+        'not_null' => '1',
+        'default' => '',
+      ),
+    ),
+    'indexes' => 
+    array (
+      'PRIMARY' => 
+      array (
+        'type' => 'primary',
+        'fields' => 
+        array (
+          0 => 'id',
+        ),
+      ),
+      'ezsurveyresult_survey_id' => 
+      array (
+        'type' => 'non-unique',
+        'fields' => 
+        array (
+          0 => 'survey_id',
+        ),
+      ),
+    ),
+  ),
+  '_info' => 
+  array (
+    'format' => 'generic',
+  ),
+);
+// This array contains the database data
+$data = array (
+  '_info' => 
+  array (
+    'format' => 'generic',
+  ),
+);
+
+?>

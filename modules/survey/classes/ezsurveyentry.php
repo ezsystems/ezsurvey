@@ -56,7 +56,9 @@ class eZSurveyEntry extends eZSurveyQuestion
             $validation['error'] = true;
             $validation['errors'][] = array( 'message' => ezi18n( 'survey', 'Please answer the question %number as well!', null,
                                               array( '%number' => $this->questionNumber() ) ),
-                                                     'question_number' => $this->questionNumber() );
+                                                     'question_number' => $this->questionNumber(),
+                                             'code' => 'general_answer_number_as_well',
+                                             'question' => $this );
         }
         $this->setAnswer( trim ( $http->postVariable( $postSurveyAnswer ) ) );
         $variableArray['answer'] = trim ( $http->postVariable( $postSurveyAnswer ) );

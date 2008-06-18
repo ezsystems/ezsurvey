@@ -33,12 +33,19 @@
 //
 
 /*! \file module.php
-*/
+ */
 
 $Module = array( 'name' => 'Survey',
                  'variable_params' => true );
 
 $ViewList = array();
+$ViewList['wizard'] = array(
+    'script' => 'wizard.php',
+    'functions' => array( 'administration' ),
+    'params' => array ( ),
+    'single_post_actions' => array( 'BrowseSurveyRelatedNode' => 'BrowseForObjects' ),
+    'unordered_params' => array(),
+    'default_navigation_part' => 'ezsurveynavigationpart' );
 $ViewList['list'] = array(
     'script' => 'list.php',
     'functions' => array( 'administration' ),

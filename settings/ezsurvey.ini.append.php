@@ -31,5 +31,9 @@ QuestionTypeList[]=receiver
 [QuestionTypeSettings_custom]
 QuestionTypeList[]
 
+[PackageSettings]
+PackageName=ezsurvey_2.0
+PackagePath=ezsurvey/packages
+PackageFileName=ezsurvey_2.0-1.0-1.ezpkg
 
 */ ?>

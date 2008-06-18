@@ -85,3 +85,10 @@ CREATE TABLE ezsurveyquestionmetadata (
     PRIMARY KEY (id)
 );
 
+ALTER TABLE ezsurvey TYPE = innodb;
+ALTER TABLE ezsurveyquestion TYPE = innodb;
+ALTER TABLE ezsurveyresult TYPE = innodb;
+ALTER TABLE ezsurveyquestionresult TYPE = innodb;
+ALTER TABLE ezsurveymetadata TYPE = innodb;
+ALTER TABLE ezsurveyrelatedconfig TYPE = innodb;
+ALTER TABLE ezsurveyquestionmetadata TYPE = innodb;

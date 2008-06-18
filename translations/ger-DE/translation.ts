@@ -465,7 +465,7 @@ Vielmehr wir die Umfrage direkt an diese Email-Adresse geschickt.</translation>
     </message>
     <message>
         <source>You must enter at least one option in the question with id %question!</source>
-        <translation>Sie müssen mindestens eine Option für die Frage mit der ID %question angeben!</translation>
+        <translation type="obsolete">Sie müssen mindestens eine Option für die Frage mit der ID %question angeben!</translation>
     </message>
     <message>
         <source>Single/Multiple Choice</source>
@@ -614,15 +614,15 @@ will be directly sent to the address.</source>
     </message>
     <message>
         <source>Edit related object</source>
-        <translation type="unfinished"></translation>
+        <translation type="obsolete"></translation>
     </message>
     <message>
         <source>Enter the button to create a new related object to the survey.</source>
-        <translation type="unfinished"></translation>
+        <translation type="obsolete"></translation>
     </message>
     <message>
         <source>Add related content</source>
-        <translation type="unfinished"></translation>
+        <translation type="obsolete"></translation>
     </message>
     <message>
         <source>Edit survey</source>
@@ -766,7 +766,7 @@ will be directly sent to the address.</source>
     </message>
     <message>
         <source>It is only allowed with 1 checked item for the question with id %question when you have radiobuttons!</source>
-        <translation type="unfinished"></translation>
+        <translation type="obsolete"></translation>
     </message>
     <message>
         <source>Email addresses in the question with id %number must have unique values!</source>
@@ -774,6 +774,230 @@ will be directly sent to the address.</source>
     </message>
     <message>
         <source>All</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Uncheck options</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Uncheck option</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Add new</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Enter the button &apos;Add existing&apos; or &apos;Add new&apos; to create a new related object to the survey.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Survey wizard</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Import database</source>
+        <translation type="obsolete"></translation>
+    </message>
+    <message>
+        <source>Will install the necessary tables that eZ Survey are using to store the data. This is needed by eZ Survey where the content will be stored. Press import to create the necessary tables for eZ Survey.</source>
+        <translation type="obsolete"></translation>
+    </message>
+    <message>
+        <source>Import survey content classes.</source>
+        <translation type="obsolete"></translation>
+    </message>
+    <message>
+        <source>Survey class (need atleast one class with a survey datatype).</source>
+        <translation type="obsolete"></translation>
+    </message>
+    <message>
+        <source>Survey attribute class (need one text attribute and xml text attribute).</source>
+        <translation type="obsolete"></translation>
+    </message>
+    <message>
+        <source>Manual installation.</source>
+        <translation type="obsolete"></translation>
+    </message>
+    <message>
+        <source>You can create the two necessary content classes with a package here or create the content classes manually</source>
+        <translation type="obsolete"></translation>
+    </message>
+    <message>
+        <source>here</source>
+        <translation type="obsolete"></translation>
+    </message>
+    <message>
+        <source>You can at any point get back to the survey installer by enter the Survey link in the top menu.</source>
+        <translation type="obsolete"></translation>
+    </message>
+    <message>
+        <source>Automatic installation.</source>
+        <translation type="obsolete"></translation>
+    </message>
+    <message>
+        <source>Let the installer create the classes for you. The classes listed above will be created from the package included in eZ Survey. Press Import to create the classes automatically.</source>
+        <translation type="obsolete"></translation>
+    </message>
+    <message>
+        <source>Configure the survey class attribute.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>The survey attribute &quot;Related object&quot; need to be configured before it can be used. The related object should be an object class containing atleast one xml text attribute and a normal text attribute.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>The survey attribute is already added previously as the content class &quot;Survey Attribute&quot;.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Configuration</source>
+        <translation type="obsolete"></translation>
+    </message>
+    <message>
+        <source>&lt;b&gt;Information&lt;/b&gt;: The default survey attribute was found and set as default.</source>
+        <translation type="obsolete"></translation>
+    </message>
+    <message>
+        <source>Survey attribute parent folder.</source>
+        <translation type="obsolete"></translation>
+    </message>
+    <message>
+        <source>Set the parent folder for the survey attributes. The survey attributes will be created in this folder when you add a new related survey attribute to a survey and is only a collector for the survey attribute.</source>
+        <translation type="obsolete"></translation>
+    </message>
+    <message>
+        <source>Type</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Section</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Remember that the parent folder need to be readable by the user that should see the survey. You may configure this in the role setup of eZ Publish.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Complete</source>
+        <translation type="obsolete"></translation>
+    </message>
+    <message>
+        <source>Thank you for installing eZ Survey. You may now create new surveys in the content structure. The result will be available in the &lt;a&gt;survey list&lt;/a&gt; when you get the first answer from a survey.</source>
+        <translation type="obsolete"></translation>
+    </message>
+    <message>
+        <source>Survey Wizard</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Select the content class which should be used as the survey attribute. Content of this class will be used as &lt;i&gt;Related object&lt;/i&gt; in a survey as one of the question types. The content will be published automatically to a parent folder by eZ Survey, which need to be configured below.</source>
+        <translation type="obsolete"></translation>
+    </message>
+    <message>
+        <source>You need to select a parent for survey attribute.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>You may select the parent folder by enter the Browse button</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>&lt;b&gt;Note&lt;/b&gt;: The default survey attribute was found and set as default.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>&lt;b&gt;Note:&lt;/b&gt; You can also create a new folder anywhere in the content structure before selecting a parent here, which you can set as the parent folder. You may always get back to the eZ Survey Wizard by following the Survey link in the top menu.</source>
+        <translation type="obsolete"></translation>
+    </message>
+    <message>
+        <source>Import database tables</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>This installs the tables eZ Survey needs to store data.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Import survey content classes</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Survey class (needs at least one attribute with a survey datatype).</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Survey attribute class (needs one text attribute and xml text attribute, used for formatted text inside the surveys).</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Automatic installation</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>The installer creates the classes, from the package included in eZ Survey. This is recommended for most users.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Manual installation</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Experienced users may create the classes manually. When done continue this installer by clicking the Survey link in the top menu.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Configure the survey class attribute</source>
+        <translation type="obsolete"></translation>
+    </message>
+    <message>
+        <source>The survey attribute &quot;Related object&quot; need to be configured, to allow xml formatted texts to be added to a survey. The related object should be an object class containing at least one normal text attribute and one xml text attribute, as installed in the previous step.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Select the content class from the list of valid classes:</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>New parent folder for the survey attributes</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>The survey attributes must be stored in a folder somewhere in the content structure. If you want a new folder for this purpose it must be created first, and you may continue this installer by clicking the Survey link in the top menu.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Create new</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Add new parent node for the related survey attributes.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Select the parent folder for the survey attributes</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>If you already have a folder for the survey attributes you may browse directly for it. You also need to browse if you just created a new folder.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Installation completed</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>eZ Survey is now installed. You may now create new surveys in the content structure. The results will be available in the &lt;a&gt;survey list&lt;/a&gt; when you get the first answer for a survey. You may also change the configuration in the &lt;aconfig&gt;related object configuration&lt;/a&gt; page at any time.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>(exist)</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Configure the survey related object</source>
         <translation type="unfinished"></translation>
     </message>
 </context>

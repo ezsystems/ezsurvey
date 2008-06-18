@@ -1,4 +1,4 @@
-eZ Survey extension 2.0-1 INSTALL
+eZ Survey extension 2.1 INSTALL
 
 Introduction
 ============
@@ -53,11 +53,9 @@ Installing eZ Survey extension
 2. Unpack the files in the distribution. The command necessary is depends on
    the file you downloaded.
    [tar.gz]:
-   $ tar -zxvf ezsurvey-extension-2.0-beta2.tar.gz
-   [bz2]:
-   $ tar -jxvf ezsurvey-extension-2.0-beta2.bz2
+   $ tar -zxvf ezsurvey-extension-2.1.tar.gz
    [zip]:
-   $ unzip ezsurvey-extension-2.0-beta2.zip
+   $ unzip ezsurvey-extension-2.1.zip
 
 3. We must now enable the extension in eZ Publish. To do this edit
    site.ini.append(.php) in the folder root_of_ezpublish/settings/override. If this
@@ -82,8 +80,91 @@ Installing eZ Survey extension
    Which is need to build an array of classes that are used by the autoload system 
    in PHP to load classes. You will need eZ Components availlable to run this script.
 
+
+Configuring eZ Survey with the wizard
+=====================================
+
+If you don't want to use the eZ Survey wizard to configure and set up eZ
+Survey, you may skip to Manual installation.
+
+The following steps are included in the survey wizard.
+
+1. Import database
+   ---------------
+
+   This page will create the necessary tables which eZ Survey are using to
+   store the content.
+
+
+2. Import survey content classes
+   -----------------------------
+
+   Will install the included packages which are included with eZ Survey and
+   contains two content classes. 
+
+     o  Survey attribute class
+
+       Is the content class which will be used as related objects when you
+       create a new survey contentobject. The class need to contain one
+       xml block attribute and one Text field attribute. The "XML block"
+       attribute will be used in views for web pages and the "Text block" will
+       be used as the text sent in Emails from the survey.
+
+     o  Survey class
+
+       Will be used as the new survey object which you can use to make a new
+       survey in the content structure. The class could preferred contain a
+       Text entry attribute and a survey attribute. Set the "Object name
+       pattern" to the identifier of the Text entry.
+
+   You may also do this manually by adding the two classes directly in the
+   administration interface. You may always get back to the Survey Wizard, by
+   follow the Survey link in the top menu of the administration interface. The
+   Survey wizard will automatically detect if the necessary classes are
+   installed and skip to the next step if this is done.
+
+
+3. Configure the survey class attribute
+   ------------------------------------
+
+   When the survey attribute which is used to show xml formatted text between
+   questions are installed it need to be configured to eZ Survey. 
+
+     o  Survey attribute class
+
+       Need to be set to a content class which contains text attribute and
+       a xml text attribute.
+
+     o  The Browse button
+
+       Select the parent class where new survey attributes should be stored.
+       This should only be a collector for content of the survey attributes and
+       should not be shown in the main structure of the site. Examples could be
+       to create a folder below the media library (admin.example.com/Media) or
+       a folder below setup (admin.example.com/content/view/full/48) in a
+       default installation. You should remember to check the permissions, like
+       the section of the new folder, which could be set to the standard
+       section, to be readable by the anonymous user.
+
+       You may create a folder in the content structure and get back to the
+       survey wizard by enter the Survey link in the top menu in the admin
+       interface.
+
+       Press the Store button when you've selected a parent folder for eZ
+       Survey.
+
+
+4. Complete
+   --------
+
+   The eZ Survey wizard are now finised and you can enter the content structure
+   and create new content of the survey class.
+
+Manual installation
+===================
+
 Initializing database
-=====================
+---------------------
 
 1. Manual install
    --------------
@@ -117,7 +198,7 @@ Initializing database
         mysql -u<username> -p <dbname> <  ezsurvey/sql/mysql/schema.sql 
 
 Configuration
-=============
+-------------
 
    o  Configuring eZ Survey
 

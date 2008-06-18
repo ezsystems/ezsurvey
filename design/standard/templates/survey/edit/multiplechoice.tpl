@@ -53,7 +53,7 @@
 </tr>
 <tr class="bgdark">
   <td><input class="box" name="{$prefix_attribute}_ezsurvey_mc_{$question.id}_extra_default_value_{$attribute_id}" type="text" value="{$question.extra_info.default_value|wash('xhtml')}" size="30" /></td>
-  <td><input id="{$prefix_attribute}_ezsurvey_mc_{$question.id}_extra_enable_css_style_{$attribute_id}" name="{$prefix_attribute}_ezsurvey_mc_{$question.id}_extra_enable_css_style_{$attribute_id}" type="checkbox"{if $question.extra_info.enable_css_style|eq(1)} checked="checked"{/if} onchange="synchFormElements( '{$prefix_attribute}_ezsurvey_mc_{$question.id}_extra_enable_css_style_{$attribute_id}', '{$prefix_attribute}_ezsurvey_mc_{$question.id}_extra_column_{$attribute_id}', false );" /></td>
+  <td><input id="{$prefix_attribute}_ezsurvey_mc_{$question.id}_extra_enable_css_style_{$attribute_id}" name="{$prefix_attribute}_ezsurvey_mc_{$question.id}_extra_enable_css_style_{$attribute_id}" type="checkbox"{if $question.extra_info.enable_css_style|eq(1)} checked="checked"{/if} onclick="synchFormElements( '{$prefix_attribute}_ezsurvey_mc_{$question.id}_extra_enable_css_style_{$attribute_id}', '{$prefix_attribute}_ezsurvey_mc_{$question.id}_extra_column_{$attribute_id}', false );" /></td>
 <td><input id="{$prefix_attribute}_ezsurvey_mc_{$question.id}_extra_column_{$attribute_id}" class="box" name="{$prefix_attribute}_ezsurvey_mc_{$question.id}_extra_column_{$attribute_id}" type="text" value="{$question.extra_info.column|wash('xhtml')}" size="5" /></td>
   <td><input class="box" name="{$prefix_attribute}_ezsurvey_mc_{$question.id}_extra_row_{$attribute_id}" type="text" value="{$question.extra_info.row|wash('xhtml')}" size="5" /></td>
 </tr>

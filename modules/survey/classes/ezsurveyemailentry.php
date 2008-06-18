@@ -60,14 +60,18 @@ class eZSurveyEmailEntry extends eZSurveyEntry
             $validation['error'] = true;
             $validation['errors'][] = array( 'message' => ezi18n( 'survey', 'Please answer the question %number as well!', null,
                                                                   array( '%number' => $this->questionNumber() ) ),
-                                             'question_number' => $this->questionNumber() );
+                                             'question_number' => $this->questionNumber(),
+                                             'code' => 'email_answer_question',
+                                             'question' => $this );
         }
         else if ( strlen( $answer ) != 0 && !eZMail::validate( $answer ) )
         {
             $validation['error'] = true;
             $validation['errors'][] = array( 'message' => ezi18n( 'survey', 'Entered text in the question %number is not a valid email address!', null,
                                                                   array( '%number' => $this->questionNumber() ) ),
-                                             'question_number' => $this->questionNumber() );
+                                             'question_number' => $this->questionNumber(),
+                                             'code' => 'email_email_not_valid',
+                                             'question' => $this );
         }
 
         $this->setAnswer( $answer );

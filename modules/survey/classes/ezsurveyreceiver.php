@@ -291,7 +291,9 @@ class eZSurveyReceiver extends eZSurveyQuestion
                 $validation['errors'][$this->ID] = array( 'message' => ezi18n( 'survey', "Entered text '%text' in the question with id %number is not an email address!", null,
                                                                                array( '%number' => $this->ID,
                                                                                       '%text' => $http->postVariable( $postValue ) ) ),
-                                                          'question_id' => $this->ID );
+                                                          'question_id' => $this->ID,
+                                                          'code' => 'receiver_email_not_valid',
+                                                          'question' => $this );
                 break;
             }
 
@@ -302,7 +304,9 @@ class eZSurveyReceiver extends eZSurveyQuestion
                 $validation['error'] = true;
                 $validation['errors'][$this->ID] = array( 'message' => ezi18n( 'survey', 'Email addresses in the question with id %number must have unique values!', null,
                                                                                array( '%number' => $this->ID ) ),
-                                                          'question_id' => $this->ID );
+                                                          'question_id' => $this->ID,
+                                                          'code' => 'receiver_email_not_unique',
+                                                          'question' => $this );
                 break;
             }
             $optionValues[] = $option['value'];

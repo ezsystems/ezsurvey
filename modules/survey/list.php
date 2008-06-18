@@ -33,35 +33,43 @@
 //
 
 /*! \file list.php
-*/
+ */
 
 $http = eZHTTPTool::instance();
 
 $Module = $Params['Module'];
+$surveyWizard = eZSurveyWizard::instance();
+if ( $surveyWizard->state() != 'none' )
+{
+    $uri = 'survey/wizard';
+    $Module->redirectTo( $uri );
+}
+else
+{
+    $offset = $Params['Offset'];
+    if ( !$offset )
+        $offset = 0;
+    $limit = 25;
 
-$offset = $Params['Offset'];
-if ( !$offset )
-    $offset = 0;
-$limit = 25;
+    $params = array( 'offset' => $offset,
+                     'limit' => $limit );
+    $count = 0;
+    $surveyList = eZSurvey::fetchSurveyList( $params, $count );
 
-$params = array( 'offset' => $offset,
-                 'limit' => $limit );
-$count = 0;
-$surveyList = eZSurvey::fetchSurveyList( $params, $count );
+    $viewParameters = array( 'offset' => $offset );
 
-$viewParameters = array( 'offset' => $offset );
+    require_once( 'kernel/common/template.php' );
+    $tpl = templateInit();
 
-require_once( 'kernel/common/template.php' );
-$tpl = templateInit();
+    $tpl->setVariable( 'survey_list', $surveyList );
+    $tpl->setVariable( 'count', $count );
+    $tpl->setVariable( 'limit', $limit );
+    $tpl->setVariable( 'view_parameters', $viewParameters );
 
-$tpl->setVariable( 'survey_list', $surveyList );
-$tpl->setVariable( 'count', $count );
-$tpl->setVariable( 'limit', $limit );
-$tpl->setVariable( 'view_parameters', $viewParameters );
-
-$Result = array();
-$Result['left_menu'] = 'design:parts/survey/menu.tpl';
-$Result['content'] = $tpl->fetch( 'design:survey/list.tpl' );
-$Result['path'] = array( array( 'url' => false,
-                                'text' => ezi18n( 'survey', 'Survey' ) ) );
+    $Result = array();
+    $Result['left_menu'] = 'design:parts/survey/menu.tpl';
+    $Result['content'] = $tpl->fetch( 'design:survey/list.tpl' );
+    $Result['path'] = array( array( 'url' => false,
+                                    'text' => ezi18n( 'survey', 'Survey' ) ) );
+}
 ?>

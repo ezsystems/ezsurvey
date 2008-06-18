@@ -16,7 +16,6 @@
 <p>{"Set the parent node for the survey attributes, which are of the type Related Object"|i18n('survey')}</p>
 <label>{"Content class."|i18n('survey')}</label>
 <select name="SurveyRelatedClassID">
-{def $content_class_list=fetch('class', 'list')}
 {foreach $content_class_list as $class}
 <option value="{$class.id}"{if $class.id|eq($config.contentclass_id)} selected="selected"{/if}>{$class.name|wash(xhtml)}</option>
 {/foreach}
@@ -35,9 +34,9 @@
     <th>Section</th>
 </tr>
 <tr>
-    <td>{$node.name|wash(xhtml)}</td>
-    <td>{$node.object.class_name|wash(xhtml)}</td>
-    <td>{$section.name|wash(xhtml)}</td>
+    <td><a href={$node.url_alias|ezurl()}>{$node.name|wash(xhtml)}</a></td>
+    <td><a href={concat('class/view/',$node.object.contentclass_id)|ezurl()}>{$node.object.class_name|wash(xhtml)}</a></td>
+    <td><a href={concat('section/view/',$node.object.section_id)|ezurl()}>{$section.name|wash(xhtml)}</td>
 </tr>
 </table>
 {/if}

@@ -304,7 +304,9 @@ class eZSurveyMultipleChoice extends eZSurveyQuestion
             $validation['error'] = true;
             $validation['errors'][] = array( 'message' => ezi18n( 'survey', 'Please answer the question %number as well!', null,
                                                                   array( '%number' => $this->questionNumber() ) ),
-                                             'question_number' => $this->questionNumber() );
+                                             'question_number' => $this->questionNumber(),
+                                             'code' => 'mc_answer_question',
+                                             'question' => $this );
         }
         else
         {
@@ -426,7 +428,9 @@ class eZSurveyMultipleChoice extends eZSurveyQuestion
                     $validation['error'] = true;
                     $validation['errors'][] = array( 'message' => ezi18n( 'survey', 'You must enter the value for an option in the question with id %question!', null,
                                                                           array( '%question' => $this->ID ) ),
-                                                     'question_id' => $this->ID );
+                                                     'question_id' => $this->ID,
+                                                     'code' => 'mc_value_for_option',
+                                                     'question' => $this );
                 }
             }
         }
@@ -449,7 +453,9 @@ class eZSurveyMultipleChoice extends eZSurveyQuestion
                     $validation['error'] = true;
                     $validation['errors'][] = array( 'message' => ezi18n( 'survey', 'Options in the question with id %question must have unique values!', null,
                                                                           array( '%question' => $this->ID ) ),
-                                                     'question_id' => $this->ID );
+                                                     'question_id' => $this->ID,
+                                             'code' => 'mc_option_unique_value',
+                                             'question' => $this );
                     break;
                 }
                 $optionValues[] = $optionValue;
