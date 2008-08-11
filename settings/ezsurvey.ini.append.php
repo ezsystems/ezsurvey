@@ -27,7 +27,7 @@ QuestionTypeList[]=receiver
 
 # Example group of a custom survey attribute in the extension custom
 # Will be availlable in:
-# <extensiondir>/<extensionname>/modules/survey/ezsurvey<questiontypename>.php
+# <extensiondir>/<extensionname>/modules/survey/classes/ezsurvey<questiontypename>.php
 [QuestionTypeSettings_custom]
 QuestionTypeList[]
 
