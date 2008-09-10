@@ -449,36 +449,39 @@ class eZSurveyResult extends eZPersistentObject
         $surveyString = printLine( $indexList, $questions );
 
         $db = eZDB::instance();
-        $rows = $db->arrayQuery( "SELECT ezsurveyquestionresult.result_id as id, question_id, questionoriginal_id, text
+        $query = "SELECT ezsurveyquestionresult.result_id as result_id, question_id, questionoriginal_id, text
                                   FROM ezsurveyquestionresult, ezsurveyresult, ezsurvey
                                   WHERE ezsurveyresult.id=ezsurveyquestionresult.result_id AND
                                         ezsurveyresult.survey_id=ezsurvey.id AND
                                         contentclassattribute_id='" . $contentClassAttributeID . "' AND
                                         contentobject_id='" . $contentObjectID . "' AND
                                         language_code='" . $languageCode . "'
-                                  ORDER BY tstamp ASC, ezsurveyquestionresult.result_id ASC" );
+                                  ORDER BY tstamp ASC, ezsurveyquestionresult.result_id ASC";
+        $rows = $db->arrayQuery( $query );
 
-        $extraQuery = "SELECT ezsurveyquestionmetadata.result_id as id, question_id, value
+        $extraQuery = "SELECT ezsurveyquestionmetadata.result_id as result_id, question_id, value
                                   FROM ezsurveyquestionmetadata, ezsurveyresult, ezsurvey
                                   WHERE ezsurveyresult.id=ezsurveyquestionmetadata.result_id AND
                                         ezsurveyresult.survey_id=ezsurvey.id AND
+                                        ezsurveyquestionmetadata.value<>'' AND
                                         contentclassattribute_id='" . $contentClassAttributeID . "' AND
                                         contentobject_id='" . $contentObjectID . "' AND
                                         language_code='" . $languageCode . "'
                                   ORDER BY tstamp ASC, ezsurveyquestionmetadata.result_id ASC";
 
         $extraResultArray = $db->arrayQuery( $extraQuery );
+
         $extraResultHash = array();
         foreach ( $extraResultArray as $extraResultItem )
         {
-            $extraResultHash[$extraResultItem['id']][$extraResultItem['question_id']] = $extraResultItem['value'];
+            $extraResultHash[$extraResultItem['result_id']][$extraResultItem['question_id']] = $extraResultItem['value'];
         }
         $oldID = false;
         $answers = array();
         foreach( array_keys( $rows ) as $key )
         {
             $row =& $rows[$key];
-            if ( $oldID != $row['id'] )
+            if ( $oldID != $row['result_id'] )
             {
                 if ( $oldID !== false )
                 {
@@ -486,16 +489,17 @@ class eZSurveyResult extends eZPersistentObject
                     unset( $answers );
                     $answers = array();
                 }
-                $oldID = $row['id'];
+                $oldID = $row['result_id'];
             }
-            if ( isset( $answers[$row['question_id']] ) )
+            if ( isset( $answers[$row['questionoriginal_id']] ) )
                 $answers[$row['questionoriginal_id']] .= "; ".$row['text'];  // esp. for multiple check boxes
             else
                 $answers[$row['questionoriginal_id']] = $row['text'];
 
-            if ( isset( $extraResultHash[$row['id']][$row['questionoriginal_id']] ) )
+            if ( isset( $extraResultHash[$row['result_id']][$row['question_id']] ) )
             {
-                $answers[$row['questionoriginal_id']] .= "; " . $extraResultHash[$row['id']][$row['questionoriginal_id']];
+                $answers[$row['questionoriginal_id']] .= "; " . $extraResultHash[$row['result_id']][$row['question_id']];
+                unset( $extraResultHash[$row['result_id']][$row['question_id']] );
             }
         }
         if ( $oldID !== false )
