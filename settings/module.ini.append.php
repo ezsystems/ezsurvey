@@ -2,5 +2,6 @@
 
 [ModuleSettings]
 ExtensionRepositories[]=ezsurvey
+ModuleList[]=survey
 
 */ ?>
