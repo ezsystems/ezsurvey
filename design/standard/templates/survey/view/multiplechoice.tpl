@@ -1,5 +1,5 @@
 <label>{$question.question_number}. {$question.text|wash('xhtml')} {switch match=$question.num}{case match=1}<strong class="required">*</strong>{/case}{case match=2}*{/case}{/switch}</label>
-<div class="survey-choices">
+<div class="survey-choices float-break">
 {def $attr_id=concat($prefix_attribute,'_ezsurvey_answer_id_',$question.id,'_', $attribute_id)}
 {def $attr_name=concat($prefix_attribute, '_ezsurvey_answer_' , $question.id, '_' , $attribute_id)}
 {def $attr_alternative=concat($prefix_attribute,'_ezsurvey_answer_alternative_',$question.id, '_', $attribute_id)}
