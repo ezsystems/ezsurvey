@@ -378,6 +378,7 @@ class eZSurveyType extends eZDataType
 
                         $tpl_email->setVariable( 'survey', $survey );
                         $tpl_email->setVariable( 'survey_questions', $surveyList );
+                        $tpl_email->setVariable( 'survey_node', $node );
 
                         $templateResult = $tpl_email->fetch( 'design:survey/mail.tpl' );
                         $subject = $tpl_email->variable( 'subject' );
