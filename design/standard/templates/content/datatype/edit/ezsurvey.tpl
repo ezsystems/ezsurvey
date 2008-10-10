@@ -230,7 +230,7 @@ function removeClass( element, className )
     <th class="tight">
     <label><input type="checkbox" name="{$prefixAttribute}_ezsurvey_question_visible_{$:item.id}_{$attributeID}"{section show=$:item.visible|eq(1)} checked="checked"{/section} /> {"Visible"|i18n('survey')}</label>
     </th>
-    <th class="tight"><button type="submit" name="CustomActionButton[{$attributeID}_ezsurvey_question_copy_{$:item.id}]" value=""><img src={"copy.gif"|ezimage()} /></button></th>
+    <th class="tight"><input type="image" name="CustomActionButton[{$attributeID}_ezsurvey_question_copy_{$:item.id}]" value="" src={"copy.gif"|ezimage()} /></th>
     <th class="tight"><input type="text" size="2" name="{$prefixAttribute}_ezsurvey_question_tab_order_{$:item.id}_{$attributeID}" value="{$:item.tab_order}" /></th>
 </tr>
 <tr>
