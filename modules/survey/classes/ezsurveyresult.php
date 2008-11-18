@@ -431,7 +431,7 @@ class eZSurveyResult extends eZPersistentObject
         }
         $survey = eZSurvey::fetchByObjectInfo( $contentObjectID, $contentClassAttributeID, $languageCode );
 
-        if ( !$survey || !$survey->published() || !$survey->enabled() || !$survey->valid() )
+        if ( !$survey || !$survey->published() )
             return false;
 
         $questionList = $survey->fetchQuestionList();
