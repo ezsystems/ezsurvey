@@ -414,9 +414,38 @@ class eZSurveyResult extends eZPersistentObject
             $found = false;
             foreach( $list as $key )
             {
-                if ( isset( $array[$key] ) )
+                $login = '';
+                $name = '';
+                if ( isset( $array[$key] ) and $key == 'user_id' and is_numeric( $array[$key] ) )
                 {
-                    $surveyString .=  '"'.str_replace( '"', "'", $array[$key] ).'";';
+                    $userID = $array[$key];
+                    $contentObject = eZContentObject::fetch( $userID );
+                    if ( $contentObject instanceof eZContentObject )
+                    {
+                        $name = $contentObject->attribute( 'name' );
+                        $dataMap = $contentObject->attribute( 'data_map' );
+                        foreach ( $dataMap as $contentObjectAttribute )
+                        {
+                            if ( $contentObjectAttribute->attribute( 'data_type_string' ) == 'ezuser' )
+                            {
+                                $user = $contentObjectAttribute->content();
+                                if ( $user instanceof eZUser )
+                                {
+                                    $content = $user->attribute( 'login' );
+                                }
+                            }
+                        }
+
+                        if ( $name != '' )
+                        {
+                            $content .= " ($name)";
+                        }
+                    }
+                    $surveyString .= '"' . str_replace( '"', '""', $content ).'";';
+                }
+                else if ( isset( $array[$key] ) )
+                {
+                    $surveyString .=  '"' . str_replace( '"', '""', $array[$key] ).'";';
                     $found = true;
                 }
                 else
@@ -427,8 +456,10 @@ class eZSurveyResult extends eZPersistentObject
             }
             if ( $found === true )
                 $surveyString .= "\n";
+
             return $surveyString;
         }
+
         $survey = eZSurvey::fetchByObjectInfo( $contentObjectID, $contentClassAttributeID, $languageCode );
 
         if ( !$survey || !$survey->published() )
@@ -446,10 +477,17 @@ class eZSurveyResult extends eZPersistentObject
                 $questions[$oldKey] = $questionList[$key]->attribute( 'text' );
             }
         }
+        $surveyINI = eZINI::instance( 'ezsurvey.ini' );
+        $showHeadlineUserName = $surveyINI->variable(  'CSVExportSettings', 'ShowUserName' ) == 'true' ? true : false;
+        if ( $showHeadlineUserName === true )
+        {
+            $indexList[] = 'user_id';
+            $questions['user_id'] = $surveyINI->variable( 'CSVExportSettings', 'HeadlineUserName' );
+        }
         $surveyString = printLine( $indexList, $questions );
 
         $db = eZDB::instance();
-        $query = "SELECT ezsurveyquestionresult.result_id as result_id, question_id, questionoriginal_id, text
+        $query = "SELECT ezsurveyquestionresult.result_id as result_id, question_id, questionoriginal_id, text, ezsurveyresult.user_id as user_id
                                   FROM ezsurveyquestionresult, ezsurveyresult, ezsurvey
                                   WHERE ezsurveyresult.id=ezsurveyquestionresult.result_id AND
                                         ezsurveyresult.survey_id=ezsurvey.id AND
@@ -478,6 +516,7 @@ class eZSurveyResult extends eZPersistentObject
         }
         $oldID = false;
         $answers = array();
+
         foreach( array_keys( $rows ) as $key )
         {
             $row =& $rows[$key];
@@ -500,6 +539,12 @@ class eZSurveyResult extends eZPersistentObject
             {
                 $answers[$row['questionoriginal_id']] .= "; " . $extraResultHash[$row['result_id']][$row['question_id']];
                 unset( $extraResultHash[$row['result_id']][$row['question_id']] );
+            }
+
+            if ( !isset( $answers['user_id'] ) and
+                 $showHeadlineUserName === true )
+            {
+                $answers['user_id'] = $row['user_id'];
             }
         }
         if ( $oldID !== false )
