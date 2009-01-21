@@ -1,4 +1,5 @@
 <script type="text/javascript">
+<!--
 {literal}
 function synchFormElements()
 {
@@ -109,6 +110,7 @@ function removeClass( element, className )
     writeClassArray( element, classArray );
 }
 {/literal}
+// -->
 </script>
 
 <fieldset>
@@ -258,7 +260,9 @@ function removeClass( element, className )
 </fieldset>
 
 <script type="text/javascript">
+<!--
 synchFormElements( '{$prefixAttribute}_ezsurvey_valid_from_no_limit_{$attributeID}', '{$prefixAttribute}_ezsurvey_valid_from_year_{$attributeID}', '{$prefixAttribute}_ezsurvey_valid_from_month_{$attributeID}', '{$prefixAttribute}_ezsurvey_valid_from_day_{$attributeID}', '{$prefixAttribute}_ezsurvey_valid_from_hour_{$attributeID}', '{$prefixAttribute}_ezsurvey_valid_from_minute_{$attributeID}', false );
 
 synchFormElements( '{$prefixAttribute}_ezsurvey_valid_to_no_limit_{$attributeID}', '{$prefixAttribute}_ezsurvey_valid_to_year_{$attributeID}', '{$prefixAttribute}_ezsurvey_valid_to_month_{$attributeID}', '{$prefixAttribute}_ezsurvey_valid_to_day_{$attributeID}', '{$prefixAttribute}_ezsurvey_valid_to_hour_{$attributeID}', '{$prefixAttribute}_ezsurvey_valid_to_minute_{$attributeID}', false );
+// -->
 </script>

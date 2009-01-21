@@ -40,7 +40,7 @@
 <tr class="{$style}">
   <td>
    {if $can_edit_results}
-        <input type="checkbox" name="DeleteIDArray[]" value="{$result_item.id}">
+        <input type="checkbox" name="DeleteIDArray[]" value="{$result_item.id}" />
         {set $showRemoveButton=true()}
    {else}
       &nbsp;
