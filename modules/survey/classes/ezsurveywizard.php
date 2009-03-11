@@ -287,7 +287,7 @@ class eZSurveyWizard
 
         if ( file_exists( $file ) )
         {
-            $package =& eZPackage::import( $file, $packageName );
+            $package = eZPackage::import( $file, $packageName );
 
             if ( is_object( $package ) )
             {
