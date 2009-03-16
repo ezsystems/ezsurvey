@@ -136,19 +136,19 @@ class eZSurveyMultipleChoice extends eZSurveyQuestion
         $this->Options = array();
         if ( $this->Text2 != '' )
         {
-            $xml = new eZXML();
-            $dom = $xml->domTree( $this->Text2 );
-            $optionArray = $dom->elementsByName( "option" );
+            $dom = new DOMDocument( '1.0', 'utf-8' );
+            $dom->loadXML( $this->Text2 );
+            $optionArray = $dom->getElementsByTagName( "option" );
             if ( $optionArray )
             {
                 foreach ( $optionArray as $option )
                 {
-                    $optionLabel = $option->elementsByName( "label" );
-                    $optionLabel = $optionLabel[0]->textContent();
-                    $optionValue = $option->elementsByName( "value" );
-                    $optionValue = $optionValue[0]->textContent();
-                    $optionChecked = $option->elementsByName( "checked" );
-                    $optionChecked = $optionChecked[0]->textContent();
+                    $optionLabel = $option->getElementsByTagName( "label" );
+                    $optionLabel = $optionLabel->item( 0 )->textContent;
+                    $optionValue = $option->getElementsByTagName( "value" );
+                    $optionValue = $optionValue->item( 0 )->textContent;
+                    $optionChecked = $option->getElementsByTagName( "checked" );
+                    $optionChecked = $optionChecked->item( 0 )->textContent;
                     $this->addOption( $optionLabel, $optionValue, $optionChecked );
                 }
             }
@@ -157,9 +157,9 @@ class eZSurveyMultipleChoice extends eZSurveyQuestion
         $this->ExtraInfo = array();
         if ( $this->Text3 != '' )
         {
-            $xml = new eZXML();
-            $dom = $xml->domTree( $this->Text3 );
-            $optionArray = $dom->elementsByName( "option" );
+            $dom = new DOMDocument( '1.0', 'utf-8' );
+            $dom->loadXML( $this->Text3 );
+            $optionArray = $dom->getElementsByTagName( "option" );
             if ( $optionArray )
             {
                 $optionList = array( 'label', 'value', 'default_value', 'column', 'row', 'enable_css_style', 'enabled', 'value_checked' );
@@ -168,9 +168,9 @@ class eZSurveyMultipleChoice extends eZSurveyQuestion
                     $optionValue = array();
                     foreach (  $optionList as $optionListName )
                     {
-                        $optionValue[$optionListName] = $option->elementsByName( $optionListName );
-                        if ( isset( $optionValue[$optionListName][0] ) )
-                             $optionValue[$optionListName] = $optionValue[$optionListName][0]->textContent();
+                        $optionValue[$optionListName] = $option->getElementsByTagName( $optionListName );
+                        if ( isset( $optionValue[$optionListName] ) )
+                             $optionValue[$optionListName] = $optionValue[$optionListName]->item( 0 )->textContent;
                         else
                              $optionValue[$optionListName] = '';
                     }
@@ -185,9 +185,8 @@ class eZSurveyMultipleChoice extends eZSurveyQuestion
 
     function encodeXMLOptions()
     {
-        $doc = new eZDOMDocument();
-        $root = $doc->createElementNode( "options" );
-        $doc->setRoot( $root );
+        $doc = new DOMDocument( '1.0', 'utf-8' );
+        $rootElement = $doc->appendChild( new DomElement( "options" ) );
 
         $options = array();
         $optionLabel = array();
@@ -196,26 +195,26 @@ class eZSurveyMultipleChoice extends eZSurveyQuestion
 
         foreach ( $this->Options as $i => $optionArray )
         {
-            $options[$i] = $doc->createElementNode( "option" );
-            $optionLabel[$i] = $doc->createElementNode( "label" );
+            $options[$i] = $doc->createElement( "option" );
+            $optionLabel[$i] = $doc->createElement( "label" );
             $optionLabel[$i]->appendChild( $doc->createTextNode( $optionArray['label'] ) );
             $options[$i]->appendChild( $optionLabel[$i] );
 
-            $optionValue[$i] = $doc->createElementNode( "value" );
+            $optionValue[$i] = $doc->createElement( "value" );
             $optionValue[$i]->appendChild( $doc->createTextNode( $optionArray['value'] ) );
             $options[$i]->appendChild( $optionValue[$i] );
 
-            $optionChecked[$i] = $doc->createElementNode( "checked" );
+            $optionChecked[$i] = $doc->createElement( "checked" );
             $optionChecked[$i]->appendChild( $doc->createTextNode( $optionArray['checked'] ) );
             $options[$i]->appendChild( $optionChecked[$i] );
 
-            $root->appendChild( $options[$i] );
+            $rootElement->appendChild( $options[$i] );
         }
-        $this->Text2 = $doc->toString();
 
-        $doc2 = new eZDOMDocument();
-        $root2 = $doc2->createElementNode( "extra_option" );
-        $doc2->setRoot( $root2 );
+        $this->Text2 = $doc->saveXml();
+
+        $doc2 = new DOMDocument( '1.0', 'utf-8' );
+        $root2 = $doc2->appendChild( new DomElement( "extra_option" ) );
 
         $options = array();
         $optionLabel = array();
@@ -228,42 +227,42 @@ class eZSurveyMultipleChoice extends eZSurveyQuestion
         $optionValueChecked = array();
         foreach ( $this->ExtraInfo as $i => $optionArray )
         {
-            $options[$i] = $doc2->createElementNode( "option" );
-            $optionLabel[$i] = $doc2->createElementNode( "label" );
+            $options[$i] = $doc2->createElement( "option" );
+            $optionLabel[$i] = $doc2->createElement( "label" );
             $optionLabel[$i]->appendChild( $doc2->createTextNode( $optionArray['label'] ) );
             $options[$i]->appendChild( $optionLabel[$i] );
 
-            $optionValue[$i] = $doc2->createElementNode( "value" );
+            $optionValue[$i] = $doc2->createElement( "value" );
             $optionValue[$i]->appendChild( $doc2->createTextNode( $optionArray['value'] ) );
             $options[$i]->appendChild( $optionValue[$i] );
 
-            $optionDefaultValue[$i] = $doc2->createElementNode( "default_value" );
+            $optionDefaultValue[$i] = $doc2->createElement( "default_value" );
             $optionDefaultValue[$i]->appendChild( $doc2->createTextNode( $optionArray['default_value'] ) );
             $options[$i]->appendChild( $optionDefaultValue[$i] );
 
-            $optionColumn[$i] = $doc2->createElementNode( "column" );
+            $optionColumn[$i] = $doc2->createElement( "column" );
             $optionColumn[$i]->appendChild( $doc2->createTextNode( $optionArray['column'] ) );
             $options[$i]->appendChild( $optionColumn[$i] );
 
-            $optionRow[$i] = $doc2->createElementNode( "row" );
+            $optionRow[$i] = $doc2->createElement( "row" );
             $optionRow[$i]->appendChild( $doc2->createTextNode( $optionArray['row'] ) );
             $options[$i]->appendChild( $optionRow[$i] );
 
-            $optionCssStyle[$i] = $doc2->createElementNode( "enable_css_style" );
+            $optionCssStyle[$i] = $doc2->createElement( "enable_css_style" );
             $optionCssStyle[$i]->appendChild( $doc2->createTextNode( $optionArray['enable_css_style'] ) );
             $options[$i]->appendChild( $optionCssStyle[$i] );
 
-            $optionValueChecked[$i] = $doc2->createElementNode( "value_checked" );
+            $optionValueChecked[$i] = $doc2->createElement( "value_checked" );
             $optionValueChecked[$i]->appendChild( $doc2->createTextNode( $optionArray['value_checked'] ) );
             $options[$i]->appendChild( $optionValueChecked[$i] );
 
-            $optionEnabled[$i] = $doc2->createElementNode( "enabled" );
+            $optionEnabled[$i] = $doc2->createElement( "enabled" );
             $optionEnabled[$i]->appendChild( $doc2->createTextNode( $optionArray['enabled'] ) );
             $options[$i]->appendChild( $optionEnabled[$i] );
 
             $root2->appendChild( $options[$i] );
         }
-        $this->Text3 = $doc2->toString();
+        $this->Text3 = $doc2->saveXml();
     }
 
     function hasAttribute( $attr_name )

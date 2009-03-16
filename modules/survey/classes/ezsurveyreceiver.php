@@ -116,19 +116,19 @@ class eZSurveyReceiver extends eZSurveyQuestion
         $this->Options = array();
         if ( $this->Text2 != '' )
         {
-            $xml = new eZXML();
-            $dom = $xml->domTree( $this->Text2 );
-            $optionArray =& $dom->elementsByName( "option" );
+            $dom = new DOMDocument( '1.0', 'utf-8' );
+            $dom->loadXML( $this->Text2 );
+            $optionArray = $dom->getElementsByTagName( "option" );
             if ( $optionArray )
             {
                 foreach ( $optionArray as $option )
                 {
-                    $optionLabel = $option->elementsByName( "label" );
-                    $optionLabel = $optionLabel[0]->textContent();
-                    $optionValue = $option->elementsByName( "email" );
-                    $optionValue = $optionValue[0]->textContent();
-                    $optionChecked = $option->elementsByName( "checked" );
-                    $optionChecked = $optionChecked[0]->textContent();
+                    $optionLabel = $option->getElementsByTagName( "label" );
+                    $optionLabel = $optionLabel->item( 0 )->textContent;
+                    $optionValue = $option->getElementsByTagName( "email" );
+                    $optionValue = $optionValue->item( 0 )->textContent;
+                    $optionChecked = $option->getElementsByTagName( "checked" );
+                    $optionChecked = $optionChecked->item( 0 )->textContent;
                     $this->addOption( $optionLabel, $optionValue, $optionChecked );
                 }
             }
@@ -141,9 +141,8 @@ class eZSurveyReceiver extends eZSurveyQuestion
 
     function encodeXMLOptions()
     {
-        $doc = new eZDOMDocument();
-        $root = $doc->createElementNode( "options" );
-        $doc->setRoot( $root );
+        $doc = new DOMDocument( '1.0', 'utf-8' );
+        $rootElement = $doc->appendChild( new DomElement( "options" ) );
 
         $options = array();
         $optionLabel = array();
@@ -152,22 +151,22 @@ class eZSurveyReceiver extends eZSurveyQuestion
 
         foreach ( $this->Options as $i => $optionArray )
         {
-            $options[$i] = $doc->createElementNode( "option" );
-            $optionLabel[$i] = $doc->createElementNode( "label" );
+            $options[$i] = $doc->createElement( "option" );
+            $optionLabel[$i] = $doc->createElement( "label" );
             $optionLabel[$i]->appendChild( $doc->createTextNode( $optionArray['label'] ) );
             $options[$i]->appendChild( $optionLabel[$i] );
 
-            $optionValue[$i] = $doc->createElementNode( "email" );
+            $optionValue[$i] = $doc->createElement( "email" );
             $optionValue[$i]->appendChild( $doc->createTextNode( $optionArray['value'] ) );
             $options[$i]->appendChild( $optionValue[$i] );
 
-            $optionChecked[$i] = $doc->createElementNode( "checked" );
+            $optionChecked[$i] = $doc->createElement( "checked" );
             $optionChecked[$i]->appendChild( $doc->createTextNode( $optionArray['checked'] ) );
             $options[$i]->appendChild( $optionChecked[$i] );
 
-            $root->appendChild( $options[$i] );
+            $rootElement->appendChild( $options[$i] );
         }
-        $this->Text2 = $doc->toString();
+        $this->Text2 = $doc->saveXml();
     }
 
     function hasAttribute( $attr_name )

@@ -10,12 +10,14 @@
 {/if}
 {switch match=$question.num}
 {case match=1} {* Radio buttons in a row *}
+<div class="block float-break">
 {section var=option loop=$question.options}
     <div class="element"><label><input id="{$attr_id}_{$option.id}" name="{$attr_name}" type="radio" value="{$option.value}"{if is_set($previous_vars.answer)}{if $previous_vars.answer|eq($option.value)} checked="checked"{/if}{else}{if is_set( $question_result.content[$option.value] )} checked="checked"{/if}{/if} onclick="synchFormElements( '{$attr_id}_{$option.id}', '{$attr_alternative}', false );" />{$option.label}</label></div>
 {/section}
 {if $question.extra_info.enabled|eq(1)}
      <div class="element"><label><input id="{$attr_id}" name="{$attr_name}" type="radio" value="{$question.extra_info.value}"{if is_set($previous_vars.answer)}{if $previous_vars.answer|eq($question.extra_info.value)} checked="checked"{/if}{else}{if is_set( $question_result.content[$question.extra_info.value])} checked="checked"{/if}{/if} onclick="synchFormElements( '{$attr_id}', '{$attr_alternative}', true );" />{$question.extra_info.label|wash(xhtml)}</label></div>
 {/if}
+</div>
 {/case}
 {case match=2} {* Radio buttons in a column *}
 {section var=option loop=$question.options}
@@ -26,22 +28,27 @@
 {/if}
 {/case}
 {case match=3} {* check box in a row *}
+<div class="block float-break">
 {section var=option loop=$question.options}
     <div class="element"><label><input name="{$attr_name}[]" type="checkbox" value="{$option.value}"{if is_set($previous_vars.answer)}{if is_set($previous_vars.answer[$option.value])} checked="checked"{/if}{else}{if is_set( $question_result.content[$option.value] )} checked="checked"{/if}{/if} />{$option.label}</label></div>
 {/section}
 {if $question.extra_info.enabled|eq(1)}
      <div class="element"><label><input id="{$attr_id}" name="{$attr_name}[]" type="checkbox" value="{$question.extra_info.value}"{if is_set($previous_vars.answer)}{if is_set($previous_vars.answer[$question.extra_info.value])} checked="checked"{/if}{else}{if is_set( $question_result.content[$question.extra_info.value])} checked="checked"{/if}{/if} onclick="synchFormElements( '{$attr_id}', '{$attr_alternative}', true );" />{$question.extra_info.label|wash(xhtml)}</label></div>
 {/if}
+</div>
 {/case}
 {case match=4} {* check box in a column *}
+<div class="block float-break">
 {section var=option loop=$question.options}
     <div class="block"><label><input name="{$attr_name}[]" type="checkbox" value="{$option.value}"{if is_set($previous_vars.answer)}{if is_set($previous_vars.answer[$option.value])} checked="checked"{/if}{else}{if is_set( $question_result.content[$option.value] )} checked="checked"{/if}{/if} />{$option.label}</label></div>
 {/section}
 {if $question.extra_info.enabled|eq(1)}
      <div class="block"><label><input id="{$attr_id}" name="{$attr_name}[]" type="checkbox" value="{$question.extra_info.value}"{if is_set($previous_vars.answer)}{if is_set($previous_vars.answer[$question.extra_info.value])} checked="checked"{/if}{else}{if is_set( $question_result.content[$question.extra_info.value])} checked="checked"{/if}{/if} onclick="synchFormElements( '{$attr_id}', '{$attr_alternative}', true );" />{$question.extra_info.label|wash(xhtml)}</label></div>
 {/if}
+</div>
 {/case}
 {case match=5} {* select box *}
+<div class="block float-break">
 <select name="{$attr_name}" onclick="synchFormElements( '{$attr_id}', '{$attr_alternative}', true );>
   {section var=option loop=$question.options}
     <option value="{$option.value}"{if is_set($previous_vars.answer)}{if $previous_vars.answer|eq($option.value)} selected="selected"{/if}{else}{if is_set( $question_result.content[$option.value] )} selected="selected"{/if}{/if}>{$option.label}</option>
@@ -50,6 +57,7 @@
        <option id="{$attr_id}" value="{$question.extra_info.value|wash(xhtml)}"{if is_set($previous_vars.answer)}{if $previous_vars.answer|eq($question.extra_info.value)} selected="selected"{/if}{else}{if is_set( $question_result.content[$question.extra_info.value] )} selected="selected"{/if}{/if}>{$question.extra_info.label|wash(xhtml)}</option>
    {/if}
 </select>
+</div>
 {/case}
 {/switch}
 
@@ -66,38 +74,45 @@
 
 {switch match=$question.num}
 {case match=1} {* Radio buttons in a row *}
+<div class="block float-break">
 {section var=option loop=$question.options}
     <div class="element"><label><input id="{$attr_id}_{$option.id}" name="{$attr_name}" type="radio" value="{$option.value}"{section show=$option.toggled|eq(1)} checked="checked"{/section} onclick="synchFormElements( '{$attr_id}_{$option.id}', '{$attr_alternative}', false );" />{$option.label}</label></div>
 {/section}
 {if $question.extra_info.enabled|eq(1)}
     <div class="element"><label><input id="{$attr_id}" name="{$attr_name}" type="radio" value="{$question.extra_info.value|wash(xhtml)}"{section show=$question.extra_info.value_checked|eq(1)} checked="checked"{/section} onclick="synchFormElements( '{$attr_id}', '{$attr_alternative}', true );" />{$question.extra_info.label|wash(xhtml)}</label></div>
 {/if}
+</div>
 {/case}
 {case match=2} {* Radio buttons in a column *}
 {section var=option loop=$question.options}
-    <div class="block"><label><input id="{$attr_id}_{$option.id}" name="{$attr_name}" type="radio" value="{$option.value}"{section show=$option.toggled|eq(1)} checked="checked"{/section} onclick="synchFormElements( '{$attr_id}_{$option.id}', '{$attr_alternative}', false );" />{$option.label}</label></div>
+    <div class="block float-break"><label><input id="{$attr_id}_{$option.id}" name="{$attr_name}" type="radio" value="{$option.value}"{section show=$option.toggled|eq(1)} checked="checked"{/section} onclick="synchFormElements( '{$attr_id}_{$option.id}', '{$attr_alternative}', false );" />{$option.label}</label></div>
 {/section}
 {if $question.extra_info.enabled|eq(1)}
-<div class="block"><label><input id="{$attr_id}" name="{$attr_name}" type="radio" value="{$question.extra_info.value|wash(xhtml)}"{section show=$question.extra_info.value_checked|eq(1)} checked="checked"{/section} onclick="synchFormElements( '{$attr_id}', '{$attr_alternative}', true );" />{$question.extra_info.label|wash(xhtml)}</label></div>
+<div class="block float-break"><label><input id="{$attr_id}" name="{$attr_name}" type="radio" value="{$question.extra_info.value|wash(xhtml)}"{section show=$question.extra_info.value_checked|eq(1)} checked="checked"{/section} onclick="synchFormElements( '{$attr_id}', '{$attr_alternative}', true );" />{$question.extra_info.label|wash(xhtml)}</label></div>
 {/if}
 {/case}
 {case match=3} {* Checkbox in a row *}
+<div class="block float-break">
 {section var=option loop=$question.options}
     <div class="element"><label><input name="{$attr_name}[]" type="checkbox" value="{$option.value}"{section show=$option.toggled|eq(1)} checked="checked"{/section} />{$option.label}</label></div>
 {/section}
 {if $question.extra_info.enabled|eq(1)}
     <div class="element"><label><input id="{$attr_id}" name="{$attr_name}[]" type="checkbox" value="{$question.extra_info.value|wash(xhtml)}"{section show=$question.extra_info.value_checked|eq(1)} checked="checked"{/section} onclick="synchFormElements( '{$attr_id}', '{$attr_alternative}', true );" />{$question.extra_info.label|wash(xhtml)}</label></div>
 {/if}
+</div>
 {/case}
 {case match=4} {* Checkbox in a column *}
+<div class="block float-break">
 {section var=option loop=$question.options}
     <div class="block"><label><input name="{$attr_name}[]" type="checkbox" value="{$option.value}"{section show=$option.toggled|eq(1)} checked="checked"{/section} />{$option.label}</label></div>
 {/section}
 {if $question.extra_info.enabled|eq(1)}
-     <div class="block"><label><input id="{$attr_id}" name="{$attr_name}[]" type="checkbox" value="{$question.extra_info.value|wash(xhtml)}"{section show=$question.extra_info.value_checked|eq(1)} checked="checked"{/section} onclick="synchFormElements( '{$attr_id}', '{$attr_alternative}', true );" />{$question.extra_info.label|wash(xhtml)}</label></div>
+     <div class="block float-break"><label><input id="{$attr_id}" name="{$attr_name}[]" type="checkbox" value="{$question.extra_info.value|wash(xhtml)}"{section show=$question.extra_info.value_checked|eq(1)} checked="checked"{/section} onclick="synchFormElements( '{$attr_id}', '{$attr_alternative}', true );" />{$question.extra_info.label|wash(xhtml)}</label></div>
 {/if}
+</div>
 {/case}
 {case match=5} {* Select box *}
+<div class="block float-break">
 <select name="{$attr_name}" onclick="synchFormElements( '{$attr_id}', '{$attr_alternative}', true );">
   {section var=option loop=$question.options}
     <option value="{$option.value}"{section show=$option.toggled|eq(1)} selected="selected"{/section}>{$option.label}</option>
@@ -106,6 +121,7 @@
        <option id="{$attr_id}" value="{$question.extra_info.value|wash(xhtml)}"{section show=$question.extra_info.value_checked|eq(1)} selected="selected"{/section}>{$question.extra_info.label|wash(xhtml)}</option>
    {/if}
 </select>
+</div>
 {/case}
 {/switch}
 {if $question.extra_info.enabled|eq(1)} {* Extra info block *}
