@@ -115,10 +115,15 @@ BEGIN
 END;
 /
 
-CREATE  INDEX ezsurveymetadata_result_id_i ON ezsurveymetadata (result_id);
-CREATE  INDEX ezsurveymetadata_attr_name_i ON ezsurveymetadata (attr_name);
-CREATE  INDEX ezsurveymetadata_attr_value_i ON ezsurveymetadata (attr_value);
-CREATE  INDEX ezsurveyquestion_survey_id_i ON ezsurveyquestion (survey_id);
-CREATE  INDEX ezsurveyquestionresult_00040_i ON ezsurveyquestionresult (result_id);
-CREATE  INDEX ezsurveyquestionresult_00041_i ON ezsurveyquestionresult (question_id);
-CREATE  INDEX ezsurveyresult_survey_id_i ON ezsurveyresult (survey_id);
+CREATE INDEX ezsurvey_contentobject_id_i ON ezsurvey (contentobject_id);
+CREATE INDEX ezsurvey_contentobjectattribute_id_i ON ezsurvey (contentobjectattribute_id);
+CREATE INDEX ezsurvey_contentobjectattribute_version_i ON ezsurvey (contentobjectattribute_version);
+CREATE INDEX ezsurvey_contentclassattribute_id_i ON ezsurvey (contentclassattribute_id);
+CREATE INDEX ezsurvey_language_code_i ON ezsurvey (language_code);
+CREATE INDEX ezsurveymetadata_result_id_i ON ezsurveymetadata (result_id);
+CREATE INDEX ezsurveymetadata_attr_name_i ON ezsurveymetadata (attr_name);
+CREATE INDEX ezsurveymetadata_attr_value_i ON ezsurveymetadata (attr_value);
+CREATE INDEX ezsurveyquestion_survey_id_i ON ezsurveyquestion (survey_id);
+CREATE INDEX ezsurveyquestionresult_00040_i ON ezsurveyquestionresult (result_id);
+CREATE INDEX ezsurveyquestionresult_00041_i ON ezsurveyquestionresult (question_id);
+CREATE INDEX ezsurveyresult_survey_id_i ON ezsurveyresult (survey_id);

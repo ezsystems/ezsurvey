@@ -14,7 +14,12 @@ CREATE TABLE ezsurvey (
     contentobjectattribute_version int(11) DEFAULT 0 NOT NULL,
     contentclassattribute_id int(11) DEFAULT 0 NOT NULL,
     language_code varchar(20) DEFAULT NULL,
-    PRIMARY KEY (id)
+    PRIMARY KEY (id),
+    KEY ezsurvey_contentobject_id (contentobject_id),
+    KEY ezsurvey_contentobjectattribute_id (contentobjectattribute_id),
+    KEY ezsurvey_contentobjectattribute_version (contentobjectattribute_version),
+    KEY ezsurvey_contentclassattribute_id (contentclassattribute_id),
+    KEY ezsurvey_language_code (language_code)
 );
 
 CREATE TABLE ezsurveyquestion (

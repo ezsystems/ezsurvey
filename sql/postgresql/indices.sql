@@ -3,6 +3,12 @@
 ALTER TABLE ONLY ezsurvey
     ADD CONSTRAINT ezsurvey_pkey PRIMARY KEY (id);
 
+CREATE INDEX ezsurvey_contentobject_id ON ezsurvey(contentobject_id); 
+CREATE INDEX ezsurvey_contentobjectattribute_id ON ezsurvey(contentobjectattribute_id); 
+CREATE INDEX ezsurvey_contentobjectattribute_version ON ezsurvey(contentobjectattribute_version); 
+CREATE INDEX ezsurvey_contentclassattribute_id ON ezsurvey(contentclassattribute_id); 
+CREATE INDEX ezsurvey_language_code ON ezsurvey(language_code);
+
 -- ezsurveyquestion: index on primary key id, index on survey_id
 
 ALTER TABLE ONLY ezsurveyquestion

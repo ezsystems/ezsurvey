@@ -119,6 +119,46 @@ $schema = array (
           0 => 'id',
         ),
       ),
+      'ezsurvey_contentclassattribute_id' => 
+      array (
+        'type' => 'non-unique',
+        'fields' => 
+        array (
+          0 => 'contentclassattribute_id',
+        ),
+      ),
+      'ezsurvey_contentobject_id' => 
+      array (
+        'type' => 'non-unique',
+        'fields' => 
+        array (
+          0 => 'contentobject_id',
+        ),
+      ),
+      'ezsurvey_contentobjectattribute_id' => 
+      array (
+        'type' => 'non-unique',
+        'fields' => 
+        array (
+          0 => 'contentobjectattribute_id',
+        ),
+      ),
+      'ezsurvey_contentobjectattribute_version' => 
+      array (
+        'type' => 'non-unique',
+        'fields' => 
+        array (
+          0 => 'contentobjectattribute_version',
+        ),
+      ),
+      'ezsurvey_language_code' => 
+      array (
+        'type' => 'non-unique',
+        'fields' => 
+        array (
+          0 => 'language_code',
+        ),
+      ),
     ),
   ),
   'ezsurveymetadata' => 
