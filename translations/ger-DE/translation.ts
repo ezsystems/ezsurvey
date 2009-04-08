@@ -1000,5 +1000,9 @@ will be directly sent to the address.</source>
         <source>Configure the survey related object</source>
         <translation type="unfinished"></translation>
     </message>
+    <message>
+        <source>All values in Valid to need to be numeric.</source>
+        <translation type="unfinished"></translation>
+    </message>
 </context>
 </TS>

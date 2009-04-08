@@ -16,3 +16,5 @@ Changes from eZ Survey2.0 beta1 to 2.0
 - Fixed bug with receiver template (wrong placement of div tag).
 - Fixed bug with javaScript and multiplechoice.
 - Fixed comments and docs.
+- Fixed translations.
+- Completed norwegian translation.

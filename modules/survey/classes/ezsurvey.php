@@ -502,13 +502,13 @@ class eZSurvey extends eZPersistentObject
 
         foreach ( $validArray as $validVariable )
         {
-            $postValidTo = $prefix . '_valid_to_' . $validVariable . '_' . $attributeID;
-            $postValidToHidden = $prefix . '_valid_to_' . $validVariable . '_' . $attributeID;
+            $postValidTo = $prefix . '_ezsurvey_valid_to_' . $validVariable . '_' . $attributeID;
+            $postValidToHidden = $prefix . '_ezsurvey_valid_to_' . $validVariable . '_' . $attributeID;
             if ( ( $http->hasPostVariable( $postValidTo ) and !is_numeric( $http->postVariable( $postValidTo ) ) ) or
                  ( $http->hasPostVariable( $postValidToHidden ) and !is_numeric( $http->postVariable( $postValidToHidden ) ) ) )
             {
                 $validation['error'] = true;
-                $validation['errors'][] = array( 'message' => ezi18n( 'survey', 'All values in Valid from need to be numeric.' ) );
+                $validation['errors'][] = array( 'message' => ezi18n( 'survey', 'All values in Valid to need to be numeric.' ) );
             }
         }
 
