@@ -74,8 +74,8 @@ class eZSurveyWizard
         $db = eZDB::instance();
         $query = "SELECT ezcontentclass.id
                   FROM   ezcontentclass,
-                         ezcontentclass_attribute as ezcontentclass_attribute1,
-                         ezcontentclass_attribute as ezcontentclass_attribute2
+                         ezcontentclass_attribute ezcontentclass_attribute1,
+                         ezcontentclass_attribute ezcontentclass_attribute2
                   WHERE  ezcontentclass.version='0' AND
                          ezcontentclass.id=ezcontentclass_attribute1.contentclass_id AND
                          ezcontentclass_attribute1.is_information_collector='0' AND
