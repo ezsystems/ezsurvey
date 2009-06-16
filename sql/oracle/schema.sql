@@ -24,17 +24,10 @@ CREATE TABLE ezsurvey (
   language_code VARCHAR2(20) DEFAULT NULL,
   PRIMARY KEY(id)
 );
-CREATE TABLE ezsurveymetadata (
-  id INTEGER NOT NULL,
-  result_id INTEGER DEFAULT 0 NOT NULL,
-  attr_name VARCHAR2(255),
-  attr_value VARCHAR2(255),
-  PRIMARY KEY(id)
-);
 CREATE TABLE ezsurveyquestion (
   id INTEGER NOT NULL,
-  questionoriginal_id INTEGER DEFAULT 0 NOT NULL,
   survey_id INTEGER DEFAULT 0 NOT NULL,
+  original_id INTEGER DEFAULT 0 NOT NULL,
   tab_order INTEGER DEFAULT 0 NOT NULL,
   mandatory INTEGER DEFAULT 1 NOT NULL,
   visible INTEGER DEFAULT 1 NOT NULL,
@@ -47,6 +40,14 @@ CREATE TABLE ezsurveyquestion (
   num2 INTEGER,
   PRIMARY KEY(id)
 );
+CREATE TABLE ezsurveyresult (
+  id INTEGER NOT NULL,
+  survey_id INTEGER DEFAULT 0 NOT NULL,
+  user_id INTEGER DEFAULT 0 NOT NULL,
+  tstamp INTEGER DEFAULT 0 NOT NULL,
+  user_session_id VARCHAR2(255),
+  PRIMARY KEY(id)
+);
 CREATE TABLE ezsurveyquestionresult (
   id INTEGER NOT NULL,
   result_id INTEGER DEFAULT 0 NOT NULL,
@@ -55,12 +56,11 @@ CREATE TABLE ezsurveyquestionresult (
   text VARCHAR2(4000),
   PRIMARY KEY(id)
 );
-CREATE TABLE ezsurveyresult (
+CREATE TABLE ezsurveymetadata (
   id INTEGER NOT NULL,
-  survey_id INTEGER DEFAULT 0 NOT NULL,
-  user_id INTEGER DEFAULT 0 NOT NULL,
-  tstamp INTEGER DEFAULT 0 NOT NULL,
-  user_session_id VARCHAR2(255),
+  result_id INTEGER DEFAULT 0 NOT NULL,
+  attr_name VARCHAR2(255),
+  attr_value VARCHAR2(255),
   PRIMARY KEY(id)
 );
 CREATE TABLE ezsurveyrelatedconfig (
@@ -83,35 +83,35 @@ CREATE TABLE ezsurveyquestionmetadata (
 CREATE OR REPLACE TRIGGER ezsurvey_id_tr
 BEFORE INSERT ON ezsurvey FOR EACH ROW WHEN (new.id IS NULL)
 BEGIN
-  SELECT s_survey.nextval INTO :new.id FROM dual; 
+  SELECT s_survey.nextval INTO :new.id FROM dual;
 END;
 /
 
 CREATE OR REPLACE TRIGGER ezsurveymetadata_id_tr
 BEFORE INSERT ON ezsurveymetadata FOR EACH ROW WHEN (new.id IS NULL)
 BEGIN
-  SELECT s_surveymetadata.nextval INTO :new.id FROM dual; 
+  SELECT s_surveymetadata.nextval INTO :new.id FROM dual;
 END;
 /
 
 CREATE OR REPLACE TRIGGER ezsurveyquestion_id_tr
 BEFORE INSERT ON ezsurveyquestion FOR EACH ROW WHEN (new.id IS NULL)
 BEGIN
-  SELECT s_surveyquestion.nextval INTO :new.id FROM dual; 
+  SELECT s_surveyquestion.nextval INTO :new.id FROM dual;
 END;
 /
 
 CREATE OR REPLACE TRIGGER ezsurveyquestionresult_id_tr
 BEFORE INSERT ON ezsurveyquestionresult FOR EACH ROW WHEN (new.id IS NULL)
 BEGIN
-  SELECT s_surveyquestionresult.nextval INTO :new.id FROM dual; 
+  SELECT s_surveyquestionresult.nextval INTO :new.id FROM dual;
 END;
 /
 
 CREATE OR REPLACE TRIGGER ezsurveyresult_id_tr
 BEFORE INSERT ON ezsurveyresult FOR EACH ROW WHEN (new.id IS NULL)
 BEGIN
-  SELECT s_surveyresult.nextval INTO :new.id FROM dual; 
+  SELECT s_surveyresult.nextval INTO :new.id FROM dual;
 END;
 /
 
