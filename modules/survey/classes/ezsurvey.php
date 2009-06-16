@@ -349,7 +349,7 @@ class eZSurvey extends eZPersistentObject
             $limitArray['limit'] = $params['limit'];
 
         $selectQueries['var'] = "ezcontentobject.id AS contentobject_id,
-                         ezcontentobject_attribute.language_code as contentobjectattribute_language_code,
+                         ezcontentobject_attribute.language_code as contentobjattr_language_code,
                          ezcontentobject.name,
                          ezsurvey.*";
         $selectQueries['count'] = "count(ezcontentobject.id) AS count";
@@ -376,7 +376,7 @@ class eZSurvey extends eZPersistentObject
                         $object = new eZSurvey( $row );
                         $objectArray[] = array( 'survey' => $object,
                                                 'info' => array( 'contentobject_id' => $row['contentobject_id'],
-                                                                 'contentobjectattribute_language_code' => $row['contentobjectattribute_language_code'],
+                                                                 'contentobjectattribute_language_code' => $row['contentobjtattr_language_code'],
                                                                  'name' => $row['name'] ) );
                     }
                 }
