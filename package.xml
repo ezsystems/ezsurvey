@@ -9,7 +9,7 @@ Upgrades to the development format will not be supported.</warning>
   <name>ezsurvey</name> <!-- Identifier of the package -->
   <summary>[ExtensionName]</summary> <!-- Name of the package -->
   <description>Survey module for eZ Publish</description> <!-- Long description of package functionality-->
-  <ezpublish xmlns:ezpublish="http://ez.no/ezpublish"> 
+  <ezpublish xmlns:ezpublish="http://ez.no/ezpublish">
     <version>3.5</version> <!-- eZ Publish version -->
     <named-version>3.5</named-version><!-- eZ Publish version -->
   </ezpublish>

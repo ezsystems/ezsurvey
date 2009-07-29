@@ -5,7 +5,7 @@
   <dt>{"Last answers"|i18n( 'survey' )}:</dt>
   <dd>
   <ul>
-  {let results=fetch('survey','text_entry_result',hash( 'question', $question, 
+  {let results=fetch('survey','text_entry_result',hash( 'question', $question,
                                                         'contentobject_id', $contentobject_id,
                                                         'contentclassattribute_id', $contentclassattribute_id,
                                                         'language_code', $language_code,

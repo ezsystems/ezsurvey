@@ -66,7 +66,7 @@ Installing eZ Survey extension
 
    If you run several sites using only one distribution and only some of the
    sites should use the extension, make the changes in the override file of
-   that siteaccess. 
+   that siteaccess.
    E.g root_of_ezpublish/settings/siteaccess/news/site.ini.append(.php)
    But instead of using ActiveExtensions you must add these lines instead:
 
@@ -74,10 +74,10 @@ Installing eZ Survey extension
    ActiveAccessExtensions[]=ezsurvey
 
 4. Run the php script from commandline:
- 
+
    $ php bin/php/ezpgenerateautoloads.php --extension
 
-   Which is need to build an array of classes that are used by the autoload system 
+   Which is need to build an array of classes that are used by the autoload system
    in PHP to load classes. You will need eZ Components availlable to run this script.
 
 
@@ -100,7 +100,7 @@ The following steps are included in the survey wizard.
    -----------------------------
 
    Will install the included packages which are included with eZ Survey and
-   contains two content classes. 
+   contains two content classes.
 
      o  Survey attribute class
 
@@ -128,7 +128,7 @@ The following steps are included in the survey wizard.
    ------------------------------------
 
    When the survey attribute which is used to show xml formatted text between
-   questions are installed it need to be configured to eZ Survey. 
+   questions are installed it need to be configured to eZ Survey.
 
      o  Survey attribute class
 
@@ -192,10 +192,10 @@ Initializing database
             share/db_data.dba <dbname>
 
      o  Create the schema for eZ Survey. The SQL schema for the
-        extension is located in ezsurvey/sql/<database-implimentation>/schema.sql 
+        extension is located in ezsurvey/sql/<database-implimentation>/schema.sql
         and can be done with for example:
-  
-        mysql -u<username> -p <dbname> <  ezsurvey/sql/mysql/schema.sql 
+
+        mysql -u<username> -p <dbname> <  ezsurvey/sql/mysql/schema.sql
 
 Configuration
 -------------
@@ -218,7 +218,7 @@ Configuration
 
      You may choose to add the content classes with the "Manual installation"
      or select the included package with "Add content classes from a package".
-     
+
      Manual installation
      -------------------
 
@@ -243,7 +243,7 @@ Configuration
 
     Add contentclasses from a package
     ---------------------------------
-     
+
      You may add the two content classes from the included package. This can be
      done in the administration interface from the url:
 
@@ -254,10 +254,10 @@ Configuration
 
 
     Configuration of the "Related object" survey attribute
-    ------------------------------------------------------ 
+    ------------------------------------------------------
 
-     o  Add a new content folder for the Survey attribute objects. 
-   
+     o  Add a new content folder for the Survey attribute objects.
+
        When a new "related object" attribute is created in a survey object, the
        related object need to be stored in a parent folder by the survey
        datatype. Create a new object (of class folder) where the related survey
@@ -273,8 +273,8 @@ Configuration
        "Survey attribute class".
 
        Set the parent folder for the survey attributes to be the same as
-       described in the prevoius point.      
-  
+       described in the prevoius point.
+
 
      o  Create a new survey
 

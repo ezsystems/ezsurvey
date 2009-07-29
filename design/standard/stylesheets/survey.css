@@ -1,7 +1,7 @@
 /* SURVEY CSS */
 
 div.survey label, div.survey-view label
-{ 
+{
     white-space: normal;
 }
 
@@ -96,6 +96,6 @@ input.disabled
     content: "-";
     height: 0;
     visibility: hidden;
-    display: block; 
-    clear: both; 
+    display: block;
+    clear: both;
 }

@@ -244,7 +244,7 @@ function removeClass( element, className )
             classArray[ x ] = '';
         }
     }
-    
+
     writeClassArray( element, classArray );
 }
 {/literal}
