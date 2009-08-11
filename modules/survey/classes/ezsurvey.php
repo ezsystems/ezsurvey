@@ -376,7 +376,7 @@ class eZSurvey extends eZPersistentObject
                         $object = new eZSurvey( $row );
                         $objectArray[] = array( 'survey' => $object,
                                                 'info' => array( 'contentobject_id' => $row['contentobject_id'],
-                                                                 'contentobjectattribute_language_code' => $row['contentobjtattr_language_code'],
+                                                                 'contentobjectattribute_language_code' => $row['contentobjattr_language_code'],
                                                                  'name' => $row['name'] ) );
                     }
                 }
@@ -440,6 +440,13 @@ class eZSurvey extends eZPersistentObject
         {
             $question =& $this->QuestionList[$key];
             $variableArray[$question->attribute( 'id' )] = $question->processViewActions( $validation, $params );
+        }
+
+        // post process questions, so each question type can do actions based on the total result.
+        foreach ( array_keys( $this->QuestionList ) as $key )
+        {
+            $question =& $this->QuestionList[$key];
+            $question->postProcessViewActions( $validation, $params );
         }
 
         return $variableArray;

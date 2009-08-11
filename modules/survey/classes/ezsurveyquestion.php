@@ -330,6 +330,13 @@ class eZSurveyQuestion extends eZPersistentObject
     }
 
     /*!
+      Default do nothing.
+    */
+    function postProcessViewActions( &$validation, $params )
+    {
+    }
+
+    /*!
       Validate the post actions from the questions.
     */
     function validateEditActions( &$validation, $params )

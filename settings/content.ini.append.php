@@ -2,11 +2,10 @@
 
 [DataTypeSettings]
 ExtensionDirectories[]=ezsurvey
+AvailableDataTypes[]=ezsurvey
 
 [CustomTagSettings]
 AvailableCustomTags[]=survey
 
-[DataTypeSettings]
-AvailableDataTypes[]=ezsurvey
 
 */ ?>

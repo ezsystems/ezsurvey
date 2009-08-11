@@ -395,13 +395,28 @@ class eZSurveyType extends eZDataType
                         $mailResult = eZMailTransport::send( $mail );
                     }
 
-                    $href = $survey->attribute( 'redirect_submit' );
-                    if ( trim( $href ) != "" )
+                    $href = trim( $survey->attribute( 'redirect_submit' ) );
+                    $module = $GLOBALS['module'];
+                    if ( $module instanceof eZModule )
                     {
-                        $status = eZURI::transformURI( $href );
-                        if ( $status === true )
+                        if ( trim( $href ) != "" )
                         {
-                            $http->redirect( $href );
+                            if ( preg_match( "/^http:\/\/.+/", $href ) )
+                            {
+                                $module->redirectTo( $href );
+                            }
+                            else
+                            {
+                                $status = eZURI::transformURI( $href );
+                                if ( $status === true )
+                                {
+                                    $module->redirectTo( $href );
+                                }
+                                else
+                                {
+                                    $http->redirect( $href );
+                                }
+                            }
                         }
                     }
                 }
