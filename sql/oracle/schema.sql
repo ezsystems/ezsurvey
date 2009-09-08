@@ -3,8 +3,8 @@ CREATE SEQUENCE s_surveymetadata;
 CREATE SEQUENCE s_surveyquestion;
 CREATE SEQUENCE s_surveyquestionresult;
 CREATE SEQUENCE s_surveyresult;
-CREATE SEQUENCE s_ezsurveyrelatedconfig;
-CREATE SEQUENCE s_ezsurveyquestionmetadata;
+CREATE SEQUENCE s_surveyrelatedconfig;
+CREATE SEQUENCE s_surveyquestionmetadata;
 
 CREATE TABLE ezsurvey (
   id INTEGER NOT NULL,
@@ -112,6 +112,20 @@ CREATE OR REPLACE TRIGGER ezsurveyresult_id_tr
 BEFORE INSERT ON ezsurveyresult FOR EACH ROW WHEN (new.id IS NULL)
 BEGIN
   SELECT s_surveyresult.nextval INTO :new.id FROM dual;
+END;
+/
+
+CREATE OR REPLACE TRIGGER ezsurveyrelatedconfig_id_tr
+BEFORE INSERT ON ezsurveyrelatedconfig FOR EACH ROW WHEN (new.id IS NULL)
+BEGIN
+  SELECT s_surveyrelatedconfig.nextval INTO :new.id FROM dual;
+END;
+/
+
+CREATE OR REPLACE TRIGGER ezsurveyquestionmetadata_id_tr
+BEFORE INSERT ON ezsurveyquestionmetadata FOR EACH ROW WHEN (new.id IS NULL)
+BEGIN
+  SELECT s_surveyquestionmetadata.nextval INTO :new.id FROM dual;
 END;
 /
 
