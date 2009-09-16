@@ -438,16 +438,32 @@ class eZSurveyMultipleChoice extends eZSurveyQuestion
         $optionValues = array();
         $optionCount = 0;
         $checkedCount = 0;
+        //check the extra option value to be not empty
+        $postMCExtraValue=$prefix . '_ezsurvey_mc_' . $this->ID . '_extra_value_' . $attributeID;
+	     if ( $http->hasVariable( $postMCExtraValue ) )
+	     {
+	     	$optionValue=$http->postVariable($postMCExtraValue);
+	     	if(strlen($optionValue)===0)
+	     	{
+				    $validation['error'] = true;
+                    $validation['errors'][] = array( 'message' => ezi18n( 'survey', 'Options in the question with id %question must have unique values!', null,
+                                                                          array( '%question' => $this->ID ) ),
+                                                     'question_id' => $this->ID,
+                                             'code' => 'mc_option_unique_value',
+                                             'question' => $this );	     		
+	     	}
+	     }
+	     //check the option value to be not empty
         foreach ( array_keys( $this->Options ) as $key )
         {
             $option =& $this->Options[$key];
             $optionID = $option['id'];
-            $postMCValue = $prefix . '_ezsurvey_mc_' . $this->ID . '_' . $optionID . '_value_' . $attributeID;
+            $postMCValue = $prefix . '_ezsurvey_mc_' . $this->ID . '_' . $optionID . '_value_' . $attributeID;            
             if ( $http->hasVariable( $postMCValue ) )
             {
                 $optionValue = $http->postVariable( $postMCValue );
                 $optionCount++;
-                if ( in_array( $optionValue, $optionValues ) )
+                if ( in_array( $optionValue, $optionValues ) ||strlen($optionValue)===0)
                 {
                     $validation['error'] = true;
                     $validation['errors'][] = array( 'message' => ezi18n( 'survey', 'Options in the question with id %question must have unique values!', null,
