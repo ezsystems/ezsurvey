@@ -228,7 +228,7 @@ class eZSurveyResult extends eZPersistentObject
 
      \return array of question results. false if persistent is set to 0, no previous results exists or anonymous user.
      */
-    function &fetchQuestionResultList( $asObject = false, $persistent = false )
+    function &fetchQuestionResultList( $asObject = false, $persistent = true )
     {
         $rows = eZPersistentObject::fetchObjectList( eZSurveyQuestionResult::definition(),
                                                      null,
