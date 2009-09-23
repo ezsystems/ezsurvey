@@ -14,3 +14,21 @@ Make sure there are no spaces before or after the name.
 
 You should also consider checking the debug output of eZ Publish to see what is
 going wrong.
+
+2. Survey results seem to be missing after editing the survey object
+====================================================================
+
+The survey results are coupled to the object version. When the version reaches
+the version limit, older results are deleted
+
+Therefore it is important to configure a high version limit for your survey classes:
+
+in content.ini.append.php set the following values:
+
+[VersionManagement]
+# IMPORTANT: set the limits on the survey classes
+# to a high value, otherwise survey results coupled to older versions may be deleted
+#
+# VersionHistoryClass[survey]=1000
+# VersionHistoryClass[myothersurveyclass]=1000
+#
