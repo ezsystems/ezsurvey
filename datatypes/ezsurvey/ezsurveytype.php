@@ -403,19 +403,11 @@ class eZSurveyType extends eZDataType
                         {
                             if ( preg_match( "/^http:\/\/.+/", $href ) )
                             {
-                                $module->redirectTo( $href );
+                                $http->redirect( $href );
                             }
                             else
                             {
-                                $status = eZURI::transformURI( $href );
-                                if ( $status === true )
-                                {
-                                    $module->redirectTo( $href );
-                                }
-                                else
-                                {
-                                    $http->redirect( $href );
-                                }
+                                $module->redirectTo( $href );
                             }
                         }
                     }
