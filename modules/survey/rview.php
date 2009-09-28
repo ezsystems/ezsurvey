@@ -106,7 +106,6 @@ $tpl->setVariable( 'count', $countList );
 $resultURL = false;
 
 $Result = array();
-$Result['left_menu'] = 'design:parts/survey/menu.tpl';
 $Result['content'] = $tpl->fetch( 'design:survey/rview.tpl' );
 $Result['path'] = array( array( 'url' => '/survey/list',
                                 'text' => ezi18n( 'survey', 'Survey' ) ),

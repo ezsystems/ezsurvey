@@ -207,7 +207,6 @@ if ( $config !== false )
 }
 
 $Result = array();
-// $Result['left_menu'] = 'design:parts/survey/menu.tpl';
 $Result['content'] = $tpl->fetch( 'design:survey/wizard.tpl' );
 $Result['path'] = array( array( 'url' => false,
                                 'text' => ezi18n( 'survey', 'Survey Wizard' ) ) );

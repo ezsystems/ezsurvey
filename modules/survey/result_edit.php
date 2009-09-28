@@ -91,7 +91,6 @@ $tpl->setVariable( 'survey_result', $surveyResult );
 $tpl->setVariable( 'survey_validation', $validation );
 
 $Result = array();
-$Result['left_menu'] = 'design:parts/survey/menu.tpl';
 $Result['content'] = $tpl->fetch( 'design:survey/result_edit.tpl' );
 $Result['path'] = array( array( 'url' => '/survey/list',
                                 'text' => ezi18n( 'survey', 'Survey' ) ),
