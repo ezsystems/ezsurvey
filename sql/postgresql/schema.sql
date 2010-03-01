@@ -19,7 +19,7 @@ CREATE TABLE ezsurvey (
     contentobject_id integer DEFAULT 0 NOT NULL,
     contentobjectattribute_id integer DEFAULT 0 NOT NULL,
     contentobjectattribute_version integer DEFAULT 0 NOT NULL,
-    contentclassattribute_id int(11) DEFAULT 0 NOT NULL,
+    contentclassattribute_id INTEGER DEFAULT 0 NOT NULL,
     language_code varchar(20) DEFAULT NULL
 );
 
@@ -119,8 +119,8 @@ CREATE SEQUENCE ezsurveyrelatedconfig_s
 
 CREATE TABLE ezsurveyrelatedconfig (
     id integer DEFAULT nextval('ezsurveyrelatedconfig_s'::text) NOT NULL,
-    contentclass_id int(11) DEFAULT 1 NOT NULL,
-    node_id int(11) DEFAULT 0 NOT NULL
+    contentclass_id INTEGER DEFAULT 1 NOT NULL,
+    node_id INTEGER DEFAULT 0 NOT NULL
 );
 
 SELECT setval('ezsurveyrelatedconfig_s', max(id)) , 'ezsurveyrelatedconfig' as tablename FROM ezsurveyrelatedconfig;
