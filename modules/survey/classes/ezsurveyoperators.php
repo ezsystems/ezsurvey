@@ -2,7 +2,7 @@
 //
 // Created on: <11-Jun-2004 00:00:00 Jan Kudlicka>
 //
-// Copyright (C) 1999-2008 eZ Systems as. All rights reserved.
+// Copyright (C) 1999-2008 eZ Systems AS. All rights reserved.
 //
 // This source file is part of the eZ Publish (tm) Open Source Content
 // Management System.
