@@ -129,10 +129,10 @@ BEGIN
 END;
 /
 
-CREATE INDEX ezsurvey_contentobject_id_i ON ezsurvey (contentobject_id);
-CREATE INDEX ezsurvey_contentobjectattribute_id_i ON ezsurvey (contentobjectattribute_id);
-CREATE INDEX ezsurvey_contentobjectattribute_version_i ON ezsurvey (contentobjectattribute_version);
-CREATE INDEX ezsurvey_contentclassattribute_id_i ON ezsurvey (contentclassattribute_id);
+CREATE INDEX ezsurvey_co_id_i ON ezsurvey (contentobject_id);
+CREATE INDEX ezsurvey_coattribute_id_i ON ezsurvey (contentobjectattribute_id);
+CREATE INDEX ezsurvey_coattribute_version_i ON ezsurvey (contentobjectattribute_version);
+CREATE INDEX ezsurvey_ccattribute_id_i ON ezsurvey (contentclassattribute_id);
 CREATE INDEX ezsurvey_language_code_i ON ezsurvey (language_code);
 CREATE INDEX ezsurveymetadata_result_id_i ON ezsurveymetadata (result_id);
 CREATE INDEX ezsurveymetadata_attr_name_i ON ezsurveymetadata (attr_name);
