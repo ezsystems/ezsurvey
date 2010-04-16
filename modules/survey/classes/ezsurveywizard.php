@@ -154,7 +154,11 @@ class eZSurveyWizard
                         // run any sequence value correction SQL if required
                         $result = $dbSchema->insertSchema( array( 'schema' => true,
                                                                   'data' => true ) );
-                        $this->UpdateInnoDB();
+                        // only in mysql the InnoDB update is needed
+                        if ( $db->databaseName() === 'mysql' )
+                        {
+                            $this->UpdateInnoDB();
+                        }
                         $this->setDatabaseStatus();
                     }
                 }
