@@ -132,7 +132,7 @@ class eZSurveyWizard
 
     function importDatabase()
     {
-        $dbaFilePath = eZExtension::baseDirectory() . '/ezsurvey/share/db_file.dba';
+        $dbaFilePath = eZExtension::baseDirectory() . '/ezsurvey/share/db_schema.dba';
         if ( file_exists( $dbaFilePath ) )
         {
             $dbaArray = eZDbSchema::read( $dbaFilePath, true );
