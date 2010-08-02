@@ -1,0 +1,319 @@
+eZ Survey extension 2.1 INSTALL
+
+Introduction
+============
+
+1. What is the eZ Survey extension?
+   --------------------------------
+
+   Survey datatype for eZ Publish
+
+   For more information about this extension please read the README file.
+
+1. License
+   -------
+
+   This software is licensed under the GPL. The complete
+   license agreement is included in the LICENSE file. For more information
+   or questions please contact info@ez.no
+
+2. Requirements
+   ------------
+
+   The following requirements exists for using eZ Survey extension:
+
+   o  eZ Publish version:
+
+      Make sure you use eZ Publish version 4.0 or higher.
+
+   o  PHP version:
+
+      Make sure you have PHP 5.1 or higher.
+
+IMPORTANT!
+==========
+
+The survey results are coupled to the object version. When the version reaches
+the version limit, older results are deleted
+
+Therefore it is important to configure a high version limit for your survey classes:
+
+in content.ini.append.php (delivered within the extension) set the following values:
+
+[VersionManagement]
+# IMPORTANT: set the limits on the survey classes
+# to a high value
+#
+VersionHistoryClass[survey]=1000
+VersionHistoryClass[myothersurveyclass]=1000
+
+
+
+
+
+Getting eZ Publish
+==================
+
+You can download a version of eZ Publish from ez.no, you will find the
+various versions at:
+http://ez.no/ez_publish/download/all_releases/ez_publish_3_stable_releases
+
+NOTE: You will require eZ Publish 4.0 or higher
+
+Information on the installation of eZ Publish can be found at:
+http://ez.no/ez_publish/documentation/installation
+
+
+Installing eZ Survey extension
+==============================
+
+1. Copy the package into the `extension' directory in the root of your
+   eZ Publish installation.
+
+2. Unpack the files in the distribution. The command necessary is depends on
+   the file you downloaded.
+   [tar.gz]:
+   $ tar -zxvf ezsurvey-extension-2.1.tar.gz
+   [zip]:
+   $ unzip ezsurvey-extension-2.1.zip
+
+3. We must now enable the extension in eZ Publish. To do this edit
+   site.ini.append(.php) in the folder root_of_ezpublish/settings/override. If this
+   file does not exist; create it. Locate (or add) the block
+   [ExtensionSettings] and add the line:
+
+   ActiveExtensions[]=ezsurvey
+
+   If you run several sites using only one distribution and only some of the
+   sites should use the extension, make the changes in the override file of
+   that siteaccess.
+   E.g root_of_ezpublish/settings/siteaccess/news/site.ini.append(.php)
+   But instead of using ActiveExtensions you must add these lines instead:
+
+   [ExtensionSettings]
+   ActiveAccessExtensions[]=ezsurvey
+
+4. Run the php script from commandline:
+
+   $ php bin/php/ezpgenerateautoloads.php --extension
+
+   Which is need to build an array of classes that are used by the autoload system
+   in PHP to load classes. You will need eZ Components availlable to run this script.
+
+
+Configuring eZ Survey with the wizard
+=====================================
+
+If you don't want to use the eZ Survey wizard to configure and set up eZ
+Survey, you may skip to Manual installation.
+
+The following steps are included in the survey wizard.
+
+1. Import database
+   ---------------
+
+   This page will create the necessary tables which eZ Survey are using to
+   store the content.
+
+
+2. Import survey content classes
+   -----------------------------
+
+   Will install the included packages which are included with eZ Survey and
+   contains two content classes.
+
+     o  Survey attribute class
+
+       Is the content class which will be used as related objects when you
+       create a new survey contentobject. The class need to contain one
+       xml block attribute and one Text field attribute. The "XML block"
+       attribute will be used in views for web pages and the "Text block" will
+       be used as the text sent in Emails from the survey.
+
+     o  Survey class
+
+       Will be used as the new survey object which you can use to make a new
+       survey in the content structure. The class could preferred contain a
+       Text entry attribute and a survey attribute. Set the "Object name
+       pattern" to the identifier of the Text entry.
+
+   You may also do this manually by adding the two classes directly in the
+   administration interface. You may always get back to the Survey Wizard, by
+   follow the Survey link in the top menu of the administration interface. The
+   Survey wizard will automatically detect if the necessary classes are
+   installed and skip to the next step if this is done.
+
+
+3. Configure the survey class attribute
+   ------------------------------------
+
+   When the survey attribute which is used to show xml formatted text between
+   questions are installed it need to be configured to eZ Survey.
+
+     o  Survey attribute class
+
+       Need to be set to a content class which contains text attribute and
+       a xml text attribute.
+
+     o  The Browse button
+
+       Select the parent class where new survey attributes should be stored.
+       This should only be a collector for content of the survey attributes and
+       should not be shown in the main structure of the site. Examples could be
+       to create a folder below the media library (admin.example.com/Media) or
+       a folder below setup (admin.example.com/content/view/full/48) in a
+       default installation. You should remember to check the permissions, like
+       the section of the new folder, which could be set to the standard
+       section, to be readable by the anonymous user.
+
+       You may create a folder in the content structure and get back to the
+       survey wizard by enter the Survey link in the top menu in the admin
+       interface.
+
+       Press the Store button when you've selected a parent folder for eZ
+       Survey.
+
+
+4. Complete
+   --------
+
+   The eZ Survey wizard are now finised and you can enter the content structure
+   and create new content of the survey class.
+
+Manual installation
+===================
+
+Initializing database
+---------------------
+
+1. Manual install
+   --------------
+
+   o  Initialize schema
+
+     The schema must now be created with all the tables, sequences and
+     triggers for eZ Publish. Then the schema must be filled with data.
+     Here you have two choices:
+
+     You can start by insert the schema for the extension and then filling it
+     with the basic data. You may skip the first to steps, if you already have
+     a working eZ Publish installation working.
+
+     o  Create the schema for eZ Publish
+        $ ./bin/php/ezsqlinsertschema.php --type=<dbtype> --user=<user> \
+            --password=<password> --host=<hostname> \
+            share/db_schema.dba <dbname>
+
+     o  Insert data for eZ Publish
+        $ ./bin/php/ezsqlinsertschema.php --type=<dbtype> --user=<user> \
+            --password=<password> --host=<hostname> \
+            --schema-file=share/db_schema.dba \
+            --insert-types=data \
+            share/db_data.dba <dbname>
+
+     o  Create the schema for eZ Survey. The SQL schema for the
+        extension is located in ezsurvey/sql/<database-implimentation>/schema.sql
+        and can be done with for example:
+
+        mysql -u<username> -p <dbname> <  ezsurvey/sql/mysql/schema.sql
+
+Configuration
+-------------
+
+   o  Configuring eZ Survey
+
+     To be able to use eZ Survey, you need to add new content classes in the
+     administration interface. The neccessary classes is one for the survey and
+     another class for the survey attribute. Follow the links to:
+
+     And create the new classes.
+
+     eZ Survey need one content class to define how the "Related object"
+     question attribute in the survey should be. This is a normal
+     contentobject which will be created when you are in the edit view of the
+     survey class. You'll get back to the survey edit view when you've
+     published the new survey attribute object. The other object is the the
+     content class of the survey itself. You need to add a survey attribute
+     datatype to this content class.
+
+     You may choose to add the content classes with the "Manual installation"
+     or select the included package with "Add content classes from a package".
+
+     Manual installation
+     -------------------
+
+     Setup -> Classes -> Content
+
+
+     o  Survey attribute class
+
+       Is the content class which will be used as related objects when you
+       create a new survey contentobject. The class need to contain one
+       xml block attribute and one Text field attribute. The "XML block"
+       attribute will be used in views for web pages and the "Text block" will
+       be used as the text sent in Emails from the survey.
+
+     o  Survey class
+
+       Will be used as the new survey object which you can use to make a new
+       survey in the content structure. The class could preferred contain a
+       Text entry attribute and a survey attribute. Set the "Object name
+       pattern" to the identifier of the Text entry.
+
+
+    Add contentclasses from a package
+    ---------------------------------
+
+     You may add the two content classes from the included package. This can be
+     done in the administration interface from the url:
+
+     Setup -> Packages -> Import new package
+
+     After importing the package, you will have the two classes as described in
+     the "Manual installation" installed.
+
+
+    Configuration of the "Related object" survey attribute
+    ------------------------------------------------------
+
+     o  Add a new content folder for the Survey attribute objects.
+
+       When a new "related object" attribute is created in a survey object, the
+       related object need to be stored in a parent folder by the survey
+       datatype. Create a new object (of class folder) where the related survey
+       object should be stored.
+
+     o  Configuration of the survey module
+
+       Follow the links in the upper tab to:
+
+       Survey -> Related object configuration
+
+       The "Content class" should be set to the contentclass created above:
+       "Survey attribute class".
+
+       Set the parent folder for the survey attributes to be the same as
+       described in the prevoius point.
+
+
+     o  Create a new survey
+
+       Create a new object, for example in "Content structure". Select Survey
+       and select the language and create the survey.
+
+
+Troubleshooting
+===============
+
+1. Read the FAQ
+   ------------
+
+   Some problems are more common than others. The most common ones are listed
+   in the the FAQ.
+
+2. Support
+   -------
+
+   If you have find any problems not handled by this document or the FAQ you
+   can contact eZ system trough the support system:
+   http://ez.no/services/support

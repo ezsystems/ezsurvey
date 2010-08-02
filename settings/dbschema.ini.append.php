@@ -1,0 +1,29 @@
+<?php /*
+
+[oracle]
+# Translation of column options, such as NOT NULL and DEFAULT xxx.
+# Currently only "null" (remove "NOT NULL" requirement) is supported.
+ColumnOptionTranslations[ezsurvey.title]=null
+ColumnOptionTranslations[ezsurvey.redirect_cancel]=null
+ColumnOptionTranslations[ezsurvey.redirect_submit]=null
+ColumnOptionTranslations[ezsurveyquestion.type]=null
+ColumnOptionTranslations[ezsurveyresult.user_session_id]=null
+ColumnOptionTranslations[ezsurveymetadata.attr_name]=null
+ColumnOptionTranslations[ezsurveymetadata.attr_value]=null
+ColumnOptionTranslations[ezsurveyquestionmetadata.name]=null
+
+
+IndexNameTranslation[ezsurvey.ezsurvey_contentobject_id]=ezsurvey_co_id_i
+IndexNameTranslation[ezsurvey.ezsurvey_contentobjectattribute_id]=ezsurvey_coattribute_id_i
+IndexNameTranslation[ezsurvey.ezsurvey_contentobjectattribute_version]=ezsurvey_coattribute_version_i
+IndexNameTranslation[ezsurvey.ezsurvey_contentclassattribute_id]=ezsurvey_ccattribute_id_i
+IndexNameTranslation[ezsurvey.ezsurvey_language_code]=ezsurvey_language_code_i
+IndexNameTranslation[ezsurveymetadata.ezsurveymetadata_result_id]=ezsurveymetadata_result_id_i
+IndexNameTranslation[ezsurveymetadata.ezsurveymetadata_attr_name]=ezsurveymetadata_attr_name_i
+IndexNameTranslation[ezsurveymetadata.ezsurveymetadata_attr_value]=ezsurveymetadata_attr_value_i
+IndexNameTranslation[ezsurveyquestion.ezsurveyquestion_survey_id]=ezsurveyquestion_survey_id_i
+IndexNameTranslation[ezsurveyquestionresult.ezsurveyquestionresult_result_id]=ezsurveyquestionresult_00040_i
+IndexNameTranslation[ezsurveyquestionresult.ezsurveyquestionresult_question_id]=ezsurveyquestionresult_00041_i
+IndexNameTranslation[ezsurveyresult.ezsurveyresult_survey_id]=ezsurveyresult_survey_id_i
+
+*/ ?>

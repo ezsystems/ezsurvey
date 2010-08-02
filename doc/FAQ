@@ -1,0 +1,34 @@
+[ExtensionName] extension [ExtensionVersion] FAQ
+
+1. [ExtensionName] is not activated in eZ Publish
+=================================================
+
+You will need to check if the extension is properly activated in site.ini.
+Edit `settings/override/site.ini.append' or `settings/override/site.ini.append'
+and find the `ExtensionSettings' group. Under it you should have an entry
+that says:
+
+ActiveExtensions[]=ezsurvey
+
+Make sure there are no spaces before or after the name.
+
+You should also consider checking the debug output of eZ Publish to see what is
+going wrong.
+
+2. Survey results seem to be missing after editing the survey object
+====================================================================
+
+The survey results are coupled to the object version. When the version reaches
+the version limit, older results are deleted
+
+Therefore it is important to configure a high version limit for your survey classes:
+
+in content.ini.append.php set the following values:
+
+[VersionManagement]
+# IMPORTANT: set the limits on the survey classes
+# to a high value, otherwise survey results coupled to older versions may be deleted
+#
+# VersionHistoryClass[survey]=1000
+# VersionHistoryClass[myothersurveyclass]=1000
+#

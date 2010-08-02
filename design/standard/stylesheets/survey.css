@@ -1,0 +1,101 @@
+/* SURVEY CSS */
+
+div.survey label, div.survey-view label
+{
+    white-space: normal;
+}
+
+div.survey label input
+{
+    vertical-align: middle;
+}
+
+div.survey-edit table.list th
+{
+    vertical-align: middle;
+}
+
+div.survey-edit table.list button
+{
+    background-color: transparent;
+    margin: 0;
+    padding: 0;
+    border: 0;
+}
+
+h2.attributetype
+{
+    font-size: 1em;
+}
+
+div.survey-view .required
+{
+    font-weight: bold;
+    color: #a00000;
+}
+
+div.survey form.float
+{
+    float: left;
+    margin-right: 0.25em;
+}
+
+div.survey-submenu
+{
+    background-color: #fefefb;
+}
+
+div.survey-submenu ul
+{
+    margin: 0;
+    padding: 0;
+}
+
+div.survey-submenu li
+{
+    font-size: 0.85em;
+    margin: 0 0.25em 0 0;
+    padding: 1px;
+    background-image: none;
+    list-style-type: none;
+    float: left;
+}
+
+div.survey-submenu a
+{
+    color: #254B71;
+    padding: 0 0.25em 0 0.25em;
+    text-decoration: none;
+}
+
+div.survey-submenu a:hover
+{
+    color: #ffffff;
+    background-color: #254b71;
+}
+
+div.survey-submenu span.current
+{
+    color: #254b71;
+    background-color: #c8cfd7;
+    padding: 0 0.25em 0 0.25em;
+}
+
+input.disabled
+{
+    background-color: #e0e0e0;
+}
+
+.float-break
+{
+    height: 1%;
+}
+
+.float-break:after
+{
+    content: "-";
+    height: 0;
+    visibility: hidden;
+    display: block;
+    clear: both;
+}

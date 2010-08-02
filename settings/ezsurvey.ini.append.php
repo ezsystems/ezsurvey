@@ -1,0 +1,44 @@
+<?php /* #?ini charset="utf-8"?
+
+[RelatedObjectSettings]
+ContentObjectClasses[]
+ContentObjectClasses[]=
+
+
+# The extensions where the question types can be found.
+[QuestionTypeSettings]
+ExtensionDirectories[]
+ExtensionDirectories[]=ezsurvey
+
+# Example of custom extension.
+# ExtensionDirectories[]=custom
+
+# question types in eZ Survey
+[QuestionTypeSettings_ezsurvey]
+QuestionTypeList[]
+QuestionTypeList[]=sectionheader
+QuestionTypeList[]=paragraph
+QuestionTypeList[]=multiplechoice
+QuestionTypeList[]=textentry
+QuestionTypeList[]=numberentry
+QuestionTypeList[]=emailentry
+QuestionTypeList[]=relatedobject
+QuestionTypeList[]=receiver
+QuestionTypeList[]=feedbackfield
+
+# Example group of a custom survey attribute in the extension custom
+# Will be availlable in:
+# <extensiondir>/<extensionname>/modules/survey/classes/ezsurvey<questiontypename>.php
+[QuestionTypeSettings_custom]
+QuestionTypeList[]
+
+[PackageSettings]
+PackageName=ezsurvey_2.0
+PackagePath=ezsurvey/packages
+PackageFileName=ezsurvey_2.0-1.0-1.ezpkg
+
+[CSVExportSettings]
+HeadlineUserName=Answer from
+ShowUserName=true
+
+*/ ?>
