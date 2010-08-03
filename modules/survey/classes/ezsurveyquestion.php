@@ -155,7 +155,7 @@ class eZSurveyQuestion extends eZPersistentObject
                        'keys' => array( 'id' ),
                        'increment_key' => 'id',
                        'class_name' => 'eZSurveyQuestion',
-                       'sort' => array( 'tab_order', 'asc' ),
+                       'sort' => array( 'tab_order' => 'asc' ),
                        'name' => 'ezsurveyquestion' );
     }
 

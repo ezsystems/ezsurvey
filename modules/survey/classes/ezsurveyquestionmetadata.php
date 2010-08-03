@@ -83,7 +83,7 @@ class eZSurveyQuestionMetaData extends eZPersistentObject
                       'keys' => array( 'id' ),
                       'increment_key' => 'id',
                       'class_name' => 'eZSurveyQuestionMetaData',
-                      'sort' => array( 'id', 'asc' ),
+                      'sort' => array( 'id' => 'asc' ),
                       'name' => 'ezsurveyquestionmetadata' );
     }
 
