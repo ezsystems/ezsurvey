@@ -15,7 +15,7 @@
 <div class="survey-submenu float-break tab-block">
 <ul class="tabs">
 <li class="first selected current"><a href={concat('/survey/result/', $contentobject_id, '/', $contentclassattribute_id, '/', $language_code)|ezurl}>{"Summary"|i18n('survey')}</a></li>
-<li class="middle"><a href={concat('/survey/result_list/', $contentobject_id, '/', $contentclassattribute_id, '/', $language_code)|ezurl}>All evaluations</a></li>
+<li class="middle"><a href={concat('/survey/result_list/', $contentobject_id, '/', $contentclassattribute_id, '/', $language_code)|ezurl}>{"All evaluations"|i18n('survey')}</a></li>
 </ul>
 </div>
 <div class="tab-content selected">
