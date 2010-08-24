@@ -39,6 +39,8 @@ require_once( eZExtension::baseDirectory() . '/ezsurvey/modules/survey/classes/e
 
 class eZSurvey extends eZPersistentObject
 {
+    public static $surveyContent;
+
     function eZSurvey( $row = array() )
     {
         if ( !isset( $row['valid_from' ] ) )
@@ -119,6 +121,7 @@ class eZSurvey extends eZPersistentObject
                                                       'valid_from_array' => 'validFromArray',
                                                       'valid_to_array' => 'validToArray',
                                                       'valid' => 'valid',
+                                                      'global_survey_content' => 'globalSurveyContent',
                                                       'can_edit_results' => 'canEditResults',
                                                       'activity_status' => 'activityStatus' ),
                       'increment_key' => 'id',
@@ -328,10 +331,13 @@ class eZSurvey extends eZPersistentObject
                 foreach ( $rows as $row )
                 {
                     $classname = implode( '', array( 'eZSurvey', $row['type'] ) );
-                    $newObject = new $classname( $row );
-                    $newObject->questionNumberIterate( $questionIterator );
-                    $newObjectID = $newObject->attribute( 'id' );
-                    $this->QuestionList[$newObjectID] = $newObject;
+                    if ( class_exists( $classname ) === true )
+                    {
+                        $newObject = new $classname( $row );
+                        $newObject->questionNumberIterate( $questionIterator );
+                        $newObjectID = $newObject->attribute( 'id' );
+                        $this->QuestionList[$newObjectID] = $newObject;
+                    }
                 }
             }
         }
@@ -435,7 +441,6 @@ class eZSurvey extends eZPersistentObject
         {
             return false;
         }
-
         foreach ( array_keys( $this->QuestionList ) as $key )
         {
             $question =& $this->QuestionList[$key];
@@ -935,7 +940,22 @@ class eZSurvey extends eZPersistentObject
                     unset( $list[$index] );
             }
         }
+        uasort( $list, array( $this, 'sortQuestionTypeCallback' ) );
         return $list;
+    }
+
+    private function sortQuestionTypeCallback( $val1, $val2 )
+    {
+        $nameList = array( 0 => $val1['name'],
+                           1 => $val2['name'] );
+        asort( $nameList, SORT_STRING );
+        $keys = array_keys( $nameList );
+        $value = false;
+        if ( $keys[0] == 1 )
+        {
+            $value = true;
+        }
+        return $value;
     }
 
     // private
@@ -1007,6 +1027,38 @@ class eZSurvey extends eZPersistentObject
         }
         return $survey;
     }
+
+    /*!
+      Adde the validation to a global static variable, which could be accessed by the other survey datatypes.
+    */
+    public static function setGlobalSurveyContent( $content )
+    {
+        if ( isset( self::$surveyContent ) )
+        {
+            self::$surveyContent = $content + self::$surveyContent;
+        }
+        else
+        {
+            self::$surveyContent = $content;
+        }
+
+        return self::$surveyContent;
+    }
+
+    public function globalSurveyContent()
+    {
+        return self::$surveyContent;
+    }
+
+    public function executeBeforeLastRedirect( $node )
+    {
+        foreach ( array_keys( $this->QuestionList ) as $key )
+        {
+            $question =& $this->QuestionList[$key];
+            $question->executeBeforeLastRedirect( $node );
+        }
+    }
+
 
     var $ID;
     var $Title;

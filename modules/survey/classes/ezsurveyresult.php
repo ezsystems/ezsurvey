@@ -76,7 +76,7 @@ class eZSurveyResult extends eZPersistentObject
                       'function_attributes' => array( 'question_results' => 'fetchQuestionResultList' ),
                       'increment_key' => 'id',
                       'class_name' => 'eZSurveyResult',
-                      'sort' => array( 'id', 'asc' ),
+                      'sort' => array( 'id' => 'asc' ),
                       'name' => 'ezsurveyresult' );
 
         return $def;
@@ -241,6 +241,7 @@ class eZSurveyResult extends eZPersistentObject
         {
             return $rows;
         }
+
         $extraResultArray = array();
         if ( $persistent === true )
         {

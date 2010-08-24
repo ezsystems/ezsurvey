@@ -15,13 +15,13 @@
 {* DESIGN: Content START *}<div class="box-ml"><div class="box-mr"><div class="box-content">
 
 
-<div class="survey-submenu float-break">
-<ul>
-<li><a href={concat('/survey/result/', $contentobject_id, '/', $contentclassattribute_id, '/', $language_code)|ezurl}>{"Summary"|i18n('survey')}</a></li>
-<li><a href={concat('/survey/result_list/', $contentobject_id, '/', $contentclassattribute_id, '/', $language_code)|ezurl}>{"All evaluations"|i18n('survey')}</a></li>
+<div class="survey-submenu tab-block float-break">
+<ul class="tabs">
+<li class="first"><a href={concat('/survey/result/', $contentobject_id, '/', $contentclassattribute_id, '/', $language_code)|ezurl}>{"Summary"|i18n('survey')}</a></li>
+<li class="middle"><a href={concat('/survey/result_list/', $contentobject_id, '/', $contentclassattribute_id, '/', $language_code)|ezurl}>{"All evaluations"|i18n('survey')}</a></li>
 </ul>
 </div>
-
+<div class="tab-content selected">
 <div class="block">
 <p>{def $user=fetch( 'content', 'object', hash( 'object_id', $survey_user_id ))}
    {def $result=fetch('survey','survey_result',hash('result_id',$result_id))}
@@ -38,7 +38,7 @@
 <br />
 </div>
 {/section}
-
+</div>
 {* DESIGN: Content END *}</div></div></div>
 
 <div class="controlbar">
@@ -53,12 +53,10 @@
          item_limit=$limit}
 </div>
 <div class="block float-break">
-
-<form class="float" action={concat('/survey/result_edit/', $result_id)|ezurl()}>
+<form class="float" action={concat('/survey/result_edit/', $result_id)|ezurl()} style="float: left; margin-right: 0.3em;">
 <input class="button" name="EditSruveyResultButton" type="submit" value="Edit" method="post" />
 </form>
-
-<form class="float" action={concat('/survey/export/', $contentobject_id, '/', $contentclassattribute_id, '/', $language_code, '/')|ezurl()}>
+<form class="float" action={concat('/survey/export/', $contentobject_id, '/', $contentclassattribute_id, '/', $language_code, '/')|ezurl()} style="float: left;">
 <input class="button" name="ExportCSVButton" type="submit" value="Export CSV" method="post" />
 </form>
 

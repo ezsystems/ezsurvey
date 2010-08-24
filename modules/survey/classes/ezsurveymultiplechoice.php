@@ -37,6 +37,25 @@
 
 class eZSurveyMultipleChoice extends eZSurveyQuestion
 {
+    public static $multipleChoiceAnswers;
+
+    static function definition()
+    {
+        $def = parent::definition();
+        $def['function_attributes']['multiple_choice_answers'] = 'multipleChoiceAnswers';
+        return $def;
+    }
+
+    public function multipleChoiceAnswers()
+    {
+        $value = array();
+        if ( isset( self::$multipleChoiceAnswers[$this->ID] ) )
+        {
+            $value = self::$multipleChoiceAnswers[$this->ID];
+        }
+        return $value;
+    }
+
     function eZSurveyMultipleChoice( $row = false )
     {
         $row['type'] = 'MultipleChoice';
@@ -399,6 +418,8 @@ class eZSurveyMultipleChoice extends eZSurveyQuestion
 
         }
 
+        self::$multipleChoiceAnswers[$this->ID] = array( 'options' => $this->Options,
+                                              'extra_info' => $this->ExtraInfo );
         return $variableArray;
     }
 
@@ -438,32 +459,33 @@ class eZSurveyMultipleChoice extends eZSurveyQuestion
         $optionValues = array();
         $optionCount = 0;
         $checkedCount = 0;
-        //check the extra option value to be not empty
-        $postMCExtraValue=$prefix . '_ezsurvey_mc_' . $this->ID . '_extra_value_' . $attributeID;
-	     if ( $http->hasVariable( $postMCExtraValue ) )
-	     {
-	     	$optionValue=$http->postVariable($postMCExtraValue);
-	     	if(strlen($optionValue)===0)
+
+        // Check the extra option value to be not empty
+        $postMCExtraValue = $prefix . '_ezsurvey_mc_' . $this->ID . '_extra_value_' . $attributeID;
+        if ( $http->hasVariable( $postMCExtraValue ) )
+        {
+	     	$optionValue = $http->postVariable( $postMCExtraValue );
+	     	if ( strlen( $optionValue ) === 0 )
 	     	{
-				    $validation['error'] = true;
-                    $validation['errors'][] = array( 'message' => ezi18n( 'survey', 'Options in the question with id %question must have unique values!', null,
-                                                                          array( '%question' => $this->ID ) ),
-                                                     'question_id' => $this->ID,
-                                             'code' => 'mc_option_unique_value',
-                                             'question' => $this );	     		
+                $validation['error'] = true;
+                $validation['errors'][] = array( 'message' => ezi18n( 'survey', 'Options in the question with id %question must have unique values!', null,
+                                                                      array( '%question' => $this->ID ) ),
+                                                 'question_id' => $this->ID,
+                                                 'code' => 'mc_option_unique_value',
+                                                 'question' => $this );
 	     	}
-	     }
-	     //check the option value to be not empty
+        }
+
         foreach ( array_keys( $this->Options ) as $key )
         {
             $option =& $this->Options[$key];
             $optionID = $option['id'];
-            $postMCValue = $prefix . '_ezsurvey_mc_' . $this->ID . '_' . $optionID . '_value_' . $attributeID;            
+            $postMCValue = $prefix . '_ezsurvey_mc_' . $this->ID . '_' . $optionID . '_value_' . $attributeID;
             if ( $http->hasVariable( $postMCValue ) )
             {
                 $optionValue = $http->postVariable( $postMCValue );
                 $optionCount++;
-                if ( in_array( $optionValue, $optionValues ) ||strlen($optionValue)===0)
+                if ( in_array( $optionValue, $optionValues ) or strlen( $optionValue ) === 0 )
                 {
                     $validation['error'] = true;
                     $validation['errors'][] = array( 'message' => ezi18n( 'survey', 'Options in the question with id %question must have unique values!', null,
@@ -482,14 +504,6 @@ class eZSurveyMultipleChoice extends eZSurveyQuestion
 
         $postExtraMCChecked = $prefix . '_ezsurvey_mc_' . $this->ID . '_extra_value_checked_' . $attributeID;
         $checkedCount += $http->hasPostVariable( $postExtraMCChecked ) ? 1 : 0;
-
-//         if ( $optionCount == 0 )
-//         {
-//             $validation['error'] = true;
-//             $validation['errors'][] = array( 'message' => ezi18n( 'survey', 'You must enter at least one option in the question with id %question!', null,
-//                                                                   array( '%question' => $this->ID ) ),
-//                                              'question_id' => $this->ID );
-//         }
     }
 
     function processEditActions( &$validation, $params )

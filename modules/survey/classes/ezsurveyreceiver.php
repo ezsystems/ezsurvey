@@ -44,6 +44,60 @@ class eZSurveyReceiver extends eZSurveyQuestion
         $this->decodeXMLOptions();
     }
 
+    static function definition()
+    {
+        $def = parent::definition();
+        $def['function_attributes']['email_sender_list'] = 'emailSenderList';
+        return $def;
+    }
+
+    function emailSenderList()
+    {
+        $emailList = array();
+
+        $ini = eZINI::instance();
+        $emailSender = $ini->variable( 'MailSettings', 'EmailSender' );
+        if ( !$emailSender )
+            $emailSender = $ini->variable( 'MailSettings', 'AdminEmail' );
+
+        $emailList['default'] = $emailSender;
+        $this->addSenderEmailsFromQuestions( $emailList );
+
+        return $emailList;
+    }
+
+    private function addSenderEmailsFromQuestions( &$emailList )
+    {
+        if ( ( $survey = $this->survey( $this->SurveyID ) ) === false )
+        {
+            $survey = eZSurvey::fetch( $this->SurveyID );
+        }
+
+        if ( $survey instanceof eZSurvey )
+        {
+            $questionList = $survey->fetchQuestionList();
+            foreach ( $questionList as $question )
+            {
+                $id = $question->attribute( 'original_id' );
+                $key = $this->questionKeyValue( $question );
+                switch ( $question->attribute( 'type' ) )
+                {
+                    case 'EmailEntry':
+                    {
+                        $value = $question->attribute( 'text' );
+                        $emailList[$key] = "{$value} ({$id})";
+                    } break;
+                }
+            }
+        }
+    }
+
+    function questionKeyValue( $question )
+    {
+        $value = "{$question->attribute( 'original_id' )}_{$question->attribute( 'id' )}";
+        return $value;
+    }
+
     function addOption( $label, $value, $checked )
     {
         ++$this->OptionID;
@@ -400,6 +454,6 @@ class eZSurveyReceiver extends eZSurveyQuestion
     var $OptionID=0;
 }
 
-eZSurveyQuestion::registerQuestionType( 'Form Receiver', 'Receiver', true );
+eZSurveyQuestion::registerQuestionType( ezi18n( 'survey', 'Form Receiver' ), 'Receiver', true );
 
 ?>

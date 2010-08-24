@@ -67,6 +67,7 @@ else
     $tpl->setVariable( 'view_parameters', $viewParameters );
 
     $Result = array();
+    $Result['left_menu'] = 'design:parts/survey/menu.tpl';
     $Result['content'] = $tpl->fetch( 'design:survey/list.tpl' );
     $Result['path'] = array( array( 'url' => false,
                                     'text' => ezi18n( 'survey', 'Survey' ) ) );

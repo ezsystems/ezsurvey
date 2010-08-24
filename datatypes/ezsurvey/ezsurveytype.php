@@ -196,7 +196,6 @@ class eZSurveyType extends eZDataType
             // Check if the view parameters are set.
             $http = eZHTTPTool::instance();
             $postViewAction = self::PREFIX_ATTRIBUTE . '_ezsurvey_id_view_mode_' . $objectAttribute->attribute( 'id' );
-
             if ( $http->hasPostVariable( $postViewAction ) )
             {
                 $validation = array();
@@ -243,9 +242,9 @@ class eZSurveyType extends eZDataType
                                                                                            $languageCode );
             }
         }
+        $content = eZSurvey::setGlobalSurveyContent( $content );
         return $content;
     }
-
 
     /*!
       Process the view actions.
@@ -257,7 +256,6 @@ class eZSurveyType extends eZDataType
         $postNodeID = self::PREFIX_ATTRIBUTE . '_ezsurvey_node_id_' . $objectAttribute->attribute( 'id' );
         $postContentObjectAttributeID = self::PREFIX_ATTRIBUTE . '_ezsurvey_contentobjectattribute_id_' . $objectAttribute->attribute( 'id' );
         $postSurveyID = self::PREFIX_ATTRIBUTE . '_ezsurvey_id_' . $objectAttribute->attribute( 'id' );
-
         $continueViewActions = true;
         if ( $survey->attribute( 'one_answer' ) == 1 )
         {
@@ -368,32 +366,55 @@ class eZSurveyType extends eZDataType
                     $result->storeResult( $params );
 
                     $postReceiverID = self::PREFIX_ATTRIBUTE . '_ezsurvey_receiver_id_' . $contentObjectAttributeID;
-                    if ( $http->hasPostVariable( $postReceiverID ) )
+                    if ( $http->hasPostVariable( $postReceiverID ) and
+                         $questionList = $survey->fetchQuestionList() and
+                         $postReceiverQuestionID = $http->postVariable( $postReceiverID ) and
+                         isset( $questionList[$postReceiverQuestionID] ) )
                     {
-                        $surveyList = $survey->fetchQuestionList();
-                        $postReceiverID = self::PREFIX_ATTRIBUTE . '_ezsurvey_receiver_id_' . $contentObjectAttributeID;
-                        $mailTo = $surveyList[$http->postVariable( $postReceiverID )]->answer();
+                        $mailTo = $questionList[$postReceiverQuestionID]->answer();
 
+                        $emailSenderList = explode( '_', $questionList[$postReceiverQuestionID]->attribute( 'text3' ) );
+                        if ( isset( $emailSenderList[1] ) and
+                             $emailSenderID = $emailSenderList[1] and
+                             is_numeric( $emailSenderID ) and
+                             $emailSenderID > 0 and
+                             isset( $questionList[$emailSenderID] ) and
+                             $senderQuestion = $questionList[$emailSenderID] and
+                             $senderQuestion->attribute( 'type' ) == 'EmailEntry' and
+                             eZMail::validate( $senderQuestion->attribute( 'answer' ) ) )
+                        {
+                            $emailSender = $senderQuestion->attribute( 'answer' );
+                        }
+                        else
+                        {
+                            $ini = eZINI::instance();
+                            $emailSender = $ini->variable( 'MailSettings', 'EmailSender' );
+                            if ( !$emailSender )
+                            {
+                                $emailSender = $ini->variable( 'MailSettings', 'AdminEmail' );
+                            }
+                        }
+
+                        require_once( 'kernel/common/template.php' );
                         $tpl_email = templateInit();
 
                         $tpl_email->setVariable( 'survey', $survey );
-                        $tpl_email->setVariable( 'survey_questions', $surveyList );
+                        $tpl_email->setVariable( 'survey_questions', $questionList );
                         $tpl_email->setVariable( 'survey_node', $node );
 
                         $templateResult = $tpl_email->fetch( 'design:survey/mail.tpl' );
                         $subject = $tpl_email->variable( 'subject' );
+
                         $mail = new eZMail();
-                        $ini = eZINI::instance();
-                        $emailSender = $ini->variable( 'MailSettings', 'EmailSender' );
-                        if ( !$emailSender )
-                            $emailSender = $ini->variable( 'MailSettings', 'AdminEmail' );
                         $mail->setSenderText( $emailSender );
                         $mail->setReceiver( $mailTo );
                         $mail->setSubject( $subject );
                         $mail->setBody( $templateResult );
 
                         $mailResult = eZMailTransport::send( $mail );
+
                     }
+                    $survey->executeBeforeLastRedirect( $node );
 
                     $href = trim( $survey->attribute( 'redirect_submit' ) );
                     $module = $GLOBALS['module'];
@@ -403,11 +424,22 @@ class eZSurveyType extends eZDataType
                         {
                             if ( preg_match( "/^http:\/\/.+/", $href ) )
                             {
-                                $http->redirect( $href );
+                                $module->redirectTo( $href );
                             }
                             else
                             {
-                                $module->redirectTo( $href );
+                                $originalHref = $href;
+                                $status = eZURI::transformURI( $href );
+                                if ( $status === true )
+                                {
+                                    // Need to keep the original href, since it's
+                                    // already changed here.
+                                    $module->redirectTo( $originalHref );
+                                }
+                                else
+                                {
+                                    $http->redirect( $href );
+                                }
                             }
                         }
                     }

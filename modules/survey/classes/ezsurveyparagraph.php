@@ -53,6 +53,6 @@ class eZSurveyParagraph extends eZSurveyQuestion
     }
 }
 
-eZSurveyQuestion::registerQuestionType( 'Paragraph', 'Paragraph' );
+eZSurveyQuestion::registerQuestionType( ezi18n( 'survey', 'Paragraph' ), 'Paragraph' );
 
 ?>

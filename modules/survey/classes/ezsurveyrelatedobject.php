@@ -343,6 +343,6 @@ class eZSurveyRelatedObject extends eZSurveyQuestion
     }
 }
 
-eZSurveyQuestion::registerQuestionType( 'Related object', 'RelatedObject' );
+eZSurveyQuestion::registerQuestionType( ezi18n( 'survey', 'Related object' ), 'RelatedObject' );
 
 ?>

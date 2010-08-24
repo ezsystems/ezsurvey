@@ -12,13 +12,13 @@
 
 {* DESIGN: Content START *}<div class="box-ml"><div class="box-mr"><div class="box-content">
 
-<div class="survey-submenu float-break">
-<ul>
-<li><span class="current">{"Summary"|i18n('survey')}</span></li>
-<li><a href={concat('/survey/result_list/', $contentobject_id, '/', $contentclassattribute_id, '/', $language_code)|ezurl}>All evaluations</a></li>
+<div class="survey-submenu float-break tab-block">
+<ul class="tabs">
+<li class="first selected current"><a href={concat('/survey/result/', $contentobject_id, '/', $contentclassattribute_id, '/', $language_code)|ezurl}>{"Summary"|i18n('survey')}</a></li>
+<li class="middle"><a href={concat('/survey/result_list/', $contentobject_id, '/', $contentclassattribute_id, '/', $language_code)|ezurl}>{"All evaluations"|i18n('survey')}</a></li>
 </ul>
 </div>
-
+<div class="tab-content selected">
 <div class="survey-questions">
 {section show=$count|gt(0)}
 <div class="block">
@@ -43,7 +43,7 @@
 </div>
 {/section}
 </div>
-
+</div>
 {* DESIGN: Content END *}</div></div></div>
 
 <div class="controlbar">

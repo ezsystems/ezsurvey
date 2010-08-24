@@ -81,15 +81,15 @@
     <name>design/ezwebin/full/article</name>
     <message>
         <source>Comments</source>
-        <translation>Kommentarer</translation>
+        <translation type="obsolete">Kommentarer</translation>
     </message>
     <message>
         <source>New comment</source>
-        <translation>Ny kommentar</translation>
+        <translation type="obsolete">Ny kommentar</translation>
     </message>
     <message>
         <source>%login_link_startLog in%login_link_end or %create_link_startcreate a user account%create_link_end to comment.</source>
-        <translation>%login_link_startLogg inn%login_link_end eller %create_link_startopprett brukerkonto%create_link_end for å kommentere.</translation>
+        <translation type="obsolete">%login_link_startLogg inn%login_link_end eller %create_link_startopprett brukerkonto%create_link_end for å kommentere.</translation>
     </message>
     <message>
         <source>Tip a friend</source>
@@ -531,7 +531,7 @@
     <message>
         <source>N. B. If you enter just one email address, user will not see this question. Instead the posting
 will be directly sent to the address.</source>
-        <translation>NB: Hvis du oppgir bare en e-postadresse vil ikke brukeren se dette spørsmålet. Svaret vil bli
+        <translation type="obsolete">NB: Hvis du oppgir bare en e-postadresse vil ikke brukeren se dette spørsmålet. Svaret vil bli
 sendt direkte til adressen du har oppgitt.</translation>
     </message>
     <message>
@@ -640,7 +640,7 @@ sendt direkte til adressen du har oppgitt.</translation>
     </message>
     <message>
         <source>Add extra option</source>
-        <translation>Legg til ny opsjon</translation>
+        <translation>Legg til ny tilleggsopsjon</translation>
     </message>
     <message>
         <source>Presel.</source>
@@ -925,6 +925,67 @@ sendt direkte til adressen du har oppgitt.</translation>
     <message>
         <source>All values in Valid to need to be numeric.</source>
         <translation>Alle verdiene i Gyldig til må være numeriske.</translation>
+    </message>
+    <message>
+        <source>Feedback field entry</source>
+        <translation>Tilbakemeldingsfelt</translation>
+    </message>
+    <message>
+        <source>Send copy in bcc to admin (%1)</source>
+        <translation>Send kopi av melding til administrator (%1)</translation>
+    </message>
+    <message>
+        <source>Text of subject</source>
+        <translation>Emnetekst</translation>
+    </message>
+    <message>
+        <source>Feedback message for the receiver</source>
+        <translation>Tilbakemeldingstekst for mottakeren</translation>
+    </message>
+    <message>
+        <source>Feedback field</source>
+        <translation>Tilbakemeldingsfelt</translation>
+    </message>
+    <message>
+        <source>Email Entry</source>
+        <translation>Epost</translation>
+    </message>
+    <message>
+        <source>Number Entry</source>
+        <translation>Nummer</translation>
+    </message>
+    <message>
+        <source>Form Receiver</source>
+        <translation>Skjemamottager</translation>
+    </message>
+    <message>
+        <source>Related object</source>
+        <translation>Relatert objekt</translation>
+    </message>
+    <message>
+        <source>Section Header</source>
+        <translation>Seksjonsoverskrift</translation>
+    </message>
+    <message>
+        <source>Text Entry</source>
+        <translation>Tekstblokk</translation>
+    </message>
+    <message>
+        <source>Mapping</source>
+        <translation>Kobling</translation>
+    </message>
+    <message>
+        <source>None</source>
+        <translation>Ingen</translation>
+    </message>
+    <message>
+        <source>N. B. If you enter just one email address, user will not see this question. Instead the posting
+  will be directly sent to the address.</source>
+        <translation>NB: Hvis du oppgir bare en e-postadresse vil ikke brukeren se dette spørsmålet. Svaret vil bli sendt direkte til adressen du har oppgitt.</translation>
+    </message>
+    <message>
+        <source>Email Sender</source>
+        <translation>Avsenderadresse</translation>
     </message>
 </context>
 </TS>

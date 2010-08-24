@@ -419,6 +419,6 @@ class eZSurveyNumberEntry extends eZSurveyEntry
     }
 }
 
-eZSurveyQuestion::registerQuestionType( 'Number Entry', 'NumberEntry' );
+eZSurveyQuestion::registerQuestionType( ezi18n( 'survey', 'Number Entry' ), 'NumberEntry' );
 
 ?>

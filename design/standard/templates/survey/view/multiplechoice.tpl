@@ -1,8 +1,14 @@
-<label>{$question.question_number}. {$question.text|wash('xhtml')} {switch match=$question.num}{case match=1}<strong class="required">*</strong>{/case}{case match=2}*{/case}{/switch}</label>
+<label>{$question.question_number}. {$question.text|wash('xhtml')} {switch match=$question.num}{case match=1}<strong class="required">*</strong>{/case}{case match=2}<strong class="required">*</strong>{/case}{/switch}</label>
 <div class="survey-choices float-break">
 {def $attr_id=concat($prefix_attribute,'_ezsurvey_answer_id_',$question.id,'_', $attribute_id)}
 {def $attr_name=concat($prefix_attribute, '_ezsurvey_answer_' , $question.id, '_' , $attribute_id)}
 {def $attr_alternative=concat($prefix_attribute,'_ezsurvey_answer_alternative_',$question.id, '_', $attribute_id)}
+
+{if is_set($question.multiple_choice_answers.options)}
+  {def $options=$question.multiple_choice_answers.options}
+{else}
+  {def $options=$question.options}
+{/if}
 
 {section show=$question_result} {* Show survey persistent view *}
 {if is_set($survey_validation.post_variables.variables[$question.id])}
@@ -75,7 +81,7 @@
 {switch match=$question.num}
 {case match=1} {* Radio buttons in a row *}
 <div class="block float-break">
-{section var=option loop=$question.options}
+{section var=option loop=$options}
     <div class="element"><label><input id="{$attr_id}_{$option.id}" name="{$attr_name}" type="radio" value="{$option.value}"{section show=$option.toggled|eq(1)} checked="checked"{/section} onclick="synchFormElements( '{$attr_id}_{$option.id}', '{$attr_alternative}', false );" />{$option.label}</label></div>
 {/section}
 {if $question.extra_info.enabled|eq(1)}
@@ -84,7 +90,7 @@
 </div>
 {/case}
 {case match=2} {* Radio buttons in a column *}
-{section var=option loop=$question.options}
+{section var=option loop=$options}
     <div class="block float-break"><label><input id="{$attr_id}_{$option.id}" name="{$attr_name}" type="radio" value="{$option.value}"{section show=$option.toggled|eq(1)} checked="checked"{/section} onclick="synchFormElements( '{$attr_id}_{$option.id}', '{$attr_alternative}', false );" />{$option.label}</label></div>
 {/section}
 {if $question.extra_info.enabled|eq(1)}
@@ -93,7 +99,7 @@
 {/case}
 {case match=3} {* Checkbox in a row *}
 <div class="block float-break">
-{section var=option loop=$question.options}
+{section var=option loop=$options}
     <div class="element"><label><input name="{$attr_name}[]" type="checkbox" value="{$option.value}"{section show=$option.toggled|eq(1)} checked="checked"{/section} />{$option.label}</label></div>
 {/section}
 {if $question.extra_info.enabled|eq(1)}
@@ -103,7 +109,7 @@
 {/case}
 {case match=4} {* Checkbox in a column *}
 <div class="block float-break">
-{section var=option loop=$question.options}
+{section var=option loop=$options}
     <div class="block"><label><input name="{$attr_name}[]" type="checkbox" value="{$option.value}"{section show=$option.toggled|eq(1)} checked="checked"{/section} />{$option.label}</label></div>
 {/section}
 {if $question.extra_info.enabled|eq(1)}
@@ -114,7 +120,7 @@
 {case match=5} {* Select box *}
 <div class="block float-break">
 <select name="{$attr_name}" onclick="synchFormElements( '{$attr_id}', '{$attr_alternative}', true );">
-  {section var=option loop=$question.options}
+  {section var=option loop=$options}
     <option value="{$option.value}"{section show=$option.toggled|eq(1)} selected="selected"{/section}>{$option.label}</option>
   {/section}
    {if $question.extra_info.enabled|eq(1)}
@@ -142,22 +148,25 @@
 function synchFormElements()
 {
     var synchElement = document.getElementById( synchFormElements.arguments[0] );
-    var tag = synchElement.tagName.toLowerCase();
-    var synchPolarity = synchFormElements.arguments[ arguments.length - 1 ];
-    var inputArray = new Array();
+    if ( synchElement != undefined && synchElement != null )
+    {
+       var tag = synchElement.tagName.toLowerCase();
+       var synchPolarity = synchFormElements.arguments[ arguments.length - 1 ];
+       var inputArray = new Array();
 
-    for ( var x = 0; x < ( synchFormElements.arguments.length - 2 ); x++ )
-    {
-        inputArray[x] = synchFormElements.arguments[ x + 1 ];
-    }
+       for ( var x = 0; x < ( synchFormElements.arguments.length - 2 ); x++ )
+       {
+           inputArray[x] = synchFormElements.arguments[ x + 1 ];
+       }
 
-    if ( ( tag == 'input' && ( ( synchElement.checked && synchPolarity ) || ( !synchElement.checked && !synchPolarity ) ) ) || ( tag == 'option' && ( ( synchElement.selected && synchPolarity ) || ( !synchElement.selected && !synchPolarity ) ) ) )
-    {
-        setFormElements( inputArray, true );
-    }
-    else
-    {
-        setFormElements( inputArray, false );
+       if ( ( tag == 'input' && ( ( synchElement.checked && synchPolarity ) || ( !synchElement.checked && !synchPolarity ) ) ) || ( tag == 'option' && ( ( synchElement.selected && synchPolarity ) || ( !synchElement.selected && !synchPolarity ) ) ) )
+       {
+           setFormElements( inputArray, true );
+       }
+       else
+       {
+           setFormElements( inputArray, false );
+       }
     }
 }
 
@@ -173,14 +182,17 @@ function setFormElements( inputArray, enabled )
     for ( var x = 0; x < inputArray.length; x++ )
     {
         var inputElement = document.getElementById( inputArray[x] );
-        inputElement.disabled = modeString;
-        if ( modeString == 'disabled' )
+        if ( inputElement != undefined && inputElement != null )
         {
-            setClass( inputElement, 'disabled' );
-        }
-        else
-        {
-            removeClass( inputElement, 'disabled' );
+            inputElement.disabled = modeString;
+            if ( modeString == 'disabled' )
+            {
+                setClass( inputElement, 'disabled' );
+            }
+            else
+            {
+                removeClass( inputElement, 'disabled' );
+            }
         }
     }
 }

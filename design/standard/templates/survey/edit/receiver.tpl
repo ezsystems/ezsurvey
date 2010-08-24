@@ -1,10 +1,20 @@
 <h2 class="attributetype">{"Receiver"|i18n( 'survey' )}</h2>
+<div class="block">
+     <label>{"Email Sender"|i18n( 'survey' )}:</label>
+     {def $email_sender_list=$question.email_sender_list}
+     <select name="{$prefix_attribute}_ezsurvey_question_{$question.id}_text3_{$attribute_id}">
+        {foreach $email_sender_list as $id => $email}
+        <option value="{$id|wash()}" {if and( $question.text3|explode('_')|count|gt(1), $question.text3|explode('_').0|eq($id|explode('_').0 ) )} selected="selected"{/if}>{$email|wash()}</option>
+        {/foreach}
+     </select>
+</div>
 
 <div class="block">
+  <p>{"N. B. If you enter just one email address, user will not see this question. Instead the posting
+  will be directly sent to the address."|i18n( 'survey' )}</p>
+</div>
 
-<p>{"N. B. If you enter just one email address, user will not see this question. Instead the posting
-will be directly sent to the address."|i18n( 'survey' )}</p>
-
+<div class="block">
 <label>{"Text of question"|i18n( 'survey' )}:</label>
 <input class="box" type="text" name="{$prefix_attribute}_ezsurvey_question_{$question.id}_text_{$attribute_id}" value="{$question.text|wash('xhtml')}" size="70" />
 

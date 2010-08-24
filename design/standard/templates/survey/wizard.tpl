@@ -40,7 +40,7 @@
 <p>{"The installer creates the classes, from the package included in eZ Survey. This is recommended for most users."|i18n( 'survey' )}
 <h3>{"Manual installation"|i18n( 'survey' )}</h3>
 <p>{"Experienced users may create the classes manually. When done continue this installer by clicking the Survey link in the top menu."|i18n( 'survey' )}</p>
-{if or($state|eq('survey_classattribute'), $content_class_list|count|gt(0))}{set $action_name_disabled=true()}{/if}
+{if and($state|eq('survey_classattribute'), $content_class_list|count|gt(0))}{set $action_name_disabled=true()}{/if}
     {set $action_name='ImportSurveyPackage'
          $action_value='Automatic'
          $action_manual_name='ImportSurveyManual'

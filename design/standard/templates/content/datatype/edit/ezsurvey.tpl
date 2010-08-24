@@ -4,22 +4,25 @@
 function synchFormElements()
 {
     var synchElement = document.getElementById( synchFormElements.arguments[0] );
-    var tag = synchElement.tagName.toLowerCase();
-    var synchPolarity = synchFormElements.arguments[ arguments.length - 1 ];
-    var inputArray = new Array();
+    if ( synchElement != undefined && synchElement != null )
+    {
+        var tag = synchElement.tagName.toLowerCase();
+        var synchPolarity = synchFormElements.arguments[ arguments.length - 1 ];
+        var inputArray = new Array();
 
-    for ( var x = 0; x < ( synchFormElements.arguments.length - 2 ); x++ )
-    {
-        inputArray[x] = synchFormElements.arguments[ x + 1 ];
-    }
+        for ( var x = 0; x < ( synchFormElements.arguments.length - 2 ); x++ )
+        {
+            inputArray[x] = synchFormElements.arguments[ x + 1 ];
+        }
 
-    if ( ( tag == 'input' && ( ( synchElement.checked && synchPolarity ) || ( !synchElement.checked && !synchPolarity ) ) ) || ( tag == 'option' && ( ( synchElement.selected && synchPolarity ) || ( !synchElement.selected && !synchPolarity ) ) ) )
-    {
-        setFormElements( inputArray, true );
-    }
-    else
-    {
-        setFormElements( inputArray, false );
+        if ( ( tag == 'input' && ( ( synchElement.checked && synchPolarity ) || ( !synchElement.checked && !synchPolarity ) ) ) || ( tag == 'option' && ( ( synchElement.selected && synchPolarity ) || ( !synchElement.selected && !synchPolarity ) ) ) )
+        {
+            setFormElements( inputArray, true );
+        }
+        else
+        {
+            setFormElements( inputArray, false );
+        }
     }
 }
 

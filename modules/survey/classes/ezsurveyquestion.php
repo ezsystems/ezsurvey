@@ -44,6 +44,11 @@
 // Abstract class! Do not create instances of this class!
 class eZSurveyQuestion extends eZPersistentObject
 {
+    private static $contentObject;
+    private static $dataMap;
+    private static $currentUserObject;
+    private static $survey;
+
     function eZSurveyQuestion( $row = array() )
     {
         $type = $row['type'];
@@ -150,7 +155,7 @@ class eZSurveyQuestion extends eZPersistentObject
                        'keys' => array( 'id' ),
                        'increment_key' => 'id',
                        'class_name' => 'eZSurveyQuestion',
-                       'sort' => array( 'tab_order', 'asc' ),
+                       'sort' => array( 'tab_order' => 'asc' ),
                        'name' => 'ezsurveyquestion' );
     }
 
@@ -315,7 +320,7 @@ class eZSurveyQuestion extends eZPersistentObject
 
     function questionNumberIterate( &$iterator )
     {
-        $this->QuestionNumber=$iterator++;
+        $this->QuestionNumber = $iterator++;
     }
 
     function &questionNumber()
@@ -471,6 +476,136 @@ class eZSurveyQuestion extends eZPersistentObject
         }
         return $this->ContentObjectAttributeVersion;
     }
+
+    /*!
+      Default function for questions which should do something after the survey is confirmed.
+    */
+    public function executeBeforeLastRedirect( $node )
+    {
+    }
+
+    protected function survey( $surveyID = false )
+    {
+        if ( !is_numeric( $surveyID ) )
+        {
+            $surveyID = $this->SurveyID;
+        }
+
+        $survey = false;
+        if ( is_numeric( $surveyID ) and
+             !isset( self::$survey[$surveyID] ) )
+        {
+            self::$survey[$surveyID] = $survey = eZSurvey::fetch( $surveyID );
+        }
+        else if ( isset( self::$survey[$surveyID] ) )
+        {
+            $survey = self::$survey[$surveyID];
+        }
+
+        return $survey;
+    }
+
+    protected function surveyContentObject( $surveyID )
+    {
+        if ( !isset( self::$contentObject[$surveyID] ) )
+        {
+            $survey = eZSurvey::fetch( $this->SurveyID );
+            $survey = $this->survey();
+
+            if ( $survey instanceof eZSurvey and
+                 $object = eZContentObject::fetch( $survey->attribute( 'contentobject_id' ) ) and
+                 $object instanceof eZContentObject )
+            {
+                self::$contentObject[$surveyID] = $object;
+            }
+            else
+            {
+                return false;
+            }
+        }
+        return self::$contentObject[$surveyID];
+    }
+
+    /*!
+      Return dataMap for a given object (eZContentObject).
+    */
+    protected function dataMap( $object = false )
+    {
+        $dataMap = array();
+
+        $id = 'survey';
+        if ( $object instanceof eZContentObject )
+        {
+            $id = $object->attribute( 'id' );
+        }
+        if ( isset( self::$dataMap[$id] )  )
+        {
+            $dataMap = self::$dataMap[$id];
+        }
+        else
+        {
+            if ( is_numeric( $id ) )
+            {
+                self::$dataMap[$id] = $dataMap = $object->attribute( 'data_map' );
+            }
+            else if ( $id == 'survey' and
+                      $survey = $this->survey() and
+                      $object = $this->surveyContentObject( $this->SurveyID ) and
+                      $object instanceof eZContentObject and
+                      $survey instanceof eZSurvey )
+            {
+                self::$dataMap['survey'] = $dataMap = $object->version( $survey->attribute( 'contentobjectattribute_version' ) )->attribute( 'data_map' );
+            }
+        }
+        return $dataMap;
+    }
+
+    /*!
+      Return object of the current user.
+    */
+    protected function currentUserObject()
+    {
+        if ( !isset( self::$currentUserObject ) )
+        {
+            self::$currentUserObject = false;
+            $user = eZUser::instance();
+            if ( $user instanceof eZUser )
+            {
+                $object = $user->attribute( 'contentobject' );
+                if ( $object instanceof eZContentObject )
+                {
+                    self::$currentUserObject = $object;
+                }
+            }
+        }
+
+        return self::$currentUserObject;
+    }
+
+    function userAttributeList()
+    {
+        $object = $this->currentUserObject();
+        $dataMap = $this->dataMap( $object );
+
+        $value = array( 'user_email' => ezi18n( 'survey', 'User email' ),
+                        'user_name' => ezi18n( 'survey', 'User name' ) );
+
+        $validAttributes = array( 'eztext', 'ezstring', 'ezmail' );
+
+        foreach ( $dataMap as $identifier => $attribute )
+        {
+            $dataTypeString = $attribute->attribute( 'data_type_string' );
+            if ( in_array( $dataTypeString, $validAttributes ) )
+            {
+                $key = 'userobject_' . $identifier;
+                $value[$key] = $attribute->attribute( 'contentclass_attribute' )->attribute( 'name' );
+            }
+        }
+
+        return $value;
+    }
+
+
 
     var $ContentObjectAttributeID;
     var $Survey;

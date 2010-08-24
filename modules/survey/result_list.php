@@ -92,6 +92,7 @@ $tpl->setVariable( 'contentclassattribute_id', $contentClassAttributeID );
 $tpl->setVariable( 'language_code', $languageCode );
 
 $Result = array();
+$Result['left_menu'] = 'design:parts/survey/menu.tpl';
 $Result['content'] = $tpl->fetch( 'design:survey/result_list.tpl' );
 $Result['path'] = array( array( 'url' => '/survey/list',
                                 'text' => ezi18n( 'survey', 'Survey' ) ),

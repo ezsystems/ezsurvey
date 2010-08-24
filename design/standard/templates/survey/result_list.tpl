@@ -15,13 +15,13 @@
 
 {* DESIGN: Content START *}<div class="box-ml"><div class="box-mr"><div class="box-content">
 
-<div class="survey-submenu float-break">
-<ul>
-<li><a href={concat('/survey/result/', $contentobject_id, '/', $contentclassattribute_id, '/', $language_code)|ezurl}>Summary</a></li>
-<li><span class="current">All evaluations</span></li>
+<div class="survey-submenu tab-block float-break">
+<ul class="tabs">
+<li class="first"><a href={concat('/survey/result/', $contentobject_id, '/', $contentclassattribute_id, '/', $language_code)|ezurl}>{"Summary"|i18n('survey')}</a></li>
+<li class="current selected"><a href={concat('/survey/result_list/', $contentobject_id, '/', $contentclassattribute_id, '/', $language_code)|ezurl}>{"All evaluations"|i18n('survey')}</a></li>
 </ul>
 </div>
-
+<div class="tab-content selected">
 <div class="block"><p>{"Survey"i18n('survey')} <a href={$survey_object.main_node.url_alias|ezurl()}>{$survey_object.name|wash(xhtml)}</a> {"has %count answers."|i18n('survey',,hash('%count', $survey.result_count))}</p></div>
 {/let}
 
@@ -63,7 +63,7 @@
 {/let}
 {/foreach}
 </table>
-
+</div>
 {include name=navigator
          uri='design:navigator/google.tpl'
 	 page_uri=concat('/survey/result_list/', $contentobject_id, '/', $contentclassattribute_id, '/', $language_code )

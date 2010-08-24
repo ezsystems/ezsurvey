@@ -24,6 +24,7 @@ QuestionTypeList[]=numberentry
 QuestionTypeList[]=emailentry
 QuestionTypeList[]=relatedobject
 QuestionTypeList[]=receiver
+QuestionTypeList[]=feedbackfield
 
 # Example group of a custom survey attribute in the extension custom
 # Will be availlable in:

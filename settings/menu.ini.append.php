@@ -23,4 +23,13 @@ Shown[default]=true
 Shown[navigation]=true
 Shown[browse]=false
 
+Links[]
+LinkNames[]
+Links[default]=survey/list
+PolicyList_default[]=survey/list
+
+Links[relatedobjectconfig]=survey/relatedobjectconfig
+PolicyList_relatedobjectconfig[]=survey/list
+
+
 */ ?>

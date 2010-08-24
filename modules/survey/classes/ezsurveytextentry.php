@@ -42,13 +42,25 @@ class eZSurveyTextEntry extends eZSurveyEntry
         if ( !isset( $row['num'] ) )
             $row['num'] = 70;
         if ( !isset( $row['num2'] ) )
-            $row['num2'] = 10;
+            $row['num2'] = 1;
         if ( !isset( $row['mandatory'] ) )
             $row['mandatory'] = 1;
         $row['type'] = 'TextEntry';
         $this->eZSurveyEntry( $row );
     }
 
+    static function definition()
+    {
+        $def = parent::definition();
+        $def['function_attributes']['default_answers'] = 'textDefaultAnswers';
+        return $def;
+    }
+
+    function textDefaultAnswers()
+    {
+        $value = $this->userAttributeList();
+        return $value;
+    }
 
     function answer()
     {
@@ -63,36 +75,82 @@ class eZSurveyTextEntry extends eZSurveyEntry
             $surveyAnswer = $http->postVariable( $postSurveyAnswer );
             return $surveyAnswer;
         }
-
-        if ( $this->Text3 == 'user_email' )
+        $user = eZUser::instance();
+        $value = $this->Default;
+        if ( $user->isLoggedIn() === true )
         {
-            $user = eZUser::currentUser();
-            if ( get_class( $user ) == 'eZUser' and
-                 $user->isLoggedIn() === true )
+            switch ( $this->Text3 )
             {
-                return $user->attribute( 'email' );
-            }
-        }
-        else if ( $this->Text3 == 'user_name' )
-        {
-            $user = eZUser::currentUser();
-            if ( get_class( $user ) == 'eZUser' and
-                 $user->isLoggedIn() === true )
-            {
-                $contentObject = $user->attribute( 'contentobject' );
-                if ( get_class( $contentObject ) == 'eZContentObject' )
+                case "user_email":
                 {
-                    return $contentObject->attribute( 'name' );
+                    $value = $this->userEmail();
+                } break;
+
+                case "user_name":
+                {
+                    $value = $this->userName();
+                } break;
+
+                default:
+                {
+                    $value = $this->defaultUserValue();
                 }
             }
         }
 
-        return $this->Default;
+        return $value;
+    }
+
+    private function defaultUserValue()
+    {
+        $value = false;
+        $valueArray = explode( '_', $this->Text3, 2 );
+        if ( isset( $valueArray[0] ) and
+             isset( $valueArray[1] ) and
+             $valueArray[0] == 'userobject' )
+        {
+            $identifier = $valueArray[1];
+            $user = eZUser::currentUser();
+            $dataMap = $user->attribute( 'contentobject' )->attribute( 'data_map' );
+            if ( isset( $dataMap[$identifier] ) )
+            {
+                $value = $dataMap[$identifier]->attribute( 'content' );
+            }
+        }
+        return $value;
+    }
+
+    private function userName()
+    {
+        $value = false;
+        $user = eZUser::currentUser();
+        if ( get_class( $user ) == 'eZUser' and
+             $user->isLoggedIn() === true )
+        {
+            $contentObject = $user->attribute( 'contentobject' );
+            if ( get_class( $contentObject ) == 'eZContentObject' )
+            {
+                $value = $contentObject->attribute( 'name' );
+            }
+        }
+        return $value;
+    }
+
+    private function userEmail()
+    {
+        $value = false;
+        $user = eZUser::currentUser();
+        if ( get_class( $user ) == 'eZUser' and
+             $user->isLoggedIn() === true )
+        {
+            $value = $user->attribute( 'email' );
+        }
+        return $value;
     }
 }
 
 
 
-eZSurveyQuestion::registerQuestionType( 'Text Entry', 'TextEntry' );
+eZSurveyQuestion::registerQuestionType( ezi18n( 'survey', 'Text Entry' ), 'TextEntry' );
 
 ?>

@@ -104,6 +104,6 @@ class eZSurveyEmailEntry extends eZSurveyEntry
     }
 }
 
-eZSurveyQuestion::registerQuestionType( 'Email Entry', 'EmailEntry' );
+eZSurveyQuestion::registerQuestionType( ezi18n( 'survey', 'Email Entry' ), 'EmailEntry' );
 
 ?>
