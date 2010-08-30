@@ -89,7 +89,7 @@ class eZSurveyQuestionResult extends eZPersistentObject
         parent::store( $fieldFilters );
     }
 
-    static function &instance( $resultID, $questionID, $count = 1 )
+    static function instance( $resultID, $questionID, $count = 1 )
     {
         $questionResultArray = eZPersistentObject::fetchObjectList( eZSurveyQuestionResult::definition(),
                                                                     null,
@@ -100,13 +100,16 @@ class eZSurveyQuestionResult extends eZPersistentObject
         {
             $questionResultArray = array();
         }
-        for ( $idx = $count; $idx < count( $questionResultArray ); ++$idx )
+
+        $questionArrayCount = count( $questionResultArray );
+        for ( $idx = $count; $idx < $questionArrayCount; ++$idx )
         {
             $questionResultArray[$idx]->remove();
             unset( $questionResultArray[$idx] );
         }
 
-        for ( $idx = count( $questionResultArray ); $idx < $count; ++$idx )
+        $questionArrayCount = count( $questionResultArray );
+        for ( $idx = $questionArrayCount; $idx < $count; ++$idx )
         {
             $questionResultArray[] = new eZSurveyQuestionResult( array ( 'result_id' => $resultID,
                                                                          'question_id' => $questionID ) );

@@ -421,7 +421,7 @@ class eZSurveyQuestion extends eZPersistentObject
             }
         }
 
-        $questionResultArray =& eZSurveyQuestionResult::instance( $resultID, $this->ID, count( $httpAnswer ) );
+        $questionResultArray = eZSurveyQuestionResult::instance( $resultID, $this->ID, count( $httpAnswer ) );
         $questionCount = 0;
         foreach ( $httpAnswer as $answer )
         {
