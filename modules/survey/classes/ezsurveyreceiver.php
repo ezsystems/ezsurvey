@@ -341,7 +341,7 @@ class eZSurveyReceiver extends eZSurveyQuestion
                    !eZMail::validate( $http->postVariable( $postValue ) ) ) )
             {
                 $validation['error'] = true;
-                $validation['errors'][$this->ID] = array( 'message' => ezi18n( 'survey', "Entered text '%text' in the question with id %number is not an email address!", null,
+                $validation['errors'][$this->ID] = array( 'message' => ezpI18n::tr( 'survey', "Entered text '%text' in the question with id %number is not an email address!", null,
                                                                                array( '%number' => $this->ID,
                                                                                       '%text' => $http->postVariable( $postValue ) ) ),
                                                           'question_id' => $this->ID,
@@ -355,7 +355,7 @@ class eZSurveyReceiver extends eZSurveyQuestion
                    in_array( $http->postVariable( $postValue ), $optionValues ) ) )
             {
                 $validation['error'] = true;
-                $validation['errors'][$this->ID] = array( 'message' => ezi18n( 'survey', 'Email addresses in the question with id %number must have unique values!', null,
+                $validation['errors'][$this->ID] = array( 'message' => ezpI18n::tr( 'survey', 'Email addresses in the question with id %number must have unique values!', null,
                                                                                array( '%number' => $this->ID ) ),
                                                           'question_id' => $this->ID,
                                                           'code' => 'receiver_email_not_unique',
@@ -454,6 +454,6 @@ class eZSurveyReceiver extends eZSurveyQuestion
     var $OptionID=0;
 }
 
-eZSurveyQuestion::registerQuestionType( ezi18n( 'survey', 'Form Receiver' ), 'Receiver', true );
+eZSurveyQuestion::registerQuestionType( ezpI18n::tr( 'survey', 'Form Receiver' ), 'Receiver', true );
 
 ?>

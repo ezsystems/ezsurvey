@@ -95,11 +95,11 @@ $Result = array();
 $Result['left_menu'] = 'design:parts/survey/menu.tpl';
 $Result['content'] = $tpl->fetch( 'design:survey/result_list.tpl' );
 $Result['path'] = array( array( 'url' => '/survey/list',
-                                'text' => ezi18n( 'survey', 'Survey' ) ),
+                                'text' => ezpI18n::tr( 'survey', 'Survey' ) ),
                          array( 'url' => '/survey/result/' .  $contentObjectID . '/' . $contentClassAttributeID .'/' . $languageCode,
-                                'text' => ezi18n( 'survey', 'Result overview' ) ),
+                                'text' => ezpI18n::tr( 'survey', 'Result overview' ) ),
                          array( 'url' => false,
-                                'text' => ezi18n( 'survey', 'All' ) ) );
+                                'text' => ezpI18n::tr( 'survey', 'All' ) ) );
 
 
 ?>

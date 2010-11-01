@@ -495,7 +495,7 @@ class eZSurvey extends eZPersistentObject
         if ( !$http->hasPostVariable( $postSurveyID ) )
         {
             $validation['error'] = true;
-            $validation['errors'][] = array( 'message' => ezi18n( 'survey', 'The survey is not valid. Survey ID is missing' ) );
+            $validation['errors'][] = array( 'message' => ezpI18n::tr( 'survey', 'The survey is not valid. Survey ID is missing' ) );
             return false;
         }
 
@@ -508,7 +508,7 @@ class eZSurvey extends eZPersistentObject
                  ( $http->hasPostVariable( $postValidFromHidden ) and !is_numeric( $http->postVariable( $postValidFromHidden ) ) ) )
             {
                 $validation['error'] = true;
-                $validation['errors'][] = array( 'message' => ezi18n( 'survey', 'All values in Valid from need to be numeric.' ) );
+                $validation['errors'][] = array( 'message' => ezpI18n::tr( 'survey', 'All values in Valid from need to be numeric.' ) );
             }
         }
 
@@ -520,7 +520,7 @@ class eZSurvey extends eZPersistentObject
                  ( $http->hasPostVariable( $postValidToHidden ) and !is_numeric( $http->postVariable( $postValidToHidden ) ) ) )
             {
                 $validation['error'] = true;
-                $validation['errors'][] = array( 'message' => ezi18n( 'survey', 'All values in Valid to need to be numeric.' ) );
+                $validation['errors'][] = array( 'message' => ezpI18n::tr( 'survey', 'All values in Valid to need to be numeric.' ) );
             }
         }
 
@@ -718,7 +718,7 @@ class eZSurvey extends eZPersistentObject
         if ( !$http->hasPostVariable( $postSurveyID ) )
         {
             $validation['error'] = true;
-            $validation['errors'][] = array( 'message' => ezi18n( 'survey', 'The survey is not valid. Survey ID is missing' ) );
+            $validation['errors'][] = array( 'message' => ezpI18n::tr( 'survey', 'The survey is not valid. Survey ID is missing' ) );
             return false;
         }
 

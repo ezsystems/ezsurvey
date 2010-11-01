@@ -62,6 +62,6 @@ class eZSurveySectionHeader extends eZSurveyQuestion
     }
 }
 
-eZSurveyQuestion::registerQuestionType( ezi18n( 'survey', 'Section Header' ), 'SectionHeader' );
+eZSurveyQuestion::registerQuestionType( ezpI18n::tr( 'survey', 'Section Header' ), 'SectionHeader' );
 
 ?>

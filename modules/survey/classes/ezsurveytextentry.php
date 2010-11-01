@@ -151,6 +151,6 @@ class eZSurveyTextEntry extends eZSurveyEntry
 
 
 
-eZSurveyQuestion::registerQuestionType( ezi18n( 'survey', 'Text Entry' ), 'TextEntry' );
+eZSurveyQuestion::registerQuestionType( ezpI18n::tr( 'survey', 'Text Entry' ), 'TextEntry' );
 
 ?>

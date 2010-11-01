@@ -56,7 +56,7 @@ class eZSurveyType extends eZDataType
     */
     function eZSurveyType()
     {
-        $this->eZDataType( self::DATA_TYPE_STRING, ezi18n( 'ezsurvey/datatypes', 'Survey', 'Datatype name' ) );
+        $this->eZDataType( self::DATA_TYPE_STRING, ezpI18n::tr( 'ezsurvey/datatypes', 'Survey', 'Datatype name' ) );
     }
 
     /*!
@@ -175,7 +175,7 @@ class eZSurveyType extends eZDataType
         if ( isset( $validation['error'] ) and $validation['error'] === true )
         {
             $isValid = eZInputValidator::STATE_INVALID;
-            $contentObjectAttribute->setValidationError( ezi18n( 'kernel/classes/datatypes',
+            $contentObjectAttribute->setValidationError( ezpI18n::tr( 'kernel/classes/datatypes',
                                                                  'Missing survey input.' ) );
             $contentObjectAttribute->setHasValidationError();
         }

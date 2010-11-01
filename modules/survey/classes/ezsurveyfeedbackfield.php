@@ -109,7 +109,7 @@ class eZSurveyFeedbackField extends eZSurveyEntry
         if ( $this->validateEmail( $variableArray['answer'] ) === false )
         {
             $validation['error'] = true;
-            $validation['errors'][] = array( 'message' => ezi18n( 'survey', 'Entered text in the question %number is not a valid email address!', null,
+            $validation['errors'][] = array( 'message' => ezpI18n::tr( 'survey', 'Entered text in the question %number is not a valid email address!', null,
                                               array( '%number' => $this->questionNumber() ) ),
                                                      'question_number' => $this->questionNumber(),
                                              'code' => 'feedbackfield_email_not_valid',
@@ -316,6 +316,6 @@ class eZSurveyFeedbackField extends eZSurveyEntry
 
 }
 
-eZSurveyQuestion::registerQuestionType( ezi18n( 'survey', 'Feedback field' ), 'FeedbackField' );
+eZSurveyQuestion::registerQuestionType( ezpI18n::tr( 'survey', 'Feedback field' ), 'FeedbackField' );
 
 ?>

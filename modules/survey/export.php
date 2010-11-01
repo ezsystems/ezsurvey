@@ -71,7 +71,7 @@ if ( $output !== false )
 }
 else
 {
-    echo ezi18n( 'survey', 'No results' );
+    echo ezpI18n::tr( 'survey', 'No results' );
     echo "\n";
 }
 

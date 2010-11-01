@@ -62,7 +62,7 @@ class eZSurveyNumberEntry extends eZSurveyEntry
         if ( $this->attribute( 'mandatory' ) == 1 && strlen( $answer ) == 0 )
         {
             $validation['error'] = true;
-            $validation['errors'][] = array( 'message' => ezi18n( 'survey', 'Please answer the question %number as well!', null,
+            $validation['errors'][] = array( 'message' => ezpI18n::tr( 'survey', 'Please answer the question %number as well!', null,
                                                                   array( '%number' => $this->questionNumber() ) ),
                                              'question_number' => $this->questionNumber(),
                                              'code' => 'number_answer_question',
@@ -120,7 +120,7 @@ class eZSurveyNumberEntry extends eZSurveyEntry
                 {
                     if ( $reqInteger )
                     {
-                        $validation['errors'][] = array( 'message' => ezi18n( 'survey', 'Entered text in the question %number is not an integer number!', null,
+                        $validation['errors'][] = array( 'message' => ezpI18n::tr( 'survey', 'Entered text in the question %number is not an integer number!', null,
                                                                               array( '%number' => $this->questionNumber() ) ),
                                                          'question_number' => $this->questionNumber(),
                                                          'code' => 'number_not_integer',
@@ -128,7 +128,7 @@ class eZSurveyNumberEntry extends eZSurveyEntry
                     }
                     else
                     {
-                        $validation['errors'][] = array( 'message' => ezi18n( 'survey', 'Entered text in the question %number is not a number!', null,
+                        $validation['errors'][] = array( 'message' => ezpI18n::tr( 'survey', 'Entered text in the question %number is not a number!', null,
                                                                               array( '%number' => $this->questionNumber() ) ),
                                                          'question_number' => $this->questionNumber(),
                                                          'code' => 'number_not_number',
@@ -139,7 +139,7 @@ class eZSurveyNumberEntry extends eZSurveyEntry
                 {
                     if ( $reqInteger )
                     {
-                        $validation['errors'][] = array( 'message' => ezi18n( 'survey', 'Entered number in the question %number is not integer or is not lower than or equal to %max!', null,
+                        $validation['errors'][] = array( 'message' => ezpI18n::tr( 'survey', 'Entered number in the question %number is not integer or is not lower than or equal to %max!', null,
                                                                               array( '%number' => $this->questionNumber(),
                                                                                      '%max' => $maxText ) ),
                                                          'question_number' => $this->questionNumber(),
@@ -148,7 +148,7 @@ class eZSurveyNumberEntry extends eZSurveyEntry
                     }
                     else
                     {
-                        $validation['errors'][] = array( 'message' => ezi18n( 'survey', 'Entered number in the question %number must be lower than or equal to %max!', null,
+                        $validation['errors'][] = array( 'message' => ezpI18n::tr( 'survey', 'Entered number in the question %number must be lower than or equal to %max!', null,
                                                                               array( '%number' => $this->questionNumber(),
                                                                                      '%max' => $maxText ) ),
                                                          'question_number' => $this->questionNumber(),
@@ -160,7 +160,7 @@ class eZSurveyNumberEntry extends eZSurveyEntry
                 {
                     if ( $reqInteger )
                     {
-                        $validation['errors'][] = array( 'message' => ezi18n( 'survey', 'Entered number in the question %number is not integer or is not greater than or equal to %min!', null,
+                        $validation['errors'][] = array( 'message' => ezpI18n::tr( 'survey', 'Entered number in the question %number is not integer or is not greater than or equal to %min!', null,
                                                                               array( '%number' => $this->questionNumber(),
                                                                                      '%min' => $minText ) ),
                                                          'question_number' => $this->questionNumber(),
@@ -169,7 +169,7 @@ class eZSurveyNumberEntry extends eZSurveyEntry
                     }
                     else
                     {
-                        $validation['errors'][] = array( 'message' => ezi18n( 'survey', 'Entered number in the question %number must be greater than or equal to %min!', null,
+                        $validation['errors'][] = array( 'message' => ezpI18n::tr( 'survey', 'Entered number in the question %number must be greater than or equal to %min!', null,
                                                                               array( '%number' => $this->questionNumber(),
                                                                                      '%min' => $minText ) ),
                                                          'question_number' => $this->questionNumber(),
@@ -181,7 +181,7 @@ class eZSurveyNumberEntry extends eZSurveyEntry
                 {
                     if ( $reqInteger )
                     {
-                        $validation['errors'][] = array( 'message' => ezi18n( 'survey', 'Entered number in the question %number is not integer or is not between %min and %max!', null,
+                        $validation['errors'][] = array( 'message' => ezpI18n::tr( 'survey', 'Entered number in the question %number is not integer or is not between %min and %max!', null,
                                                                               array( '%number' => $this->questionNumber(),
                                                                                      '%min' => $minText,
                                                                                      '%max' => $maxText ) ),
@@ -191,7 +191,7 @@ class eZSurveyNumberEntry extends eZSurveyEntry
                     }
                     else
                     {
-                        $validation['errors'][] = array( 'message' => ezi18n( 'survey', 'Entered number in the question %number must be between %min and %max!', null,
+                        $validation['errors'][] = array( 'message' => ezpI18n::tr( 'survey', 'Entered number in the question %number must be between %min and %max!', null,
                                                                               array( '%number' => $this->questionNumber(),
                                                                                      '%min' => $minText,
                                                                                      '%max' => $maxText ) ),
@@ -207,7 +207,7 @@ class eZSurveyNumberEntry extends eZSurveyEntry
                 $validation['error'] = true;
                 if ( $reqInteger )
                 {
-                    $validation['errors'][] = array( 'message' => ezi18n( 'survey', 'Entered text in the question %number is not an integer number!', null,
+                    $validation['errors'][] = array( 'message' => ezpI18n::tr( 'survey', 'Entered text in the question %number is not an integer number!', null,
                                                                           array( '%number' => $this->questionNumber() ) ),
                                                      'question_number' => $this->questionNumber(),
                                                      'code' => 'number_not_integer',
@@ -215,7 +215,7 @@ class eZSurveyNumberEntry extends eZSurveyEntry
                 }
                 else
                 {
-                    $validation['errors'][] = array( 'message' => ezi18n( 'survey', 'Entered text in the question %number is not a number!', null,
+                    $validation['errors'][] = array( 'message' => ezpI18n::tr( 'survey', 'Entered text in the question %number is not a number!', null,
                                                                           array( '%number' => $this->questionNumber() ) ),
                                                      'question_number' => $this->questionNumber(),
                                                      'code' => 'number_not_number',
@@ -266,7 +266,7 @@ class eZSurveyNumberEntry extends eZSurveyEntry
                 $validation['error'] = true;
                 if ( $reqInteger )
                 {
-                    $validation['errors'][] = array( 'message' => ezi18n( 'survey', 'Entered text in the question with id %number is not an integer number!', null,
+                    $validation['errors'][] = array( 'message' => ezpI18n::tr( 'survey', 'Entered text in the question with id %number is not an integer number!', null,
                                                                           array( '%number' => $this->ID ) ),
                                                      'question_id' => $this->ID,
                                                      'code' => 'number_not_integer_number',
@@ -274,7 +274,7 @@ class eZSurveyNumberEntry extends eZSurveyEntry
                 }
                 else
                 {
-                    $validation['errors'][] = array( 'message' => ezi18n( 'survey', 'Entered text in the question with id %number is not an number!', null,
+                    $validation['errors'][] = array( 'message' => ezpI18n::tr( 'survey', 'Entered text in the question with id %number is not an number!', null,
                                                                           array( '%number' => $this->ID ) ),
                                                      'question_id' => $this->ID,
                                                      'code' => 'number_not_number',
@@ -295,7 +295,7 @@ class eZSurveyNumberEntry extends eZSurveyEntry
                 $validation['error'] = true;
                 if ( $reqInteger )
                 {
-                    $validation['errors'][] = array( 'message' => ezi18n( 'survey', 'Entered text in the question with id %number is not an integer number!', null,
+                    $validation['errors'][] = array( 'message' => ezpI18n::tr( 'survey', 'Entered text in the question with id %number is not an integer number!', null,
                                                                           array( '%number' => $this->ID ) ),
                                                      'question_id' => $this->ID,
                                                      'code' => 'number_not_integer_number',
@@ -303,7 +303,7 @@ class eZSurveyNumberEntry extends eZSurveyEntry
                 }
                 else
                 {
-                    $validation['errors'][] = array( 'message' =>  ezi18n( 'survey', 'Entered text in the question with id %number is not an number!', null,
+                    $validation['errors'][] = array( 'message' =>  ezpI18n::tr( 'survey', 'Entered text in the question with id %number is not an number!', null,
                                                                            array( '%number' => $this->ID ) ),
                                                      'question_id' => $this->ID,
                                                      'code' => 'number_not_number',
@@ -325,7 +325,7 @@ class eZSurveyNumberEntry extends eZSurveyEntry
                 $validation['error'] = true;
                 if ( $reqInteger )
                 {
-                    $validation['errors'][] = array( 'message' => ezi18n( 'survey', 'Entered text in the question with id %number is not an integer number!', null,
+                    $validation['errors'][] = array( 'message' => ezpI18n::tr( 'survey', 'Entered text in the question with id %number is not an integer number!', null,
                                                                           array( '%number' => $this->ID ) ),
                                                      'question_id' => $this->ID,
                                                      'code' => 'number_not_integer_number',
@@ -333,7 +333,7 @@ class eZSurveyNumberEntry extends eZSurveyEntry
                 }
                 else
                 {
-                    $validation['errors'][] = array( 'message' => ezi18n( 'survey', 'Entered text in the question with id %number is not an number!', null,
+                    $validation['errors'][] = array( 'message' => ezpI18n::tr( 'survey', 'Entered text in the question with id %number is not an number!', null,
                                                                           array( '%number' => $this->ID ) ),
                                                      'question_id' => $this->ID,
                                                      'code' => 'number_not_number',
@@ -419,6 +419,6 @@ class eZSurveyNumberEntry extends eZSurveyEntry
     }
 }
 
-eZSurveyQuestion::registerQuestionType( ezi18n( 'survey', 'Number Entry' ), 'NumberEntry' );
+eZSurveyQuestion::registerQuestionType( ezpI18n::tr( 'survey', 'Number Entry' ), 'NumberEntry' );
 
 ?>

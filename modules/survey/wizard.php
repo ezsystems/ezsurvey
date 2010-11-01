@@ -209,6 +209,6 @@ if ( $config !== false )
 $Result = array();
 $Result['content'] = $tpl->fetch( 'design:survey/wizard.tpl' );
 $Result['path'] = array( array( 'url' => false,
-                                'text' => ezi18n( 'survey', 'Survey Wizard' ) ) );
+                                'text' => ezpI18n::tr( 'survey', 'Survey Wizard' ) ) );
 
 ?>

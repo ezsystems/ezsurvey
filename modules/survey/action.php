@@ -172,7 +172,7 @@ if ( $actionContinue === true )
 //     $Result = array();
 //     $Result['content'] = $tpl->fetch( 'design:survey/action.tpl' );
 //     $Result['path'] = array( array( 'url' => false,
-//                                     'text' => ezi18n( 'survey', 'Survey' ) ) );
+//                                     'text' => ezpI18n::tr( 'survey', 'Survey' ) ) );
 }
 if ( is_object( $Module ) )
 $Module->redirectTo( $node->attribute( 'url_alias' ) );

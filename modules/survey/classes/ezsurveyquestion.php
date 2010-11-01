@@ -587,8 +587,8 @@ class eZSurveyQuestion extends eZPersistentObject
         $object = $this->currentUserObject();
         $dataMap = $this->dataMap( $object );
 
-        $value = array( 'user_email' => ezi18n( 'survey', 'User email' ),
-                        'user_name' => ezi18n( 'survey', 'User name' ) );
+        $value = array( 'user_email' => ezpI18n::tr( 'survey', 'User email' ),
+                        'user_name' => ezpI18n::tr( 'survey', 'User name' ) );
 
         $validAttributes = array( 'eztext', 'ezstring', 'ezmail' );
 

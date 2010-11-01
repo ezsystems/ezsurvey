@@ -63,9 +63,9 @@ else
     $Result = array();
     $Result['content'] = $tpl->fetch( 'design:survey/remove.tpl' );
     $Result['path'] = array( array( 'url' => '/survey/list',
-                                    'text' => ezi18n( 'survey', 'Survey' ) ),
+                                    'text' => ezpI18n::tr( 'survey', 'Survey' ) ),
                              array( 'url' => false,
-                                    'text' => ezi18n( 'survey', 'Remove' ) ) );
+                                    'text' => ezpI18n::tr( 'survey', 'Remove' ) ) );
 }
 
 ?>

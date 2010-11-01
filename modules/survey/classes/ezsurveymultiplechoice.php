@@ -320,7 +320,7 @@ class eZSurveyMultipleChoice extends eZSurveyQuestion
              $this->attribute( 'num' ) != 4 )           // 4 - checkboxes in a column
         {
             $validation['error'] = true;
-            $validation['errors'][] = array( 'message' => ezi18n( 'survey', 'Please answer the question %number as well!', null,
+            $validation['errors'][] = array( 'message' => ezpI18n::tr( 'survey', 'Please answer the question %number as well!', null,
                                                                   array( '%number' => $this->questionNumber() ) ),
                                              'question_number' => $this->questionNumber(),
                                              'code' => 'mc_answer_question',
@@ -446,7 +446,7 @@ class eZSurveyMultipleChoice extends eZSurveyQuestion
                 if ( strlen( $option['value'] ) == 0 )
                 {
                     $validation['error'] = true;
-                    $validation['errors'][] = array( 'message' => ezi18n( 'survey', 'You must enter the value for an option in the question with id %question!', null,
+                    $validation['errors'][] = array( 'message' => ezpI18n::tr( 'survey', 'You must enter the value for an option in the question with id %question!', null,
                                                                           array( '%question' => $this->ID ) ),
                                                      'question_id' => $this->ID,
                                                      'code' => 'mc_value_for_option',
@@ -468,7 +468,7 @@ class eZSurveyMultipleChoice extends eZSurveyQuestion
 	     	if ( strlen( $optionValue ) === 0 )
 	     	{
                 $validation['error'] = true;
-                $validation['errors'][] = array( 'message' => ezi18n( 'survey', 'Options in the question with id %question must have unique values!', null,
+                $validation['errors'][] = array( 'message' => ezpI18n::tr( 'survey', 'Options in the question with id %question must have unique values!', null,
                                                                       array( '%question' => $this->ID ) ),
                                                  'question_id' => $this->ID,
                                                  'code' => 'mc_option_unique_value',
@@ -488,7 +488,7 @@ class eZSurveyMultipleChoice extends eZSurveyQuestion
                 if ( in_array( $optionValue, $optionValues ) or strlen( $optionValue ) === 0 )
                 {
                     $validation['error'] = true;
-                    $validation['errors'][] = array( 'message' => ezi18n( 'survey', 'Options in the question with id %question must have unique values!', null,
+                    $validation['errors'][] = array( 'message' => ezpI18n::tr( 'survey', 'Options in the question with id %question must have unique values!', null,
                                                                           array( '%question' => $this->ID ) ),
                                                      'question_id' => $this->ID,
                                              'code' => 'mc_option_unique_value',
@@ -997,7 +997,7 @@ class eZSurveyMultipleChoice extends eZSurveyQuestion
     var $ExtraInfoID = 0;
 }
 
-eZSurveyQuestion::registerQuestionType( ezi18n( 'survey', 'Single/Multiple Choice' ),
+eZSurveyQuestion::registerQuestionType( ezpI18n::tr( 'survey', 'Single/Multiple Choice' ),
                                         'MultipleChoice' );
 
 ?>

@@ -114,6 +114,6 @@ $tpl->setVariable( 'survey_validation', $validation );
 $Result = array();
 $Result['content'] = $tpl->fetch( 'design:survey/view.tpl' );
 $Result['path'] = array( array( 'url' => false,
-                                'text' => ezi18n( 'survey', 'Survey' ) ) );
+                                'text' => ezpI18n::tr( 'survey', 'Survey' ) ) );
 
 ?>

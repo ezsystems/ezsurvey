@@ -58,7 +58,7 @@ class eZSurveyEmailEntry extends eZSurveyEntry
         if ( $this->attribute( 'mandatory' ) == 1 and strlen( $answer ) == 0 )
         {
             $validation['error'] = true;
-            $validation['errors'][] = array( 'message' => ezi18n( 'survey', 'Please answer the question %number as well!', null,
+            $validation['errors'][] = array( 'message' => ezpI18n::tr( 'survey', 'Please answer the question %number as well!', null,
                                                                   array( '%number' => $this->questionNumber() ) ),
                                              'question_number' => $this->questionNumber(),
                                              'code' => 'email_answer_question',
@@ -67,7 +67,7 @@ class eZSurveyEmailEntry extends eZSurveyEntry
         else if ( strlen( $answer ) != 0 && !eZMail::validate( $answer ) )
         {
             $validation['error'] = true;
-            $validation['errors'][] = array( 'message' => ezi18n( 'survey', 'Entered text in the question %number is not a valid email address!', null,
+            $validation['errors'][] = array( 'message' => ezpI18n::tr( 'survey', 'Entered text in the question %number is not a valid email address!', null,
                                                                   array( '%number' => $this->questionNumber() ) ),
                                              'question_number' => $this->questionNumber(),
                                              'code' => 'email_email_not_valid',
@@ -104,6 +104,6 @@ class eZSurveyEmailEntry extends eZSurveyEntry
     }
 }
 
-eZSurveyQuestion::registerQuestionType( ezi18n( 'survey', 'Email Entry' ), 'EmailEntry' );
+eZSurveyQuestion::registerQuestionType( ezpI18n::tr( 'survey', 'Email Entry' ), 'EmailEntry' );
 
 ?>
