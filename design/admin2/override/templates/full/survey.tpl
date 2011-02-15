@@ -1,3 +1,4 @@
+{set-block scope=root variable=cache_ttl}0{/set-block}
 {include uri='design:infocollection_validation.tpl'}
 
 <div class="content-navigation">

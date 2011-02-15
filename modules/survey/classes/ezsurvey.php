@@ -209,7 +209,7 @@ class eZSurvey extends eZPersistentObject
         $languageCode = $this->attribute( 'language_code' );
 
         $userSelect = '';
-        if ( get_class( $user ) == 'eZUser' )
+        if ( $user instanceof eZUser )
         {
             $userSelect = ' AND ezsurveyresult.user_id=\'' . $user->attribute( 'contentobject_id' ) . '\'';
         }
