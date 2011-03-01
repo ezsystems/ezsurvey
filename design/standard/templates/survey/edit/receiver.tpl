@@ -38,12 +38,10 @@
 {/foreach}
 </table>
 
-{section show=$disabled|not}
 <div class="block">
 <input class="button" type="submit" name="CustomActionButton[{$attribute_id}_ezsurvey_receiver_{$question.id}_remove_selected]" value="{'Remove selected'|i18n( 'survey' )}" />
 <input class="button" type="submit" name="CustomActionButton[{$attribute_id}_ezsurvey_receiver_{$question.id}_new_option]" value="{'New option'|i18n( 'survey' )}" />
 <input class="button" type="submit" name="CustomActionButton[{$attribute_id}_ezsurvey_receiver_{$question.id}_uncheck_options]" value="{'Uncheck option'|i18n( 'survey' )}"{if $is_selected|eq(false())} disabled="disabled"{/if} />
 </div>
-{/section}
 
 </div>
