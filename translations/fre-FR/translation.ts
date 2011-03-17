@@ -5,11 +5,11 @@
     <name>design/admin/content/edit</name>
     <message>
         <source>View and manage (copy, delete, etc.) the versions of this object.</source>
-        <translationg>Voir et gérer (copier, supprimer, etc.) les version de cet objet.</translation>
+        <translation>Voir et gérer (copier, supprimer, etc.) les version de cet objet.</translation>
     </message>
     <message>
         <source>Manage versions</source>
-        <translationg>Gérer les versions</translation>
+        <translation>Gérer les versions</translation>
     </message>
 </context>
 <context>
@@ -257,12 +257,12 @@
     <message>
         <source>Questions marked with %mark% are required.</source>
         <translatorcomment>PBOYER: </translatorcomment>
-        <translationg>Les questions marquées d&apos;un %mark% sont requises.</translation>
+        <translation>Les questions marquées d&apos;un %mark% sont requises.</translation>
     </message>
     <message>
         <source>Submit</source>
         <translatorcomment>PBOYER: </translatorcomment>
-        <translationg>Envoyer</translation>
+        <translation>Envoyer</translation>
     </message>
     <message>
         <source>Email entry</source>
@@ -292,12 +292,12 @@
     <message>
         <source>User email</source>
         <translatorcomment>PBOYER: </translatorcomment>
-        <translationg>Courriel de l&apos;utilisateur</translation>
+        <translation>Courriel de l&apos;utilisateur</translation>
     </message>
     <message>
         <source>Formatted Paragraph</source>
         <translatorcomment>PBOYER: </translatorcomment>
-        <translationg>Paragraphe formaté</translation>
+        <translation>Paragraphe formaté</translation>
     </message>
     <message>
         <source>Text of paragraph</source>
@@ -342,7 +342,7 @@
     <message>
         <source>Option label</source>
         <translatorcomment>PBOYER: </translatorcomment>
-        <translationg>Intitulé de l&apos;option</translation>
+        <translation>Intitulé de l&apos;option</translation>
     </message>
     <message>
         <source>Value</source>
@@ -357,7 +357,7 @@
     <message>
         <source>Order</source>
         <translatorcomment>PBOYER: </translatorcomment>
-        <translationg>Tri</translation>
+        <translation>Tri</translation>
     </message>
     <message>
         <source>New option</source>
@@ -377,12 +377,12 @@
     <message>
         <source>Number entry</source>
         <translatorcomment>PBOYER: Titre du cadre lors de l&apos;ajout d&apos;un attribut de type &quot;Number Entry&quot; à une enquête</translatorcomment>
-        <translationg>Champ de réponse de type « Numérique »</translation>
+        <translation>Champ de réponse de type « Numérique »</translation>
     </message>
     <message>
         <source>Integer values only</source>
         <translatorcomment>PBOYER: Case à cocher d&apos;un attribut de type &quot;Number Entry&quot; à une enquête</translatorcomment>
-        <translationg>Nombres entiers uniquement</translation>
+        <translation>Nombres entiers uniquement</translation>
     </message>
     <message>
         <source>Minimum value</source>
@@ -423,12 +423,12 @@ will be directly sent to the address.</source>
     <message>
         <source>Presel.</source>
         <translatorcomment>PBOYER: </translatorcomment>
-        <translationg>Présélection.</translation>
+        <translation>Présélection.</translation>
     </message>
     <message>
         <source>Uncheck option</source>
         <translatorcomment>PBOYER: </translatorcomment>
-        <translationg>Décocher l&apos;option</translation>
+        <translation>Décocher l&apos;option</translation>
     </message>
     <message>
         <source>Related object entry</source>
@@ -438,7 +438,7 @@ will be directly sent to the address.</source>
     <message>
         <source>Edit</source>
         <translatorcomment>PBOYER: </translatorcomment>
-        <translationg>Modifier</translation>
+        <translation>Modifier</translation>
     </message>
     <message>
         <source>Add new</source>
@@ -463,7 +463,7 @@ will be directly sent to the address.</source>
     <message>
         <source>Text entry</source>
         <translatorcomment>PBOYER: Titre du cadre lors de l&apos;ajout dun attribut de type «Text Entry»</translatorcomment>
-        <translationg>Champ de réponse de type &quot;Texte&quot;</translation>
+        <translation>Champ de réponse de type &quot;Texte&quot;</translation>
     </message>
     <message>
         <source>Number of columns for an answer textarea</source>
@@ -478,77 +478,77 @@ will be directly sent to the address.</source>
     <message>
         <source>User name</source>
         <translatorcomment>PBOYER: </translatorcomment>
-        <translationg>Nom de l&apos;utilisateur</translation>
+        <translation>Nom de l&apos;utilisateur</translation>
     </message>
     <message>
         <source>Edit survey</source>
         <translatorcomment>PBOYER: </translatorcomment>
-        <translationg>Modifier l&apos;enquête</translation>
+        <translation>Modifier l&apos;enquête</translation>
     </message>
     <message>
         <source>id</source>
         <translatorcomment>PBOYER: </translatorcomment>
-        <translationg>id</translation>
+        <translation>id</translation>
     </message>
     <message>
         <source>Survey title</source>
         <translatorcomment>PBOYER: </translatorcomment>
-        <translationg>Nom de l&apos;enquête</translation>
+        <translation>Nom de l&apos;enquête</translation>
     </message>
     <message>
         <source>Valid from</source>
         <translatorcomment>PBOYER: </translatorcomment>
-        <translationg>Active du</translation>
+        <translation>Active du</translation>
     </message>
     <message>
         <source>Valid to</source>
         <translatorcomment>PBOYER: </translatorcomment>
-        <translationg>Active jusqu&apos;à</translation>
+        <translation>Active jusqu&apos;à</translation>
     </message>
     <message>
         <source>After &quot;Cancel&quot; redirect to URL</source>
         <translatorcomment>PBOYER: </translatorcomment>
-        <translationg>URL de redirection après un clic sur &quot;Annuler&quot;</translation>
+        <translation>URL de redirection après un clic sur &quot;Annuler&quot;</translation>
     </message>
     <message>
         <source>Selected</source>
         <translatorcomment>PBOYER: </translatorcomment>
-        <translationg>Sélectionné</translation>
+        <translation>Sélectionné</translation>
     </message>
     <message>
         <source>Copy</source>
         <translatorcomment>PBOYER: </translatorcomment>
-        <translationg>Copier</translation>
+        <translation>Copier</translation>
     </message>
     <message>
         <source>Copy question</source>
         <translatorcomment>PBOYER: </translatorcomment>
-        <translationg>Copier la question</translation>
+        <translation>Copier la question</translation>
     </message>
     <message>
         <source>Add question</source>
         <translatorcomment>PBOYER: </translatorcomment>
-        <translationg>Ajouter une question</translation>
+        <translation>Ajouter une question</translation>
     </message>
     <message>
         <source>Publish</source>
         <translatorcomment>PBOYER: </translatorcomment>
-        <translationg>Publier</translation>
+        <translation>Publier</translation>
     </message>
     <message>
         <source>Apply</source>
         <translatorcomment>PBOYER: </translatorcomment>
-        <translationg>Aplliquer</translation>
+        <translation>Aplliquer</translation>
     </message>
     <message>
         <source>Apply and Preview</source>
         <translatorcomment>PBOYER: </translatorcomment>
-        <translationg>Appliquer et prévisualiser</translation>
+        <translation>Appliquer et prévisualiser</translation>
     </message>
     <message>
         <source>Discard</source>
         <translatorcomment>PBOYER: </translatorcomment>
-        <translationg>Abandonner</translation>
+        <translation>Abandonner</translation>
     </message>
     <message>
         <source>Warning</source>
@@ -558,12 +558,12 @@ will be directly sent to the address.</source>
     <message>
         <source>Survey list</source>
         <translatorcomment>PBOYER: Titre de la zone centrale après avoir cliqué sur le lien «Liste des enquêtes»</translatorcomment>
-        <translationg>Liste des enquêtes</translation>
+        <translation>Liste des enquêtes</translation>
     </message>
     <message>
         <source>Title</source>
         <translatorcomment>PBOYER: </translatorcomment>
-        <translationg>Nom</translation>
+        <translation>Nom</translation>
     </message>
     <message>
         <source>Persistent</source>
@@ -583,42 +583,42 @@ will be directly sent to the address.</source>
     <message>
         <source>No</source>
         <translatorcomment>PBOYER: </translatorcomment>
-        <translationg>Non</translation>
+        <translation>Non</translation>
     </message>
     <message>
         <source>Yes</source>
         <translatorcomment>PBOYER: </translatorcomment>
-        <translationg>Oui</translation>
+        <translation>Oui</translation>
     </message>
     <message>
         <source>Not started</source>
         <translatorcomment>PBOYER: ?????????</translatorcomment>
-        <translationg>Non démarrée</translation>
+        <translation>Non démarrée</translation>
     </message>
     <message>
         <source>Open</source>
         <translatorcomment>PBOYER: </translatorcomment>
-        <translationg>Ouverte</translation>
+        <translation>Ouverte</translation>
     </message>
     <message>
         <source>Closed</source>
         <translatorcomment>PBOYER: </translatorcomment>
-        <translationg>Close</translation>
+        <translation>Close</translation>
     </message>
     <message>
         <source>Results</source>
         <translatorcomment>PBOYER: </translatorcomment>
-        <translationg>Résultats</translation>
+        <translation>Résultats</translation>
     </message>
     <message>
         <source>Filled Survey</source>
         <translatorcomment>PBOYER: ??????????</translatorcomment>
-        <translationg>Enquête remplie</translation>
+        <translation>Enquête remplie</translation>
     </message>
     <message>
         <source>The following information was collected as the result of the survey:</source>
         <translatorcomment>PBOYER: </translatorcomment>
-        <translationg>Les informations suivantes ont été collectées comme résultat de l&apos;enquête :</translation>
+        <translation>Les informations suivantes ont été collectées comme résultat de l&apos;enquête :</translation>
     </message>
     <message>
         <source>Related object configuration</source>
@@ -628,7 +628,7 @@ will be directly sent to the address.</source>
     <message>
         <source>Set the parent node for the survey attributes, which are of the type Related Object</source>
         <translatorcomment>PBOYER: Sur la page affichée à partir d&apos;un clic sur le lien «Configuration des objets associés» de l&apos;onglet «Survey»</translatorcomment>
-        <translationg>Définissez le nœud parent des attributs d&apos;enquête qui sont du type « Objets Associés »</translation>
+        <translation>Définissez le nœud parent des attributs d&apos;enquête qui sont du type « Objets Associés »</translation>
     </message>
     <message>
         <source>Content class.</source>
@@ -648,7 +648,7 @@ will be directly sent to the address.</source>
     <message>
         <source>Browse for the parent node for the related survey attributes.</source>
         <translatorcomment>PBOYER: ???????????????</translatorcomment>
-        <translationg>Naviguer jusqu&apos;au nœud parent des attributs d&apos;enquêtes liés.</translation>
+        <translation>Naviguer jusqu&apos;au nœud parent des attributs d&apos;enquêtes liés.</translation>
     </message>
     <message>
         <source>Update all</source>
@@ -658,42 +658,42 @@ will be directly sent to the address.</source>
     <message>
         <source>Update the configuration.</source>
         <translatorcomment>PBOYER: </translatorcomment>
-        <translationg>Mettre à jour la configuration.</translation>
+        <translation>Mettre à jour la configuration.</translation>
     </message>
     <message>
         <source>Are you sure you want to remove the survey &apos;%1&apos; with all evaluations?</source>
         <translatorcomment>PBOYER: </translatorcomment>
-        <translationg>Etes-vous certain de vouloir supprimer l&apos;enquête &apos;%1&apos; ainsi que toutes ses évaluations ?</translation>
+        <translation>Etes-vous certain de vouloir supprimer l&apos;enquête &apos;%1&apos; ainsi que toutes ses évaluations ?</translation>
     </message>
     <message>
         <source>Confirm</source>
         <translatorcomment>PBOYER: </translatorcomment>
-        <translationg>Confirmer</translation>
+        <translation>Confirmer</translation>
     </message>
     <message>
         <source>Cancel</source>
         <translatorcomment>PBOYER: </translatorcomment>
-        <translationg>Annuler</translation>
+        <translation>Annuler</translation>
     </message>
     <message>
         <source>Last answers</source>
         <translatorcomment>PBOYER: </translatorcomment>
-        <translationg>Dernières réponses</translation>
+        <translation>Dernières réponses</translation>
     </message>
     <message>
         <source>Label</source>
         <translatorcomment>PBOYER: </translatorcomment>
-        <translationg>Intitulé</translation>
+        <translation>Intitulé</translation>
     </message>
     <message>
         <source>Count</source>
         <translatorcomment>PBOYER: ????????????????????</translatorcomment>
-        <translationg>Nombre de réponses</translation>
+        <translation>Nombre de réponses</translation>
     </message>
     <message>
         <source>Percentage</source>
         <translatorcomment>PBOYER: </translatorcomment>
-        <translationg>Pourcentage</translation>
+        <translation>Pourcentage</translation>
     </message>
     <message>
         <source>Survey result overview</source>
@@ -713,17 +713,17 @@ will be directly sent to the address.</source>
     <message>
         <source>No results yet.</source>
         <translatorcomment>PBOYER: </translatorcomment>
-        <translationg>Aucun résultat pour le moment.</translation>
+        <translation>Aucun résultat pour le moment.</translation>
     </message>
     <message>
         <source>Edit survey results for: %result</source>
         <translatorcomment>PBOYER: </translatorcomment>
-        <translationg>Modifier les résultats de l&apos;enquête pour: %result</translation>
+        <translation>Modifier les résultats de l&apos;enquête pour: %result</translation>
     </message>
     <message>
         <source>Survey result</source>
         <translatorcomment>PBOYER: </translatorcomment>
-        <translationg>Résultat de l&apos;enquête</translation>
+        <translation>Résultat de l&apos;enquête</translation>
     </message>
     <message>
         <source>Participant</source>
@@ -768,7 +768,7 @@ will be directly sent to the address.</source>
     <message>
         <source>This installs the tables eZ Survey needs to store data.</source>
         <translatorcomment>PBOYER: Première page de l&apos;installation de l&apos;extension</translatorcomment>
-        <translationg>Ajout des tables de l&apos;extension « eZ Survey » nécessaires au stockage des données.</translation>
+        <translation>Ajout des tables de l&apos;extension « eZ Survey » nécessaires au stockage des données.</translation>
     </message>
     <message>
         <source>Import survey content classes</source>
@@ -783,7 +783,7 @@ will be directly sent to the address.</source>
     <message>
         <source>(exist)</source>
         <translatorcomment>PBOYER: </translatorcomment>
-        <translationg>(existe)</translation>
+        <translation>(existe)</translation>
     </message>
     <message>
         <source>Survey attribute class (needs one text attribute and xml text attribute, used for formatted text inside the surveys).</source>
@@ -843,7 +843,7 @@ will be directly sent to the address.</source>
     <message>
         <source>&lt;b&gt;Note&lt;/b&gt;: The default survey attribute was found and set as default.</source>
         <translatorcomment>PBOYER: ?????????????</translatorcomment>
-        <translationg>&lt;b&gt;Note&lt;/b&gt;: L&apos;attribut « survey » par défaut a été trouvé et défini comme attribut par défaut.</translation>
+        <translation>&lt;b&gt;Note&lt;/b&gt;: L&apos;attribut « survey » par défaut a été trouvé et défini comme attribut par défaut.</translation>
     </message>
     <message>
         <source>You need to select a parent for survey attribute.</source>
@@ -878,17 +878,17 @@ will be directly sent to the address.</source>
     <message>
         <source>Select the parent folder for the survey attributes</source>
         <translatorcomment>PBOYER: Cinquième page de l&apos;installation de l&apos;extension</translatorcomment>
-        <translationg>Sélectionnez un dossier parent pour les enquêtes</translation>
+        <translation>Sélectionnez un dossier parent pour les enquêtes</translation>
     </message>
     <message>
         <source>Type</source>
         <translatorcomment>PBOYER: </translatorcomment>
-        <translationg>Type</translation>
+        <translation>Type</translation>
     </message>
     <message>
         <source>Section</source>
         <translatorcomment>PBOYER: </translatorcomment>
-        <translationg>Section</translation>
+        <translation>Section</translation>
     </message>
     <message>
         <source>Remember that the parent folder need to be readable by the user that should see the survey. You may configure this in the role setup of eZ Publish.</source>
@@ -903,7 +903,7 @@ will be directly sent to the address.</source>
     <message>
         <source>Installation completed</source>
         <translatorcomment>PBOYER: Sixième page de l&apos;installation</translatorcomment>
-        <translationg>Installation terminée</translation>
+        <translation>Installation terminée</translation>
     </message>
     <message>
         <source>eZ Survey is now installed. You may now create new surveys in the content structure. The results will be available in the &lt;a&gt;survey list&lt;/a&gt; when you get the first answer for a survey. You may also change the configuration in the &lt;aconfig&gt;related object configuration&lt;/a&gt; page at any time.</source>
@@ -918,22 +918,22 @@ will be directly sent to the address.</source>
     <message>
         <source>All values in Valid from need to be numeric.</source>
         <translatorcomment>PBOYER: </translatorcomment>
-        <translationg>Toutes les valeurs de &quot;Valide de&quot; doivent être numériques.</translation>
+        <translation>Toutes les valeurs de &quot;Valide de&quot; doivent être numériques.</translation>
     </message>
     <message>
         <source>Please answer the question %number as well!</source>
         <translatorcomment>PBOYER: </translatorcomment>
-        <translationg>Répondez également à la question %number !</translation>
+        <translation>Répondez également à la question %number !</translation>
     </message>
     <message>
         <source>Entered text in the question %number is not a valid email address!</source>
         <translatorcomment>PBOYER: </translatorcomment>
-        <translationg>Le texte saisi à la question %number n&apos;est pas une adresse de courrier électronique valide !</translation>
+        <translation>Le texte saisi à la question %number n&apos;est pas une adresse de courrier électronique valide !</translation>
     </message>
     <message>
         <source>You must enter the value for an option in the question with id %question!</source>
         <translatorcomment>PBOYER: </translatorcomment>
-        <translationg>Vous devez saisir la valeur d&apos;une option pour la question dont l'ID est %question !</translation>
+        <translation>Vous devez saisir la valeur d&apos;une option pour la question dont l'ID est %question !</translation>
     </message>
     <message>
         <source>Options in the question with id %question must have unique values!</source>
@@ -943,102 +943,102 @@ will be directly sent to the address.</source>
     <message>
         <source>Single/Multiple Choice</source>
         <translatorcomment>PBOYER: </translatorcomment>
-        <translationg>Choix simple/multiple</translation>
+        <translation>Choix simple/multiple</translation>
     </message>
     <message>
         <source>Entered text in the question %number is not an integer number!</source>
         <translatorcomment>PBOYER: </translatorcomment>
-        <translationg>Le texte saisi à la question %number n&apos;est pas un nombre entier !</translation>
+        <translation>Le texte saisi à la question %number n&apos;est pas un nombre entier !</translation>
     </message>
     <message>
         <source>Entered text in the question %number is not a number!</source>
         <translatorcomment>PBOYER: </translatorcomment>
-        <translationg>Le texte saisi à la question %number n&apos;est pas un nombre !</translation>
+        <translation>Le texte saisi à la question %number n&apos;est pas un nombre !</translation>
     </message>
     <message>
         <source>Entered number in the question %number is not integer or is not lower than or equal to %max!</source>
         <translatorcomment>PBOYER: </translatorcomment>
-        <translationg>Le nombre saisi à la question %number n&apos;est pas un entier ou n&apos;est pas inférieur ou égal à %max !</translation>
+        <translation>Le nombre saisi à la question %number n&apos;est pas un entier ou n&apos;est pas inférieur ou égal à %max !</translation>
     </message>
     <message>
         <source>Entered number in the question %number must be lower than or equal to %max!</source>
         <translatorcomment>PBOYER: </translatorcomment>
-        <translationg>Le nombre saisi à la question %number doit être inférieur ou égal à %max !</translation>
+        <translation>Le nombre saisi à la question %number doit être inférieur ou égal à %max !</translation>
     </message>
     <message>
         <source>Entered number in the question %number is not integer or is not greater than or equal to %min!</source>
         <translatorcomment>PBOYER: </translatorcomment>
-        <translationg>Le nombre saisi à la question %number n&apos;est pas un entier ou n&apos;est pas supérieur ou égal à %min !</translation>
+        <translation>Le nombre saisi à la question %number n&apos;est pas un entier ou n&apos;est pas supérieur ou égal à %min !</translation>
     </message>
     <message>
         <source>Entered number in the question %number must be greater than or equal to %min!</source>
         <translatorcomment>PBOYER: </translatorcomment>
-        <translationg>Le nombre saisi à la question %number doit être supérieur ou égal à %min !</translation>
+        <translation>Le nombre saisi à la question %number doit être supérieur ou égal à %min !</translation>
     </message>
     <message>
         <source>Entered number in the question %number is not integer or is not between %min and %max!</source>
         <translatorcomment>PBOYER: </translatorcomment>
-        <translationg>Le nombre saisi à la question %number n&apos;est pas un entier ou n&apos;est pas compris entre %min et %max !</translation>
+        <translation>Le nombre saisi à la question %number n&apos;est pas un entier ou n&apos;est pas compris entre %min et %max !</translation>
     </message>
     <message>
         <source>Entered number in the question %number must be between %min and %max!</source>
         <translatorcomment>PBOYER: </translatorcomment>
-        <translationg>Le nombre saisi à la question %number doit être compris entre %min et %max !</translation>
+        <translation>Le nombre saisi à la question %number doit être compris entre %min et %max !</translation>
     </message>
     <message>
         <source>Entered text in the question with id %number is not an integer number!</source>
         <translatorcomment>PBOYER: </translatorcomment>
-        <translationg>Le texte saisi à la question de ID %number n&apos;est pas un nombre entier !</translation>
+        <translation>Le texte saisi à la question de ID %number n&apos;est pas un nombre entier !</translation>
     </message>
     <message>
         <source>Entered text in the question with id %number is not an number!</source>
         <translatorcomment>PBOYER: </translatorcomment>
-        <translationg>Le texte saisi à la question de ID %number n&apos;est pas un nombre !</translation>
+        <translation>Le texte saisi à la question de ID %number n&apos;est pas un nombre !</translation>
     </message>
     <message>
         <source>Entered text &apos;%text&apos; in the question with id %number is not an email address!</source>
         <translatorcomment>PBOYER: </translatorcomment>
-        <translationg>Le texte &apos;%text&apos; saisi à la question de ID %number n&apos;est pas une adresse de courrier électronique !</translation>
+        <translation>Le texte &apos;%text&apos; saisi à la question de ID %number n&apos;est pas une adresse de courrier électronique !</translation>
     </message>
     <message>
         <source>Email addresses in the question with id %number must have unique values!</source>
         <translatorcomment>PBOYER: </translatorcomment>
-        <translationg>Les adresses e-mail saisies à la question de ID %number doivent être uniques !</translation>
+        <translation>Les adresses e-mail saisies à la question de ID %number doivent être uniques !</translation>
     </message>
     <message>
         <source>No results</source>
         <translatorcomment>PBOYER: </translatorcomment>
-        <translationg>Aucun résultat</translation>
+        <translation>Aucun résultat</translation>
     </message>
     <message>
         <source>Survey Preview</source>
         <translatorcomment>PBOYER: </translatorcomment>
-        <translationg>Prévisualisation de l&apos;enquête</translation>
+        <translation>Prévisualisation de l&apos;enquête</translation>
     </message>
     <message>
         <source>Remove</source>
         <translatorcomment>PBOYER: </translatorcomment>
-        <translationg>Supprimer</translation>
+        <translation>Supprimer</translation>
     </message>
     <message>
         <source>Result overview</source>
         <translatorcomment>PBOYER: </translatorcomment>
-        <translationg>Vue générale des résultats</translation>
+        <translation>Vue générale des résultats</translation>
     </message>
     <message>
         <source>All</source>
         <translatorcomment>PBOYER: </translatorcomment>
-        <translationg>Tous</translation>
+        <translation>Tous</translation>
     </message>
     <message>
         <source>Survey Wizard</source>
         <translatorcomment>PBOYER: ???????????</translatorcomment>
-        <translationg>Interface d&apos;installation de l&apos;extension</translation>
+        <translation>Interface d&apos;installation de l&apos;extension</translation>
     </message>
     <message>
         <source>All values in Valid to need to be numeric.</source>
         <translatorcomment>PBOYER: ???????????</translatorcomment>
-        <translationg>Toutes les valeurs dans &quot;Valide&quot; doivent être numériques.</translation>
+        <translation>Toutes les valeurs dans &quot;Valide&quot; doivent être numériques.</translation>
     </message>
     <message>
         <source>Feedback field entry</source>
@@ -1046,27 +1046,27 @@ will be directly sent to the address.</source>
     </message>
     <message>
         <source>Send copy in bcc to admin (%1)</source>
-        <translationg>Envoyer une copie cachée à l'administrateur (%1)</translation>
+        <translation>Envoyer une copie cachée à l'administrateur (%1)</translation>
     </message>
     <message>
         <source>Mapping</source>
-        <translationg>Correspondance</translation>
+        <translation>Correspondance</translation>
     </message>
     <message>
         <source>None</source>
-        <translationg>Aucune</translation>
+        <translation>Aucune</translation>
     </message>
     <message>
         <source>Text of subject</source>
-        <translationg>Sujet</translation>
+        <translation>Sujet</translation>
     </message>
     <message>
         <source>Feedback message for the receiver</source>
-        <translationg>Commentaire pour le destinataire</translation>
+        <translation>Commentaire pour le destinataire</translation>
     </message>
     <message>
         <source>Email Sender</source>
-        <translationg>Courriel de l'expéditeur</translation>
+        <translation>Courriel de l'expéditeur</translation>
     </message>
     <message>
         <source>N. B. If you enter just one email address, user will not see this question. Instead the posting
