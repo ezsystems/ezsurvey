@@ -913,7 +913,7 @@ will be directly sent to the address.</source>
     <message>
         <source>The survey is not valid. Survey ID is missing</source>
         <translatorcomment>PBOYER: </translatorcomment>
-        <translation type="unfinished">L&apos;enquête n&apos;est pas valide. ID de l&apos;enquête est absent</translation>
+        <translation>L&apos;enquête n&apos;est pas valide. ID de l&apos;enquête est absent</translation>
     </message>
     <message>
         <source>All values in Valid from need to be numeric.</source>
