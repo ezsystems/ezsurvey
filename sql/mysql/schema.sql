@@ -90,10 +90,10 @@ CREATE TABLE ezsurveyquestionmetadata (
     PRIMARY KEY (id)
 );
 
-ALTER TABLE ezsurvey TYPE = innodb;
-ALTER TABLE ezsurveyquestion TYPE = innodb;
-ALTER TABLE ezsurveyresult TYPE = innodb;
-ALTER TABLE ezsurveyquestionresult TYPE = innodb;
-ALTER TABLE ezsurveymetadata TYPE = innodb;
-ALTER TABLE ezsurveyrelatedconfig TYPE = innodb;
-ALTER TABLE ezsurveyquestionmetadata TYPE = innodb;
+ALTER TABLE ezsurvey ENGINE = innodb;
+ALTER TABLE ezsurveyquestion ENGINE = innodb;
+ALTER TABLE ezsurveyresult ENGINE = innodb;
+ALTER TABLE ezsurveyquestionresult ENGINE = innodb;
+ALTER TABLE ezsurveymetadata ENGINE = innodb;
+ALTER TABLE ezsurveyrelatedconfig ENGINE = innodb;
+ALTER TABLE ezsurveyquestionmetadata ENGINE = innodb;
