@@ -52,7 +52,7 @@
     <message>
         <source>You do not have permission to edit this item.</source>
         <translatorcomment>PBOYER</translatorcomment>
-        <translation>Vous n'avez pas le droit de modifier cet élément.</translation>
+        <translation>Vous n&apos;avez pas le droit de modifier cet élément.</translation>
     </message>
     <message>
         <source>Move</source>
@@ -67,7 +67,7 @@
     <message>
         <source>You do not have permission to move this item to another location.</source>
         <translatorcomment>PBOYER</translatorcomment>
-        <translation>Vous n'avez pas le droit de déplacer cet élément vers un autre emplacement.</translation>
+        <translation>Vous n&apos;avez pas le droit de déplacer cet élément vers un autre emplacement.</translation>
     </message>
     <message>
         <source>Remove</source>
@@ -933,7 +933,7 @@ will be directly sent to the address.</source>
     <message>
         <source>You must enter the value for an option in the question with id %question!</source>
         <translatorcomment>PBOYER: </translatorcomment>
-        <translation>Vous devez saisir la valeur d&apos;une option pour la question dont l'ID est %question !</translation>
+        <translation>Vous devez saisir la valeur d&apos;une option pour la question dont l&apos;ID est %question !</translation>
     </message>
     <message>
         <source>Options in the question with id %question must have unique values!</source>
@@ -1046,7 +1046,7 @@ will be directly sent to the address.</source>
     </message>
     <message>
         <source>Send copy in bcc to admin (%1)</source>
-        <translation>Envoyer une copie cachée à l'administrateur (%1)</translation>
+        <translation>Envoyer une copie cachée à l&apos;administrateur (%1)</translation>
     </message>
     <message>
         <source>Mapping</source>
@@ -1066,12 +1066,12 @@ will be directly sent to the address.</source>
     </message>
     <message>
         <source>Email Sender</source>
-        <translation>Courriel de l'expéditeur</translation>
+        <translation>Courriel de l&apos;expéditeur</translation>
     </message>
     <message>
         <source>N. B. If you enter just one email address, user will not see this question. Instead the posting
   will be directly sent to the address.</source>
-        <translation>N. B. si vous remplissez uniquement une adresse de courrier électronique, l'utilisateur ne verra pas cette question. À la place, la réponse sera directement envoyé à cette adresse.</translation>
+        <translation>N. B. si vous remplissez uniquement une adresse de courrier électronique, l&apos;utilisateur ne verra pas cette question. À la place, la réponse sera directement envoyé à cette adresse.</translation>
     </message>
     <message>
         <source>Email Entry</source>

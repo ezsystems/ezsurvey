@@ -1,4 +1,17 @@
-<!DOCTYPE TS><TS>
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE TS>
+<TS version="2.0">
+<context>
+    <name>design/admin/content/edit</name>
+    <message>
+        <source>View and manage (copy, delete, etc.) the versions of this object.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Manage versions</source>
+        <translation type="unfinished"></translation>
+    </message>
+</context>
 <context>
     <name>design/admin/node/view/full</name>
     <message>
@@ -59,6 +72,10 @@
     </message>
     <message>
         <source>Preview</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>New translation</source>
         <translation type="unfinished"></translation>
     </message>
 </context>
@@ -323,11 +340,6 @@
     </message>
     <message>
         <source>Receiver</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>N. B. If you enter just one email address, user will not see this question. Instead the posting
-will be directly sent to the address.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
@@ -860,6 +872,15 @@ will be directly sent to the address.</source>
     </message>
     <message>
         <source>Survey Wizard</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Email Sender</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>N. B. If you enter just one email address, user will not see this question. Instead the posting
+  will be directly sent to the address.</source>
         <translation type="unfinished"></translation>
     </message>
 </context>

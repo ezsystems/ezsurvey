@@ -1,4 +1,17 @@
-<!DOCTYPE TS><TS>
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE TS>
+<TS version="2.0">
+<context>
+    <name>design/admin/content/edit</name>
+    <message>
+        <source>View and manage (copy, delete, etc.) the versions of this object.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Manage versions</source>
+        <translation type="unfinished"></translation>
+    </message>
+</context>
 <context>
     <name>design/admin/node/view/full</name>
     <message>
@@ -60,6 +73,10 @@
     <message>
         <source>Preview</source>
         <translation>Forhåndsvisning</translation>
+    </message>
+    <message>
+        <source>New translation</source>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 <context>

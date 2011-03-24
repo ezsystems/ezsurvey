@@ -2,6 +2,17 @@
 <!DOCTYPE TS>
 <TS version="2.0" language="ja_JP">
 <context>
+    <name>design/admin/content/edit</name>
+    <message>
+        <source>View and manage (copy, delete, etc.) the versions of this object.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Manage versions</source>
+        <translation type="unfinished"></translation>
+    </message>
+</context>
+<context>
     <name>design/admin/node/view/full</name>
     <message>
         <source>Last modified</source>
@@ -63,6 +74,10 @@
         <source>Preview</source>
         <translation>プレビュー</translation>
     </message>
+    <message>
+        <source>New translation</source>
+        <translation type="unfinished"></translation>
+    </message>
 </context>
 <context>
     <name>design/admin/parts/survey/menu</name>
@@ -83,15 +98,15 @@
     <name>design/ezwebin/full/article</name>
     <message>
         <source>Comments</source>
-        <translation>コメント</translation>
+        <translation type="obsolete">コメント</translation>
     </message>
     <message>
         <source>New comment</source>
-        <translation>新規コメント</translation>
+        <translation type="obsolete">新規コメント</translation>
     </message>
     <message>
         <source>%login_link_startLog in%login_link_end or %create_link_startcreate a user account%create_link_end to comment.</source>
-        <translation>コメントを書くには%login_link_startログイン%login_link_endか%create_link_startユーザアカウントの作成%create_link_endをしてください。</translation>
+        <translation type="obsolete">コメントを書くには%login_link_startログイン%login_link_endか%create_link_startユーザアカウントの作成%create_link_endをしてください。</translation>
     </message>
     <message>
         <source>Tip a friend</source>
@@ -318,7 +333,7 @@
     <message>
         <source>N. B. If you enter just one email address, user will not see this question. Instead the posting
 will be directly sent to the address.</source>
-        <translation>注意:一つのメールアドレスだけを入れた場合に、この質問はユーザに表示されません。その代わりに、内容はメールアドレスに送られます。</translation>
+        <translation type="obsolete">注意:一つのメールアドレスだけを入れた場合に、この質問はユーザに表示されません。その代わりに、内容はメールアドレスに送られます。</translation>
     </message>
     <message>
         <source>Name</source>
@@ -823,6 +838,67 @@ will be directly sent to the address.</source>
     <message>
         <source>All values in Valid to need to be numeric.</source>
         <translation>すべての値は数値である必要があります。</translation>
+    </message>
+    <message>
+        <source>Feedback field entry</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Send copy in bcc to admin (%1)</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Mapping</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>None</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Text of subject</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Feedback message for the receiver</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Email Sender</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>N. B. If you enter just one email address, user will not see this question. Instead the posting
+  will be directly sent to the address.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Email Entry</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Feedback field</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Number Entry</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Form Receiver</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Related object</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Section Header</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Text Entry</source>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 </TS>

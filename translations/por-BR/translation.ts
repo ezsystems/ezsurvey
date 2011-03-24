@@ -1,4 +1,84 @@
-<!DOCTYPE TS><TS>
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE TS>
+<TS version="2.0">
+<context>
+    <name>design/admin/content/edit</name>
+    <message>
+        <source>View and manage (copy, delete, etc.) the versions of this object.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Manage versions</source>
+        <translation type="unfinished"></translation>
+    </message>
+</context>
+<context>
+    <name>design/admin/node/view/full</name>
+    <message>
+        <source>Last modified</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Node ID</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Object ID</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Another language</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Edit</source>
+        <translation type="unfinished">Editar</translation>
+    </message>
+    <message>
+        <source>Edit the contents of this item.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Not available</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>You do not have permission to edit this item.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Move</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Move this item to another location.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>You do not have permission to move this item to another location.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Remove</source>
+        <translation type="unfinished">Remover</translation>
+    </message>
+    <message>
+        <source>Remove this item.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>You do not have permission to remove this item.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Preview</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>New translation</source>
+        <translation type="unfinished"></translation>
+    </message>
+</context>
 <context>
     <name>design/admin/parts/survey/menu</name>
     <message>
@@ -12,6 +92,28 @@
     <message>
         <source>Related object configuration</source>
         <translation>Configurações de objetos relacionados</translation>
+    </message>
+</context>
+<context>
+    <name>design/ezwebin/full/article</name>
+    <message>
+        <source>Tip a friend</source>
+        <translation type="unfinished"></translation>
+    </message>
+</context>
+<context>
+    <name>ezsurvey/datatypes</name>
+    <message>
+        <source>Survey</source>
+        <comment>Datatype name</comment>
+        <translation type="unfinished">Pesquisa</translation>
+    </message>
+</context>
+<context>
+    <name>kernel/classes/datatypes</name>
+    <message>
+        <source>Missing survey input.</source>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 <context>
@@ -327,11 +429,6 @@
     <message>
         <source>Receiver</source>
         <translation>Quem recebe</translation>
-    </message>
-    <message>
-        <source>N. B. If you enter just one email address, user will not see this question. Instead the posting
-will be directly sent to the address.</source>
-        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Name</source>
@@ -724,6 +821,67 @@ will be directly sent to the address.</source>
     <message>
         <source>eZ Survey is now installed. You may now create new surveys in the content structure. The results will be available in the &lt;a&gt;survey list&lt;/a&gt; when you get the first answer for a survey. You may also change the configuration in the &lt;aconfig&gt;related object configuration&lt;/a&gt; page at any time.</source>
         <translation>O eZ Survey agora está instalado. Agora você pode criar novas pesquisas na estrutura de conteúdo. Os resultados estarão disponíveis na &lt;a&gt;lista de pesquisas&lt;/a&gt; quando você receber a primeira resposta de uma pesquisa. Você também pode alterar a configuração nas &lt;aconfig&gt;configurações de objetos relacionados &lt;/a&gt; a qualquer momento.</translation>
+    </message>
+    <message>
+        <source>Feedback field entry</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Send copy in bcc to admin (%1)</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Mapping</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>None</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Text of subject</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Feedback message for the receiver</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Email Sender</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>N. B. If you enter just one email address, user will not see this question. Instead the posting
+  will be directly sent to the address.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Email Entry</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Feedback field</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Number Entry</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Form Receiver</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Related object</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Section Header</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Text Entry</source>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 </TS>

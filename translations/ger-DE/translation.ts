@@ -1,4 +1,17 @@
-<!DOCTYPE TS><TS>
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE TS>
+<TS version="2.0">
+<context>
+    <name>design/admin/content/edit</name>
+    <message>
+        <source>View and manage (copy, delete, etc.) the versions of this object.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Manage versions</source>
+        <translation type="unfinished"></translation>
+    </message>
+</context>
 <context>
     <name>design/admin/node/view/full</name>
     <message>
@@ -61,6 +74,10 @@
         <source>Preview</source>
         <translation type="unfinished"></translation>
     </message>
+    <message>
+        <source>New translation</source>
+        <translation type="unfinished"></translation>
+    </message>
 </context>
 <context>
     <name>design/admin/parts/survey/menu</name>
@@ -79,18 +96,6 @@
 </context>
 <context>
     <name>design/ezwebin/full/article</name>
-    <message>
-        <source>Comments</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>New comment</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>%login_link_startLog in%login_link_end or %create_link_startcreate a user account%create_link_end to comment.</source>
-        <translation type="unfinished"></translation>
-    </message>
     <message>
         <source>Tip a friend</source>
         <translation type="unfinished"></translation>
@@ -596,11 +601,6 @@ Vielmehr wir die Umfrage direkt an diese Email-Adresse geschickt.</translation>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <source>N. B. If you enter just one email address, user will not see this question. Instead the posting
-will be directly sent to the address.</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
         <source>Name</source>
         <translation type="unfinished"></translation>
     </message>
@@ -611,18 +611,6 @@ will be directly sent to the address.</source>
     <message>
         <source>Related object entry</source>
         <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>Edit related object</source>
-        <translation type="obsolete"></translation>
-    </message>
-    <message>
-        <source>Enter the button to create a new related object to the survey.</source>
-        <translation type="obsolete"></translation>
-    </message>
-    <message>
-        <source>Add related content</source>
-        <translation type="obsolete"></translation>
     </message>
     <message>
         <source>Edit survey</source>
@@ -765,10 +753,6 @@ will be directly sent to the address.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <source>It is only allowed with 1 checked item for the question with id %question when you have radiobuttons!</source>
-        <translation type="obsolete"></translation>
-    </message>
-    <message>
         <source>Email addresses in the question with id %number must have unique values!</source>
         <translation type="unfinished"></translation>
     </message>
@@ -797,50 +781,6 @@ will be directly sent to the address.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <source>Import database</source>
-        <translation type="obsolete"></translation>
-    </message>
-    <message>
-        <source>Will install the necessary tables that eZ Survey are using to store the data. This is needed by eZ Survey where the content will be stored. Press import to create the necessary tables for eZ Survey.</source>
-        <translation type="obsolete"></translation>
-    </message>
-    <message>
-        <source>Import survey content classes.</source>
-        <translation type="obsolete"></translation>
-    </message>
-    <message>
-        <source>Survey class (need atleast one class with a survey datatype).</source>
-        <translation type="obsolete"></translation>
-    </message>
-    <message>
-        <source>Survey attribute class (need one text attribute and xml text attribute).</source>
-        <translation type="obsolete"></translation>
-    </message>
-    <message>
-        <source>Manual installation.</source>
-        <translation type="obsolete"></translation>
-    </message>
-    <message>
-        <source>You can create the two necessary content classes with a package here or create the content classes manually</source>
-        <translation type="obsolete"></translation>
-    </message>
-    <message>
-        <source>here</source>
-        <translation type="obsolete"></translation>
-    </message>
-    <message>
-        <source>You can at any point get back to the survey installer by enter the Survey link in the top menu.</source>
-        <translation type="obsolete"></translation>
-    </message>
-    <message>
-        <source>Automatic installation.</source>
-        <translation type="obsolete"></translation>
-    </message>
-    <message>
-        <source>Let the installer create the classes for you. The classes listed above will be created from the package included in eZ Survey. Press Import to create the classes automatically.</source>
-        <translation type="obsolete"></translation>
-    </message>
-    <message>
         <source>Configure the survey class attribute.</source>
         <translation type="unfinished"></translation>
     </message>
@@ -851,22 +791,6 @@ will be directly sent to the address.</source>
     <message>
         <source>The survey attribute is already added previously as the content class &quot;Survey Attribute&quot;.</source>
         <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>Configuration</source>
-        <translation type="obsolete"></translation>
-    </message>
-    <message>
-        <source>&lt;b&gt;Information&lt;/b&gt;: The default survey attribute was found and set as default.</source>
-        <translation type="obsolete"></translation>
-    </message>
-    <message>
-        <source>Survey attribute parent folder.</source>
-        <translation type="obsolete"></translation>
-    </message>
-    <message>
-        <source>Set the parent folder for the survey attributes. The survey attributes will be created in this folder when you add a new related survey attribute to a survey and is only a collector for the survey attribute.</source>
-        <translation type="obsolete"></translation>
     </message>
     <message>
         <source>Type</source>
@@ -881,20 +805,8 @@ will be directly sent to the address.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <source>Complete</source>
-        <translation type="obsolete"></translation>
-    </message>
-    <message>
-        <source>Thank you for installing eZ Survey. You may now create new surveys in the content structure. The result will be available in the &lt;a&gt;survey list&lt;/a&gt; when you get the first answer from a survey.</source>
-        <translation type="obsolete"></translation>
-    </message>
-    <message>
         <source>Survey Wizard</source>
         <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>Select the content class which should be used as the survey attribute. Content of this class will be used as &lt;i&gt;Related object&lt;/i&gt; in a survey as one of the question types. The content will be published automatically to a parent folder by eZ Survey, which need to be configured below.</source>
-        <translation type="obsolete"></translation>
     </message>
     <message>
         <source>You need to select a parent for survey attribute.</source>
@@ -907,10 +819,6 @@ will be directly sent to the address.</source>
     <message>
         <source>&lt;b&gt;Note&lt;/b&gt;: The default survey attribute was found and set as default.</source>
         <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>&lt;b&gt;Note:&lt;/b&gt; You can also create a new folder anywhere in the content structure before selecting a parent here, which you can set as the parent folder. You may always get back to the eZ Survey Wizard by following the Survey link in the top menu.</source>
-        <translation type="obsolete"></translation>
     </message>
     <message>
         <source>Import database tables</source>
@@ -947,10 +855,6 @@ will be directly sent to the address.</source>
     <message>
         <source>Experienced users may create the classes manually. When done continue this installer by clicking the Survey link in the top menu.</source>
         <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>Configure the survey class attribute</source>
-        <translation type="obsolete"></translation>
     </message>
     <message>
         <source>The survey attribute &quot;Related object&quot; need to be configured, to allow xml formatted texts to be added to a survey. The related object should be an object class containing at least one normal text attribute and one xml text attribute, as installed in the previous step.</source>
@@ -1002,6 +906,67 @@ will be directly sent to the address.</source>
     </message>
     <message>
         <source>All values in Valid to need to be numeric.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Feedback field entry</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Send copy in bcc to admin (%1)</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Mapping</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>None</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Text of subject</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Feedback message for the receiver</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Email Sender</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>N. B. If you enter just one email address, user will not see this question. Instead the posting
+  will be directly sent to the address.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Email Entry</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Feedback field</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Number Entry</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Form Receiver</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Related object</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Section Header</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Text Entry</source>
         <translation type="unfinished"></translation>
     </message>
 </context>
