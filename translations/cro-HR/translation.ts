@@ -492,7 +492,7 @@
     </message>
     <message>
         <source>Set the parent node for the survey attributes, which are of the type Related Object</source>
-        <translation>Odaberite nadređeni čvor za atribute ankete "Povezani objekt"</translation>
+        <translation>Odaberite nadređeni čvor za atribute ankete &quot;Povezani objekt&quot;</translation>
     </message>
     <message>
         <source>Content class.</source>
