@@ -395,8 +395,7 @@ class eZSurveyType extends eZDataType
                             }
                         }
 
-                        require_once( 'kernel/common/template.php' );
-                        $tpl_email = templateInit();
+                        $tpl_email = eZTemplate::factory();
 
                         $tpl_email->setVariable( 'survey', $survey );
                         $tpl_email->setVariable( 'survey_questions', $questionList );

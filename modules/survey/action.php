@@ -137,7 +137,7 @@ if ( $actionContinue === true )
 //             $surveyList = $survey->fetchQuestionList();
 //             $mailTo = $surveyList[$http->postVariable( 'SurveyReceiverID' )]->answer();
 
-//             $tpl_email = templateInit();
+//             $tpl_email = eZTemplate::factory();
 
 //             $tpl_email->setVariable( 'survey', $survey );
 //             $tpl_email->setVariable( 'survey_questions', $surveyList );
@@ -162,8 +162,7 @@ if ( $actionContinue === true )
 //     $res = eZTemplateDesignResource::instance();
 //     $res->setKeys( array( array( 'survey', $surveyID ) ) );
 
-//     require_once( 'kernel/common/template.php' );
-//     $tpl = templateInit();
+//     $tpl = eZTemplate::factory();
 
 //     $tpl->setVariable( 'preview', false );
 //     $tpl->setVariable( 'survey', $survey );

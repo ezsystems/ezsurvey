@@ -78,8 +78,7 @@ $resultList = eZSurveyResult::fetchResultArray( $contentObjectID, $contentClassA
 
 $survey = eZSurvey::fetchByObjectInfo( $contentObjectID, $contentClassAttributeID, $languageCode );
 
-require_once( 'kernel/common/template.php' );
-$tpl = templateInit();
+$tpl = eZTemplate::factory();
 
 $tpl->setVariable( 'result_list', $resultList );
 $tpl->setVariable( 'survey', $survey );

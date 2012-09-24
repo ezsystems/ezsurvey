@@ -282,8 +282,7 @@ class eZSurveyFeedbackField extends eZSurveyEntry
              $mailTo = $this->fetchMailTo( $surveyQuestions ) and
              eZMail::validate( $mailTo ) )
         {
-            require_once( 'kernel/common/template.php' );
-            $tpl_email = templateInit();
+            $tpl_email = eZTemplate::factory();
 
             $tpl_email->setVariable( 'intro', $this->Text2 );
 

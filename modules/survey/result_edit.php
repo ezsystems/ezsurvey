@@ -75,8 +75,7 @@ else if ( $http->hasPostVariable( 'SurveyCancelButton' ) )
     $Module->redirectTo( '/survey/result_list/' . $contentObjectID . '/' . $contentClassAttributeID . '/' . $languageCode );
 }
 
-require_once( 'kernel/common/template.php' );
-$tpl = templateInit();
+$tpl = eZTemplate::factory();
 
 $tpl->setVariable( 'prefix_attribute', eZSurveyType::PREFIX_ATTRIBUTE );
 

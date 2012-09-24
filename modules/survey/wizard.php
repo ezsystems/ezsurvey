@@ -193,8 +193,7 @@ if ( $Module->isCurrentAction( 'BrowseForObjects' ) )
     return eZModule::HOOK_STATUS_CANCEL_RUN;
 }
 
-require_once( 'kernel/common/template.php' );
-$tpl = templateInit();
+$tpl = eZTemplate::factory();
 
 $tpl->setVariable( 'state', $state );
 $tpl->setVariable( 'content_class_list', $contentClassList );

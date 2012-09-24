@@ -82,7 +82,7 @@ foreach ( $surveyList as $question )
     }
 }
 
-$tpl = templateInit();
+$tpl = eZTemplate::factory();
 
 $tpl->setVariable( 'survey', $survey );
 $tpl->setVariable( 'survey_questions', $surveyList );

@@ -80,7 +80,7 @@ if ( $http->hasPostVariable( 'SurveyStoreButton' ) && $validation['error'] == fa
         $surveyList = $survey->fetchQuestionList();
         $mailTo = $surveyList[$http->postVariable( 'SurveyReceiverID' )]->answer();
 
-        $tpl_email = templateInit();
+        $tpl_email = eZTemplate::factory();
 
         $tpl_email->setVariable( 'survey', $survey );
         $tpl_email->setVariable( 'survey_questions', $surveyList );
@@ -105,7 +105,7 @@ if ( $http->hasPostVariable( 'SurveyStoreButton' ) && $validation['error'] == fa
 $res = eZTemplateDesignResource::instance();
 $res->setKeys( array( array( 'survey', $surveyID ) ) );
 
-$tpl = templateInit();
+$tpl = eZTemplate::factory();
 
 $tpl->setVariable( 'preview', false );
 $tpl->setVariable( 'survey', $survey );

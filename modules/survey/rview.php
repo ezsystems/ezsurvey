@@ -87,8 +87,7 @@ if ( !$survey )
 $surveyList = $survey->fetchQuestionList();
 // $countList = $survey->resultCount();
 
-require_once( 'kernel/common/template.php' );
-$tpl = templateInit();
+$tpl = eZTemplate::factory();
 
 $tpl->setVariable( 'contentobject_id', $contentObjectID );
 $tpl->setVariable( 'contentclassattribute_id', $contentClassAttributeID );

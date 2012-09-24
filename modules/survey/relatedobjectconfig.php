@@ -102,9 +102,7 @@ else
         return eZModule::HOOK_STATUS_CANCEL_RUN;
     }
 
-
-    require_once( 'kernel/common/template.php' );
-    $tpl = templateInit();
+    $tpl = eZTemplate::factory();
 
     $tpl->setVariable( 'config', $config );
     $surveyWizard = eZSurveyWizard::instance();

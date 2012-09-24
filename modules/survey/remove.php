@@ -56,7 +56,7 @@ else if ( $http->hasPostVariable( 'SurveyRemoveCancel' ) )
 }
 else
 {
-    $tpl = templateInit();
+    $tpl = eZTemplate::factory();
 
     $tpl->setVariable( 'survey', $survey );
 

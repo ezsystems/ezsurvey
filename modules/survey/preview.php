@@ -48,7 +48,7 @@ if ( !$survey )
 $res = eZTemplateDesignResource::instance();
 $res->setKeys( array( array( 'survey', $surveyID ) ) );
 
-$tpl = templateInit();
+$tpl = eZTemplate::factory();
 
 $tpl->setVariable( 'preview', true );
 $tpl->setVariable( 'survey', $survey );

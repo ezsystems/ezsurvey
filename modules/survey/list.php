@@ -58,8 +58,7 @@ else
 
     $viewParameters = array( 'offset' => $offset );
 
-    require_once( 'kernel/common/template.php' );
-    $tpl = templateInit();
+    $tpl = eZTemplate::factory();
 
     $tpl->setVariable( 'survey_list', $surveyList );
     $tpl->setVariable( 'count', $count );

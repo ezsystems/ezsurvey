@@ -57,8 +57,7 @@ if ( !$survey )
 $surveyList = $survey->fetchQuestionList();
 $count = eZSurveyResult::fetchResult( $contentObjectID, $contentClassAttributeID, $languageCode );
 
-require_once( 'kernel/common/template.php' );
-$tpl = templateInit();
+$tpl = eZTemplate::factory();
 
 $tpl->setVariable( 'contentobject_id', $contentObjectID );
 $tpl->setVariable( 'contentclassattribute_id', $contentClassAttributeID );
