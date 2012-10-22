@@ -416,7 +416,7 @@ class eZSurveyType extends eZDataType
                     $survey->executeBeforeLastRedirect( $node );
 
                     $href = trim( $survey->attribute( 'redirect_submit' ) );
-                    $module = $GLOBALS['module'];
+                    $module = $GLOBALS['eZRequestedModule'];
                     if ( $module instanceof eZModule )
                     {
                         if ( trim( $href ) != "" )
