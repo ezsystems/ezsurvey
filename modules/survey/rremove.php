@@ -5,7 +5,7 @@
 // Created on: <10-Jun-2005 15:55:33 sp>
 //
 
-// Copyright (C) 1999-2012 eZ Systems AS. All rights reserved.
+// Copyright (C) 1999-2013 eZ Systems AS. All rights reserved.
 //
 // This source file is part of the eZ Publish (tm) Open Source Content
 // Management System.
