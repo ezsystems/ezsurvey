@@ -199,7 +199,7 @@ class eZSurveyWizard
         $db->begin();
         foreach ( $this->tableList() as $table )
         {
-            $query = "ALTER TABLE $table TYPE = innodb";
+            $query = "ALTER TABLE $table ENGINE = innodb";
             $db->query( $query );
         }
         $db->commit();
