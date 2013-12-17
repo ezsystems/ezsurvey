@@ -1,0 +1,19 @@
+{
+    "name": "ezsystems/ezsurvey-ls",
+    "description": "eZ Survey is a survey module for eZ Publish",
+    "type": "ezpublish-legacy-extension",
+    "license": "GPL-2.0",
+    "authors": [
+        {
+            "name": "eZ Publish dev-team & eZ Community",
+            "homepage": "https://github.com/ezsystems/ezsurvey/contributors"
+        }
+    ],
+    "minimum-stability": "dev",
+    "require": {
+        "ezsystems/ezpublish-legacy-installer": "*"
+    },
+    "extra": {
+        "ezpublish-legacy-extension-name": "ezsurvey"
+    }
+}
