@@ -1,12 +1,10 @@
 <?php
 /**
- * File containing the eZOracleTestSuite class
+ * This file is part of the eZSurvey extension.
  *
  * @copyright Copyright (C) eZ Systems AS. All rights reserved.
  * @license For full copyright and license information view LICENSE file distributed with this source code.
- * @package tests
- *
- * @todo add a suite of tests for cluster mode
+ * @version //autogentag//
  */
 
 class eZSurveySuite extends ezpDatabaseTestSuite
