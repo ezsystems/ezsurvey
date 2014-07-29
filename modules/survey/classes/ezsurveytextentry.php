@@ -47,9 +47,8 @@ class eZSurveyTextEntry extends eZSurveyEntry
             $surveyAnswer = $http->postVariable( $postSurveyAnswer );
             return $surveyAnswer;
         }
-        $user = eZUser::instance();
         $value = $this->Default;
-        if ( $user->isLoggedIn() === true )
+        if ( eZUser::isCurrentUserRegistered() )
         {
             switch ( $this->Text3 )
             {
@@ -95,10 +94,9 @@ class eZSurveyTextEntry extends eZSurveyEntry
     private function userName()
     {
         $value = false;
-        $user = eZUser::currentUser();
-        if ( get_class( $user ) == 'eZUser' and
-             $user->isLoggedIn() === true )
+        if ( eZUser::isCurrentUserRegistered() )
         {
+            $user = eZUser::currentUser();
             $contentObject = $user->attribute( 'contentobject' );
             if ( get_class( $contentObject ) == 'eZContentObject' )
             {
@@ -111,10 +109,9 @@ class eZSurveyTextEntry extends eZSurveyEntry
     private function userEmail()
     {
         $value = false;
-        $user = eZUser::currentUser();
-        if ( get_class( $user ) == 'eZUser' and
-             $user->isLoggedIn() === true )
+        if ( eZUser::isCurrentUserRegistered() )
         {
+            $user = eZUser::currentUser();
             $value = $user->attribute( 'email' );
         }
         return $value;

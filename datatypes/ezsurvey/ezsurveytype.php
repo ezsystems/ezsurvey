@@ -161,7 +161,6 @@ class eZSurveyType extends eZDataType
         $survey = $this->fetchSurveyByID( $surveyID, 'objectAttributeContent' );
         if ( get_class( $survey ) == 'eZSurvey' )
         {
-            $user = eZUser::currentUser();
             // Check if the view parameters are set.
             $http = eZHTTPTool::instance();
             $postViewAction = self::PREFIX_ATTRIBUTE . '_ezsurvey_id_view_mode_' . $objectAttribute->attribute( 'id' );
@@ -192,7 +191,7 @@ class eZSurveyType extends eZDataType
                 $content['last_new_question_type'] = $survey->lastNewQuestionType();
             }
 
-            if ( $survey->attribute( 'one_answer' ) == 1 and $user->isLoggedIn() === false )
+            if ( $survey->attribute( 'one_answer' ) == 1 && !eZUser::isCurrentUserRegistered() )
             {
                 $content['survey_validation']['one_answer_need_login'] = true;
             }
@@ -228,14 +227,14 @@ class eZSurveyType extends eZDataType
         $continueViewActions = true;
         if ( $survey->attribute( 'one_answer' ) == 1 )
         {
-            $user = eZUser::currentUser();
-            if ( $user->isLoggedIn() === true )
+            if ( eZUser::isCurrentUserRegistered() )
             {
                 $contentObjectID = $objectAttribute->attribute( 'contentobject_id' );
                 $contentClassAttributeID = $objectAttribute->attribute( 'contentclassattribute_id' );
                 $languageCode = $objectAttribute->attribute( 'language_code' );
                 $surveyID = $survey->attribute( 'id' );
 
+                $user = eZUser::currentUser();
                 $exist = eZSurveyResult::exist( $surveyID, $user->attribute( 'contentobject_id' ), $contentObjectID, $contentClassAttributeID, $languageCode );
                 if ( $exist === true )
                 {
