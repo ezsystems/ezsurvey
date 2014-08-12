@@ -37,7 +37,7 @@ class eZSurveyRelatedObject extends eZSurveyQuestion
 //         $http->removeSessionVariable( 'RedirectURIAfterPublish' );
 //         $http->removeSessionVariable( 'RedirectIfDiscarded' );
 
-        if ( $module->exitStatus() !== eZModule::STATUS_REDIRECT )
+        if ( $module && $module->exitStatus() !== eZModule::STATUS_REDIRECT )
         {
             if ( $http->hasSessionVariable( 'LastAccessesURI_Backup_' . $contentObjectID . '_' . $this->ID ) and
                  $http->sessionVariable( 'LastAccessesURI_Backup_' . $contentObjectID . '_' . $this->ID ) !== null )
