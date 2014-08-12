@@ -65,10 +65,9 @@ class eZSurveyEmailEntry extends eZSurveyEntry
 
         if ( $this->Text3 == 'user_email' )
         {
-            $user = eZUser::currentUser();
-            if ( get_class( $user ) == 'eZUser' and
-                 $user->isLoggedIn() === true )
+            if ( eZUser::isCurrentUserRegistered() )
             {
+                $user = eZUser::currentUser();
                 return $user->attribute( 'email' );
             }
         }
