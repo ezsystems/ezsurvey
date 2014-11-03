@@ -2,9 +2,9 @@
 <software>
     <metadata>
         <name>eZ Survey LS</name>
-        <version>//autogentag//</version>
-        <copyright>Copyright (C) eZ Systems AS. All rights reserved.</copyright>
-        <license>//EZP_LICENSE//</license>
+        <version>dev-master</version>
+        <copyright>Copyright (C) 1999-2013 eZ Systems AS</copyright>
+        <license>For full copyright and license information view LICENSE file provided with this software.</license>
         <info_url>https://github.com/ezsystems/ezsurvey</info_url>
     </metadata>
 </software>
